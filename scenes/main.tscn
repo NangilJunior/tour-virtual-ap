@@ -1,65 +1,54 @@
-[gd_scene format=3 uid="uid://n3rmb0nwcjr8"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" uid="uid://dfadeoi2boix2" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://player/xr_player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="3_sugp2"]
-[ext_resource type="Material" uid="uid://b2laqxi0r5ulj" path="res://assets/materials/concrete.tres" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://c3bcnskmswa6j" path="res://assets/sky/horn-koppe_spring_4k.exr" id="4_sky"]
+[ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="3_mesa"]
+[ext_resource type="Material" uid="uid://b2laqxi0r5ulj" path="res://assets/materials/concrete.tres" id="4_concrete"]
 
-[sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
-panorama = ExtResource("4_sky")
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+sky_top_color = Color(0.35, 0.46, 0.72, 1)
+sky_horizon_color = Color(0.65, 0.66, 0.67, 1)
+ground_bottom_color = Color(0.2, 0.17, 0.13, 1)
+ground_horizon_color = Color(0.65, 0.66, 0.67, 1)
+sun_angle_max = 30.0
 
 [sub_resource type="Sky" id="sky"]
 sky_material = SubResource("sky_mat")
-radiance_size = 4
 
 [sub_resource type="Environment" id="env"]
 background_mode = 2
 sky = SubResource("sky")
 ambient_light_source = 3
-ambient_light_energy = 1.0
-reflected_light_source = 2
-tonemap_mode = 4
-tonemap_white = 6.0
-
-[sub_resource type="StandardMaterial3D" id="floor_mat"]
-albedo_color = Color(0.55, 0.55, 0.57, 1)
-roughness = 0.6
+tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="floor_mesh"]
-material = SubResource("floor_mat")
 size = Vector2(12, 12)
 
 [sub_resource type="BoxShape3D" id="floor_shape"]
 size = Vector3(12, 0.2, 12)
 
-[node name="Main" type="Node3D" unique_id=395941016]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_main")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1967857216]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("env")
 
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=556456477]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866, 0, 0.5, 0.383, 0.6428, -0.6634, -0.3214, 0.766, 0.5567, 0, 6, 0)
 light_energy = 1.5
-light_angular_distance = 0.3
 shadow_enabled = true
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1873546300]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
-size = Vector3(13, 6, 13)
+[node name="Floor" type="StaticBody3D" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=484948000]
-
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor" unique_id=1740232450]
-material_override = ExtResource("3_tbgi4")
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+material_override = ExtResource("4_concrete")
 mesh = SubResource("floor_mesh")
 
-[node name="FloorCollision" type="CollisionShape3D" parent="Floor" unique_id=860000290]
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("floor_shape")
 
-[node name="XRPlayer" parent="." unique_id=153642561 instance=ExtResource("2_player")]
+[node name="XRPlayer" parent="." instance=ExtResource("2_player")]
 
-[node name="Mesa" parent="." unique_id=709775189 instance=ExtResource("3_sugp2")]
-transform = Transform3D(0.016, 0, 0, 0, 0.016, 0, 0, 0, 0.016, -0.30002403, -0.005166456, -0.97558415)
+[node name="Mesa" parent="." instance=ExtResource("3_mesa")]
+transform = Transform3D(0.016, 0, 0, 0, 0.016, 0, 0, 0, 0.016, -0.3, -0.005, -0.98)

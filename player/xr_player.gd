@@ -1,9 +1,6 @@
 extends CharacterBody3D
-## Rig de jogador VR em primeira pessoa.
-##
-## Locomoção suave com o analógico esquerdo (relativa para onde a cabeça olha)
-## e snap-turn (giro em incrementos) com o analógico direito, que é o esquema
-## mais confortável para explorar ambientes fechados como um apartamento.
+## Rig de jogador VR: locomoção suave no analógico esquerdo (relativa à cabeça)
+## e snap-turn no analógico direito.
 
 ## Velocidade de caminhada em metros por segundo.
 @export var move_speed: float = 2.2
@@ -16,7 +13,7 @@ extends CharacterBody3D
 @onready var left_hand: XRController3D = $XROrigin3D/LeftHand
 @onready var right_hand: XRController3D = $XROrigin3D/RightHand
 
-## Garante um único giro por inclinada do analógico (precisa voltar ao centro).
+## Garante um único giro por inclinada do analógico.
 var _snap_ready: bool = true
 
 
@@ -60,13 +57,11 @@ func _handle_snap_turn() -> void:
 		return
 	_snap_ready = false
 
-	# Inclinar para a direita gira para a direita (sentido horário = ângulo negativo).
 	var angle := deg_to_rad(snap_turn_degrees) * (-1.0 if turn > 0.0 else 1.0)
 	_rotate_around_point(camera.global_position, angle)
 
 
-## Gira o rig inteiro ao redor da posição da câmera, para o jogador sentir
-## que está parado no lugar enquanto a cena gira.
+## Gira o rig ao redor da posição da câmera (jogador sente que gira no lugar).
 func _rotate_around_point(point: Vector3, angle: float) -> void:
 	var t := global_transform
 	var offset := t.origin - point
