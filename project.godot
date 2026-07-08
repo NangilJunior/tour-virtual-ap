@@ -36,8 +36,8 @@ reflections/reflection_atlas/reflection_size=512
 reflections/reflection_atlas/reflection_count=128
 textures/default_filters/anisotropic_filtering_level=4
 environment/ssao/quality=3
-anti_aliasing/quality/msaa_3d=2
 environment/ssil/quality=3
+anti_aliasing/quality/msaa_3d=2
 lights_and_shadows/positional_shadow/atlas_size=8192
 environment/screen_space_reflection/roughness_quality=2
 
