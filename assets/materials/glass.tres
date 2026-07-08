@@ -6,4 +6,5 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(0.18956372, 0.27775627, 0.20402452, 0.14901961)
 roughness = 0.02
+refraction_enabled = true
 refraction_scale = 0.01
