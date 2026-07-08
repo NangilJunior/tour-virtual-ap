@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bpyt1j8vfmfdv" path="res://assets/materials/stone_facade.tres" id="4_mous7"]
 [ext_resource type="Texture2D" uid="uid://c3bcnskmswa6j" path="res://assets/sky/horn-koppe_spring_4k.exr" id="5_sky"]
 [ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="6_sg3ht"]
+[ext_resource type="VoxelGIData" path="res://scenes/test_room.VoxelGI_data.res" id="7_vgi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
 panorama = ExtResource("5_sky")
@@ -82,6 +83,7 @@ box_projection = true
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1402318767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 subdiv = 0
+data = ExtResource("7_vgi")
 
 [node name="Room" type="StaticBody3D" parent="." unique_id=943857460]
 
