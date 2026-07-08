@@ -1,0 +1,26 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpyt1j8vfmfdv"]
+
+[ext_resource type="Texture2D" uid="uid://b5fwf4h3jm2qi" path="res://assets/textures/stone_facade/stone_facade_albedo.jpg" id="1_albedo"]
+[ext_resource type="Texture2D" uid="uid://donxj0lwgclcb" path="res://assets/textures/stone_facade/stone_facade_normal.jpg" id="2_normal"]
+[ext_resource type="Texture2D" uid="uid://8nd2y5pdbur0" path="res://assets/textures/stone_facade/stone_facade_roughness.jpg" id="3_rough"]
+[ext_resource type="Texture2D" uid="uid://d1ow26tpri367" path="res://assets/textures/stone_facade/stone_facade_ao.jpg" id="4_ao"]
+[ext_resource type="Texture2D" uid="uid://dyfodini2fequ" path="res://assets/textures/stone_facade/stone_facade_height.jpg" id="5_height"]
+
+[resource]
+resource_name = "stone_facade"
+albedo_texture = ExtResource("1_albedo")
+roughness_texture = ExtResource("3_rough")
+normal_enabled = true
+normal_texture = ExtResource("2_normal")
+ao_enabled = true
+ao_texture = ExtResource("4_ao")
+heightmap_enabled = true
+heightmap_scale = 4.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("5_height")
+heightmap_flip_texture = true
+subsurf_scatter_enabled = true
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 5

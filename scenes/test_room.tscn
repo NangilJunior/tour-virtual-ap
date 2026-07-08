@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://d28rf1drpwif2"]
+
+[ext_resource type="Script" uid="uid://dfadeoi2boix2" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://player/xr_player.tscn" id="2_player"]
+[ext_resource type="Material" uid="uid://b2laqxi0r5ulj" path="res://assets/materials/concrete.tres" id="3_concrete"]
+[ext_resource type="Material" uid="uid://dk07qybxvoixc" path="res://assets/materials/glass.tres" id="4_glass"]
+[ext_resource type="Material" uid="uid://bpyt1j8vfmfdv" path="res://assets/materials/stone_facade.tres" id="4_mous7"]
+[ext_resource type="Texture2D" uid="uid://c3bcnskmswa6j" path="res://assets/sky/horn-koppe_spring_4k.exr" id="5_sky"]
+[ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="6_sg3ht"]
+
+[sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
+panorama = ExtResource("5_sky")
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+radiance_size = 4
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 3
+ambient_light_energy = 0.15
+reflected_light_source = 2
+tonemap_mode = 4
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_intensity = 2.5
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.0008
+fog_aerial_perspective = 0.2
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
+
+[sub_resource type="PlaneMesh" id="floor_mesh"]
+size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="mat_white"]
+albedo_color = Color(0.82, 0.8, 0.76, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="box_unit"]
+
+[sub_resource type="StandardMaterial3D" id="mat_red"]
+albedo_color = Color(0.72, 0.13, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="mat_emissive"]
+albedo_color = Color(1, 0.96, 0.9, 1)
+emission_enabled = true
+emission = Color(1, 0.9, 0.75, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="BoxShape3D" id="shape_floor"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxShape3D" id="shape_wall_x"]
+size = Vector3(0.2, 3, 5)
+
+[sub_resource type="BoxShape3D" id="shape_wall_z"]
+size = Vector3(5, 3, 0.2)
+
+[node name="TestRoom" type="Node3D" unique_id=206220768]
+script = ExtResource("1_main")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1685887988]
+environment = SubResource("env")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1951868508]
+transform = Transform3D(-1, 0, 0, 0, 0.8009455, 0.5987372, 0, 0.5987372, -0.8009455, 0, 5, 0)
+light_energy = 2.0
+light_angular_distance = 0.5
+shadow_enabled = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1614003986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+size = Vector3(5.2, 3.2, 5.2)
+box_projection = true
+
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1402318767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+subdiv = 0
+
+[node name="Room" type="StaticBody3D" parent="." unique_id=943857460]
+
+[node name="Floor" type="MeshInstance3D" parent="Room" unique_id=321050949]
+material_override = ExtResource("3_concrete")
+mesh = SubResource("floor_mesh")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Room" unique_id=830074720]
+transform = Transform3D(5, 0, 0, 0, 0.1, 0, 0, 0, 5, 0, 3, 0)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WallPosX" type="MeshInstance3D" parent="Room" unique_id=805565704]
+transform = Transform3D(0.1, 0, 0, 0, 3, 0, 0, 0, 5, 2.5, 1.5, 0)
+material_override = ExtResource("4_mous7")
+mesh = SubResource("box_unit")
+
+[node name="WallNegX" type="MeshInstance3D" parent="Room" unique_id=461403511]
+transform = Transform3D(0.1, 0, 0, 0, 3, 0, 0, 0, 5, -2.5, 1.5, 0)
+material_override = SubResource("mat_red")
+mesh = SubResource("box_unit")
+
+[node name="WallPosZ" type="MeshInstance3D" parent="Room" unique_id=2059653172]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 0.1, 0, 1.5, 2.5)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WindowSill" type="MeshInstance3D" parent="Room" unique_id=661524163]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.5, -2.5)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WindowHeader" type="MeshInstance3D" parent="Room" unique_id=771094208]
+transform = Transform3D(5, 0, 0, 0, 0.8, 0, 0, 0, 0.1, 0, 2.6, -2.5)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WindowJambL" type="MeshInstance3D" parent="Room" unique_id=171327693]
+transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 0.1, -1.75, 1.6, -2.5)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WindowJambR" type="MeshInstance3D" parent="Room" unique_id=2110253438]
+transform = Transform3D(1.5, 0, 0, 0, 1.2, 0, 0, 0, 0.1, 1.75, 1.6, -2.5)
+material_override = SubResource("mat_white")
+mesh = SubResource("box_unit")
+
+[node name="WindowGlass" type="MeshInstance3D" parent="Room" unique_id=1106287303]
+transform = Transform3D(2, 0, 0, 0, 1.2, 0, 0, 0, 0.05, 0, 1.6, -2.5)
+material_override = ExtResource("4_glass")
+gi_mode = 0
+mesh = SubResource("box_unit")
+
+[node name="CeilingLamp" type="MeshInstance3D" parent="Room" unique_id=534437615]
+transform = Transform3D(0.6, 0, 0, 0, 0.05, 0, 0, 0, 0.6, 0, 2.92, 0)
+material_override = SubResource("mat_emissive")
+mesh = SubResource("box_unit")
+
+[node name="ColFloor" type="CollisionShape3D" parent="Room" unique_id=1214782917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("shape_floor")
+
+[node name="ColWallPosX" type="CollisionShape3D" parent="Room" unique_id=1294517798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.5, 0)
+shape = SubResource("shape_wall_x")
+
+[node name="ColWallNegX" type="CollisionShape3D" parent="Room" unique_id=61828533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5, 0)
+shape = SubResource("shape_wall_x")
+
+[node name="ColWallPosZ" type="CollisionShape3D" parent="Room" unique_id=870117198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.5)
+shape = SubResource("shape_wall_z")
+
+[node name="ColWallNegZ" type="CollisionShape3D" parent="Room" unique_id=1985710192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.5)
+shape = SubResource("shape_wall_z")
+
+[node name="mesa" parent="Room" unique_id=544971578 instance=ExtResource("6_sg3ht")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.54838866, 0.00052958727, -0.0049467683)
+
+[node name="LampLight" type="OmniLight3D" parent="." unique_id=1101909559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
+light_color = Color(1, 0.87, 0.7, 1)
+light_energy = 2.5
+shadow_enabled = true
+omni_range = 9.0
+
+[node name="XRPlayer" parent="." unique_id=836403052 instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
