@@ -1,16 +1,16 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene format=3 uid="uid://dqvr7evm0tbgh"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://bwykrdkim3gs4" path="res://scenes/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://player/xr_player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="3_mesa"]
 [ext_resource type="Material" uid="uid://b2laqxi0r5ulj" path="res://assets/materials/concrete.tres" id="4_concrete"]
+[ext_resource type="VoxelGIData" uid="uid://f1mq3a604bl5" path="res://scenes/main.VoxelGI_data.res" id="5_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
 sky_top_color = Color(0.35, 0.46, 0.72, 1)
 sky_horizon_color = Color(0.65, 0.66, 0.67, 1)
 ground_bottom_color = Color(0.2, 0.17, 0.13, 1)
 ground_horizon_color = Color(0.65, 0.66, 0.67, 1)
-sun_angle_max = 30.0
 
 [sub_resource type="Sky" id="sky"]
 sky_material = SubResource("sky_mat")
@@ -27,28 +27,31 @@ size = Vector2(12, 12)
 [sub_resource type="BoxShape3D" id="floor_shape"]
 size = Vector3(12, 0.2, 12)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=986393548]
 script = ExtResource("1_main")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1249267264]
 environment = SubResource("env")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1211712787]
 transform = Transform3D(0.866, 0, 0.5, 0.383, 0.6428, -0.6634, -0.3214, 0.766, 0.5567, 0, 6, 0)
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1081723464]
 
-[node name="FloorMesh" type="MeshInstance3D" parent="Floor"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Floor" unique_id=393548754]
 material_override = ExtResource("4_concrete")
 mesh = SubResource("floor_mesh")
 
-[node name="FloorCollision" type="CollisionShape3D" parent="Floor"]
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor" unique_id=1120738083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("floor_shape")
 
-[node name="XRPlayer" parent="." instance=ExtResource("2_player")]
+[node name="XRPlayer" parent="." unique_id=1835533481 instance=ExtResource("2_player")]
 
-[node name="Mesa" parent="." instance=ExtResource("3_mesa")]
+[node name="Mesa" parent="." unique_id=917192682 instance=ExtResource("3_mesa")]
 transform = Transform3D(0.016, 0, 0, 0, 0.016, 0, 0, 0, 0.016, -0.3, -0.005, -0.98)
+
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1151878070]
+data = ExtResource("5_tbgi4")
