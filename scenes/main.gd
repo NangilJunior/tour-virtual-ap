@@ -12,6 +12,10 @@ func _ready() -> void:
 		print("OpenXR inicializado com sucesso — renderizando no headset.")
 		# O VR roda na taxa de atualização nativa do headset; desliga o vsync da janela.
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		# Supersampling: renderiza acima da resolução nativa e reduz, deixando a
+		# imagem bem mais nítida no headset. Como é PCVR, a GPU do PC aguenta.
+		if xr_interface is OpenXRInterface:
+			(xr_interface as OpenXRInterface).render_target_size_multiplier = 1.5
 		get_viewport().use_xr = true
 	else:
 		push_warning("OpenXR não inicializado. Rodando em modo desktop (preview).")

@@ -21,6 +21,14 @@ ambient_light_energy = 1.0
 reflected_light_source = 2
 tonemap_mode = 4
 tonemap_white = 6.0
+ssao_enabled = true
+ssao_radius = 1.2
+ssao_intensity = 2.5
+ssao_detail = 1.0
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.1
+sdfgi_cascades = 4
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.7, 0.78, 0.9, 1)
@@ -56,6 +64,11 @@ shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1873546300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+size = Vector3(13, 6, 13)
+
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1873546201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+subdiv = 1
 size = Vector3(13, 6, 13)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=484948000]
