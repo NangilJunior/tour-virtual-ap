@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bpyt1j8vfmfdv" path="res://assets/materials/stone_facade.tres" id="4_mous7"]
 [ext_resource type="Texture2D" uid="uid://c3bcnskmswa6j" path="res://assets/sky/horn-koppe_spring_4k.exr" id="5_sky"]
 [ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="6_sg3ht"]
-[ext_resource type="VoxelGIData" path="res://scenes/test_room.VoxelGI_data.res" id="7_vgi"]
+[ext_resource type="VoxelGIData" uid="uid://blrunxv2qxuim" path="res://scenes/test_room.VoxelGI_data.res" id="7_vgi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
 panorama = ExtResource("5_sky")
@@ -82,6 +82,7 @@ box_projection = true
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1402318767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
 subdiv = 0
 data = ExtResource("7_vgi")
 
@@ -163,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.5)
 shape = SubResource("shape_wall_z")
 
 [node name="mesa" parent="Room" unique_id=544971578 instance=ExtResource("6_sg3ht")]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.54838866, 0.00052958727, -0.0049467683)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.54838866, -0.01887554, -0.0049467683)
 
 [node name="LampLight" type="OmniLight3D" parent="." unique_id=1101909559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)

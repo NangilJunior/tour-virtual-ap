@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dngjpvas76lca" path="res://assets/mesa/mesa.blend" id="3_sugp2"]
 [ext_resource type="Material" uid="uid://b2laqxi0r5ulj" path="res://assets/materials/concrete.tres" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://c3bcnskmswa6j" path="res://assets/sky/horn-koppe_spring_4k.exr" id="4_sky"]
-[ext_resource type="VoxelGIData" path="res://scenes/main.VoxelGI_data.res" id="5_vgi"]
+[ext_resource type="VoxelGIData" uid="uid://f1mq3a604bl5" path="res://scenes/main.VoxelGI_data.res" id="5_vgi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
 panorama = ExtResource("4_sky")
@@ -18,7 +18,6 @@ radiance_size = 4
 background_mode = 2
 sky = SubResource("sky")
 ambient_light_source = 3
-ambient_light_energy = 1.0
 reflected_light_source = 2
 tonemap_mode = 4
 tonemap_white = 6.0
@@ -61,11 +60,12 @@ shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1873546300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+update_mode = 1
 size = Vector3(13, 6, 13)
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1873546201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
-subdiv = 1
+visible = false
 size = Vector3(13, 6, 13)
 data = ExtResource("5_vgi")
 
