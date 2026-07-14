@@ -63,6 +63,9 @@ size = Vector3(0.2, 3, 5)
 [sub_resource type="BoxShape3D" id="shape_wall_z"]
 size = Vector3(5, 3, 0.2)
 
+[sub_resource type="BoxShape3D" id="shape_mesa"]
+size = Vector3(2.4, 1.0884, 1.2)
+
 [node name="TestRoom" type="Node3D" unique_id=206220768]
 script = ExtResource("1_main")
 
@@ -162,6 +165,10 @@ shape = SubResource("shape_wall_z")
 [node name="ColWallNegZ" type="CollisionShape3D" parent="Room" unique_id=1985710192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.5)
 shape = SubResource("shape_wall_z")
+
+[node name="ColMesa" type="CollisionShape3D" parent="Room" unique_id=561962735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38087, 0.523072, -0.11726)
+shape = SubResource("shape_mesa")
 
 [node name="mesa" parent="Room" unique_id=544971578 instance=ExtResource("6_sg3ht")]
 transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.54838866, -0.01887554, -0.0049467683)

@@ -1,0 +1,231 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ctntaksaqqm71"
+path="res://.godot/imported/APARTAMENTO.blend-5a06a61d54cbee04103a33c667d50d1a.scn"
+
+[deps]
+
+source_file="res://assets/Apartamento/APARTAMENTO.blend"
+dest_files=["res://.godot/imported/APARTAMENTO.blend-5a06a61d54cbee04103a33c667d50d1a.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"*54": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"*76.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO MALVA": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO MALVA DURATEX": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO NATUAL2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO NATURAL": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"CARVALHO NATURAL GUARARAPES2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO NATURAL GUARARAPES2.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO NATURAL.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CARVALHO NATURAL3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"CINZA COBALTO3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"CINZA CPURO": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"CINZA CRISTAL ARAUCO2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"CINZA CRISTAL DURATEX.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"CINZA CRISTAL4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"MDF AREIA GUARARAPES": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"MDF AREIA GUARARAPES1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"MDF CHUMBO1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"MDF CINZA COBALTO": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"MDF TAUARI GUARARAPES": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"MDF TAUARI GUARARAPES1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"MDF TAUARI GUARARAPES2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"MDF TAUARI GUARARAPES4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"OFF WHITE DURATEX": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"OFF WHITE DURATEX.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"TAUARI": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"TAUARI GUARARAPES3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"VELLUTO OFF WHITE DURATEX": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"VELUTTO OFF WHITE": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"VINÍLICO MANAUS DURAFLOOR": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/linha_nativa.tres",
+"use_external/path": "res://assets/materials/linha_nativa.tres"
+},
+"[Color C08]": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+},
+"[Color M08]": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"[Wood_ Floor]": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "res://assets/materials/madeira_tauari.tres"
+}
+}
+}
+blender/nodes/visible=1
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=false
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/vertex_colors=1
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/gpu_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2
+gltf/texture_map_mode=1

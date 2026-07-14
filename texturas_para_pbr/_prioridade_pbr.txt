@@ -1,0 +1,26 @@
+AREA|171 m2| 25% acum|53f02e7f-efe0-44eb-9b13-51c26d2bfcf8_Guararapes_Tauari_183x275cm_2 (2).jpg|*54; *76.001; CARVALHO MALVA
+AREA|164 m2| 49% acum|VELLUTO-OFF-WHITE-copiar-1.png|CARVALHO NATURAL; CINZA COBALTO3; CINZA CPURO
+AREA|54 m2| 57% acum|Linha-Nativa_Manaus.jpg|VINÍLICO MANAUS DURAFLOOR
+AREA|27 m2| 61% acum|papel-de-parede-adesivo-linho-bege.jpg|*5; Texture 1.jpeg; [Color A01]1
+AREA|18 m2| 64% acum|ROC048B0018.jpg|*91
+AREA|17 m2| 66% acum|TS-108 PASINATO.jpg|PASINATO - TS-108
+AREA|15 m2| 68% acum|24402881alta.jpg|BOUCLE BEGE; LINHO BEGE
+AREA|15 m2| 70% acum|11.jpg|PORCELANATO DORCIA TERRAZO 100_100 BIANCOGRES
+AREA|14 m2| 73% acum|grafite guararapes.jpg|ALECRIN GUARARAPES; GRAFITE GUARARAPES; MDF CINZA PURO
+AREA|12 m2| 74% acum|quartzo-1141-Pure-White-Caesarstone (1).jpg|QUARTZO STELLAR1
+AREA|11 m2| 76% acum|Screenshot_25.png|*
+AREA|9 m2| 77% acum|A-11262.jpg|A-11262
+AREA|9 m2| 79% acum|4060ec3c-5199-4a90-8060-b910a15bd17c.jpg|PAPEL DE PAREDE GRANILITE MALVA
+AREA|9 m2| 80% acum|cotton_white_b.jpg|Material2sfafwwwew; colcha_afa0fa165sf0a15s6f9a065e0r160rw
+AREA|8 m2| 81% acum|Ceusa-Confete-WH.jpg|*92
+AREA|8 m2| 82% acum|Suede Green.jpg|[Suede Green]1
+AREA|7 m2| 83% acum|fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.jpg|ROSA MILK SHAKE GUARARAPES
+AREA|7 m2| 84% acum|绒布3.jpg|0-1可变布_4-dy_4
+AREA|6 m2| 85% acum|Screenshot_6.jpg|*4.001
+AREA|6 m2| 86% acum|10_ligth brown velvet fabric texture-seamless.jpg|*4; Texture 2.jpeg
+AREA|6 m2| 87% acum|81ofHv0EELL._AC_SL1000_.jpg|Texture 3.jpeg
+AREA|6 m2| 88% acum|the garment_lencol2.jpg|Texture 5.jpeg
+AREA|6 m2| 89% acum|frond_small_npr.tif|frond_small
+AREA|4 m2| 89% acum|avorio-di-brescia-90x180-pol-1_40792.jpg|RIG LEGNO BIANCOGRES
+AREA|4 m2| 90% acum|b5464646-db5d-4238-86e5-f88450a04ca1_Guararapes_Quartzo_183x275cm_3 (2).png|*3
+TOTAL|682 m2 texturizados|209 imagens

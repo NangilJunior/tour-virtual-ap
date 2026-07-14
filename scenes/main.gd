@@ -18,4 +18,4 @@ func _ready() -> void:
 			(xr_interface as OpenXRInterface).render_target_size_multiplier = 1.2
 		get_viewport().use_xr = true
 	else:
-		push_warning("OpenXR não inicializado. Rodando em modo desktop (preview).")
+		print("OpenXR não inicializado — modo desktop (FPS): WASD/setas + mouse, Shift corre, Esc solta o mouse.")
