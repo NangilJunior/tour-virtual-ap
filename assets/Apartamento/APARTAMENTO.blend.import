@@ -24,7 +24,7 @@ nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
-meshes/generate_lods=true
+meshes/generate_lods=false
 meshes/create_shadow_meshes=true
 meshes/light_baking=2
 meshes/lightmap_texel_size=0.1
@@ -41,180 +41,210 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"*54": {
+"cor_b6b4ad": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
+"use_external/fallback_path": "res://assets/materials/parede_greige.tres",
+"use_external/path": "res://assets/materials/parede_greige.tres"
 },
-"*76.001": {
+"cor_cccccc_2": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
+"use_external/fallback_path": "res://assets/materials/lightwall.tres",
+"use_external/path": "res://assets/materials/lightwall.tres"
 },
-"CARVALHO MALVA": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO MALVA DURATEX": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO NATUAL2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO NATURAL": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"CARVALHO NATURAL GUARARAPES2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO NATURAL GUARARAPES2.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO NATURAL.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CARVALHO NATURAL3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"CINZA COBALTO3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"CINZA CPURO": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"CINZA CRISTAL ARAUCO2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"CINZA CRISTAL DURATEX.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"CINZA CRISTAL4": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"MDF AREIA GUARARAPES": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"MDF AREIA GUARARAPES1": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"MDF CHUMBO1": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"MDF CINZA COBALTO": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"MDF TAUARI GUARARAPES": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"MDF TAUARI GUARARAPES1": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"MDF TAUARI GUARARAPES2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"MDF TAUARI GUARARAPES4": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"OFF WHITE DURATEX": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"OFF WHITE DURATEX.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"TAUARI": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"TAUARI GUARARAPES3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"VELLUTO OFF WHITE DURATEX": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"VELUTTO OFF WHITE": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"VINÍLICO MANAUS DURAFLOOR": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/linha_nativa.tres",
-"use_external/path": "res://assets/materials/linha_nativa.tres"
-},
-"[Color C08]": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"[Color M08]": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
-"use_external/path": "res://assets/materials/veluto_offwhite.tres"
-},
-"[Wood_ Floor]": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
-"use_external/path": "res://assets/materials/madeira_tauari.tres"
-},
-"frond_small": {
+"tex_frond_small_npr": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/frond_small.tres",
 "use_external/path": "res://assets/materials/frond_small.tres"
 },
-"mETAL CAFETEIRA#1": {
+"tex_guararapes_tauari": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_10": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_11": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_12": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_13": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_14": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_15": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_183x275c": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_183x275c_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_5": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_6": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_8": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_guararapes_tauari_9": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari.tres",
+"use_external/path": "uid://b40kh3xcoy068"
+},
+"tex_linha_nativa_manaus": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/linha_nativa.tres",
+"use_external/path": "res://assets/materials/linha_nativa.tres"
+},
+"tex_papel_de_parede_adesivo": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/papel_parede_linho_bege.tres",
+"use_external/path": "res://assets/materials/papel_parede_linho_bege.tres"
+},
+"tex_papel_de_parede_adesivo_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/papel_parede_linho_bege.tres",
+"use_external/path": "res://assets/materials/papel_parede_linho_bege.tres"
+},
+"tex_papel_de_parede_adesivo_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/papel_parede_linho_bege.tres",
+"use_external/path": "res://assets/materials/papel_parede_linho_bege.tres"
+},
+"tex_texturescom_metal_steelbrushed_albedo": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/metal_cafeteira.tres",
 "use_external/path": "res://assets/materials/metal_cafeteira.tres"
+},
+"tex_ts_pasinato": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/ts_108_pasinato.tres",
+"use_external/path": "uid://ur1cs6n6h6qx"
+},
+"tex_velluto_off_white": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_10": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_11": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_12": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_13": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_14": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_15": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_5": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_6": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_7": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_8": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
+},
+"tex_velluto_off_white_9": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/veluto_offwhite.tres",
+"use_external/path": "res://assets/materials/veluto_offwhite.tres"
 }
 }
 }

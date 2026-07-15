@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/Apartamento/textures/papel-de-parede-adesivo-linho-bege.jpg" id="1_albedo"]
+[ext_resource type="Texture2D" path="res://assets/textures/papelDeParedeLinhoBege/papelDeParedeLinhoBege_normal.png" id="2_normal"]
+[ext_resource type="Texture2D" path="res://assets/textures/papelDeParedeLinhoBege/papelDeParedeLinhoBege_ao.png" id="3_ao"]
+
+[resource]
+resource_name = "papel_parede_linho_bege_pbr"
+albedo_texture = ExtResource("1_albedo")
+roughness = 0.85
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_normal")
+ao_enabled = true
+ao_texture = ExtResource("3_ao")
+texture_filter = 4

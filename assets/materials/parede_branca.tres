@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/wall/wall.jpg" id="1_albedo"]
+
+[resource]
+resource_name = "parede_branca_pbr"
+albedo_color = Color(0.98, 0.98, 0.985, 1)
+albedo_texture = ExtResource("1_albedo")
+roughness = 0.85
+uv1_triplanar = true
+texture_filter = 4

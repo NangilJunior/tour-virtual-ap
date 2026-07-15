@@ -20,13 +20,53 @@ extends "res://scenes/main.gd"
 @export var ignorar_nomes: PackedStringArray = ["porta"]
 
 @onready var modelo: Node3D = $Modelo
+@onready var lightmap: LightmapGI = $LightmapGI
+
+## Guarda o lightmap pra alternar no diagnóstico de flick (tecla L /
+## botão X do controle esquerdo): sem lightmap, objetos probe-lit perdem a
+## fonte suspeita — se o flick sumir, a causa são as probes.
+var _lm_data: LightmapGIData
 
 
 func _ready() -> void:
 	super()
+	# Desliga a troca de LOD das meshes: em VR o pulo de nível de detalhe ao
+	# mover a cabeça aparece como "flick" na cena inteira (e cada olho pode
+	# escolher um LOD diferente). Detalhe máximo sempre.
+	get_viewport().mesh_lod_threshold = 0.0
 	var inicio := Time.get_ticks_msec()
 	var total := _gerar_colisoes(modelo)
 	print("Colisão do apartamento: %d meshes em %d ms" % [total, Time.get_ticks_msec() - inicio])
+	_lm_data = lightmap.light_data
+	var mao_esq: XRController3D = $XRPlayer/XROrigin3D/LeftHand
+	mao_esq.button_pressed.connect(_on_left_button)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo \
+			and event.physical_keycode == KEY_L:
+		_alternar_lightmap()
+
+
+## Botão X (esquerdo) alterna o lightmap — diagnóstico do flick.
+func _on_left_button(button_name: String) -> void:
+	if button_name == "ax_button":
+		_alternar_lightmap()
+
+
+func _alternar_lightmap() -> void:
+	lightmap.light_data = null if lightmap.light_data else _lm_data
+	print("Lightmap: ", "DESLIGADO" if lightmap.light_data == null else "ligado")
+
+
+## true se o nó está na coleção 01_Arquitetura (nome próprio ou de ancestral).
+func _pertence_a_arquitetura(no: Node) -> bool:
+	var p: Node = no
+	while p and p != modelo:
+		if "Arquitetura" in p.name:
+			return true
+		p = p.get_parent()
+	return false
 
 
 func _gerar_colisoes(no: Node) -> int:
@@ -38,9 +78,14 @@ func _gerar_colisoes(no: Node) -> int:
 		# Tamanho no mundo: AABB local escalado pela escala global do nó.
 		var tamanho: Vector3 = no.get_aabb().size * no.global_transform.basis.get_scale()
 		var maior := maxf(tamanho.x, maxf(tamanho.y, tamanho.z))
-		var menor := minf(tamanho.x, minf(tamanho.y, tamanho.z))
-		if maior >= 2.5 and menor <= 0.25:
+		if _pertence_a_arquitetura(no):
+			# Laje/paredes (face única do SketchUp): sombra dupla-face, senão
+			# o sol atravessa. Móveis NÃO — dupla-face neles vira mancha preta.
 			no.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
+		elif maior < dimensao_minima:
+			# Objeto pequeno não projeta sombra: corta milhares de draw calls
+			# do shadow map do sol (o SSAO segue dando o contato visual).
+			no.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		var nome := no.name.to_lower()
 		for termo in ignorar_nomes:
 			if termo in nome:

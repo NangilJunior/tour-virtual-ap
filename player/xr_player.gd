@@ -10,6 +10,11 @@ extends CharacterBody3D
 ##
 ## Agachar/sentar: botão A do controle direito (VR) ou tecla C (desktop)
 ## alterna a visão entre em pé e abaixada, com transição suave.
+##
+## Botão B do controle direito recalibra a altura: os olhos passam a ficar
+## em altura_olhos_padrao independente da postura real (jogar sentado) ou de
+## chão descalibrado no runtime (Guardian/WiVRn com piso fora do lugar).
+## Apertar de novo em pé desfaz (recalibra pra postura atual).
 
 ## Velocidade de caminhada em metros por segundo.
 @export var move_speed: float = 2.2
@@ -27,6 +32,13 @@ extends CharacterBody3D
 @export var crouch_offset: float = 0.6
 ## Velocidade da transição em pé <-> agachado, em metros por segundo.
 @export var crouch_speed: float = 3.0
+## Escala do mundo VR: 1.0 = tamanho real. Abaixo de 1.0 o jogador fica
+## menor em relação ao apartamento (útil se a sensação for de "gigante");
+## escala altura, deslocamento e separação dos olhos juntos.
+@export_range(0.5, 1.5, 0.01) var escala_mundo: float = 1.0
+## Altura dos olhos no apartamento (sua altura real menos ~10 cm). Aplicada
+## automaticamente ao entrar na sessão VR e ao recalibrar com o botão B.
+@export var altura_olhos_padrao: float = 1.6
 
 @onready var camera: XRCamera3D = $XROrigin3D/XRCamera3D
 @onready var left_hand: XRController3D = $XROrigin3D/LeftHand
@@ -40,6 +52,10 @@ var _snap_ready: bool = true
 var _desktop_mode: bool = false
 ## true quando a visão está abaixada (agachado/sentado).
 var _crouched: bool = false
+## Deslocamento vertical do XROrigin vindo da recalibração de altura (botão B).
+var _offset_altura: float = 0.0
+## Garante uma única recalibração automática quando o tracking chegar.
+var _auto_calibrado: bool = false
 ## Altura original da cápsula, para restaurar ao levantar.
 var _standing_capsule_height: float
 
@@ -53,12 +69,16 @@ func _ready() -> void:
 		camera.position.y = desktop_eye_height
 		camera.current = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		XRServer.world_scale = escala_mundo
 
 
-## Botão A do controle direito alterna agachado/sentado.
+## Botão A alterna agachado/sentado; botão B recalibra a altura dos olhos.
 func _on_right_hand_button(button_name: String) -> void:
 	if button_name == "ax_button":
 		_crouched = not _crouched
+	elif button_name == "by_button":
+		_offset_altura = altura_olhos_padrao - camera.position.y
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -85,18 +105,27 @@ func _physics_process(delta: float) -> void:
 	_handle_crouch(delta)
 	if not _desktop_mode:
 		_handle_snap_turn()
+		# Recalibra sozinho assim que o tracking reportar uma altura plausível:
+		# toda sessão começa com os olhos em altura_olhos_padrao, mesmo com o
+		# chão do runtime descalibrado ou o usuário sentado.
+		if not _auto_calibrado and camera.position.y > 0.3:
+			_offset_altura = altura_olhos_padrao - camera.position.y
+			xr_origin.position.y = _offset_altura
+			_auto_calibrado = true
 
 
 ## Anima a descida/subida da visão deslocando o XROrigin3D (funciona em VR
 ## e desktop, já que a câmera é filha dele) e encolhe a cápsula junto.
 func _handle_crouch(delta: float) -> void:
-	var target := -crouch_offset if _crouched else 0.0
+	var target := _offset_altura + (-crouch_offset if _crouched else 0.0)
 	if is_equal_approx(xr_origin.position.y, target):
 		return
 	var y := move_toward(xr_origin.position.y, target, crouch_speed * delta)
 	xr_origin.position.y = y
+	# A cápsula só encolhe ao agachar; offset positivo (recalibração de
+	# altura, jogo sentado) não deve esticá-la além do tamanho em pé.
 	var capsule := collision.shape as CapsuleShape3D
-	capsule.height = _standing_capsule_height + y
+	capsule.height = _standing_capsule_height + minf(y, 0.0)
 	collision.position.y = capsule.height / 2.0
 
 

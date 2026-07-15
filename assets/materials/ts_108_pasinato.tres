@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ur1cs6n6h6qx"]
+
+[ext_resource type="Texture2D" uid="uid://01vjq187xifo" path="res://assets/Apartamento/textures/TS-108 PASINATO.jpg" id="1_albedo"]
+[ext_resource type="Texture2D" uid="uid://d7ik5jpx8wju" path="res://assets/textures/TS-108/ts108_normal.png" id="2_normal"]
+[ext_resource type="Texture2D" uid="uid://dr8qpgf4jgw8x" path="res://assets/textures/TS-108/ts108_ao.png" id="3_ao"]
+
+[resource]
+resource_name = "ts_108_pasinato_pbr"
+albedo_texture = ExtResource("1_albedo")
+roughness = 0.7
+normal_enabled = true
+normal_scale = 0.7
+normal_texture = ExtResource("2_normal")
+ao_enabled = true
+ao_texture = ExtResource("3_ao")
+texture_filter = 4

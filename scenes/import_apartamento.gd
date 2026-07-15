@@ -6,8 +6,11 @@ extends EditorScenePostImport
 ## passam a ser iluminados pelas probes geradas no próprio bake.
 
 ## Maior dimensão (em metros, no espaço local) abaixo da qual o objeto
-## usa probes em vez de lightmap.
-const DIMENSAO_PROBE := 2.0
+## usa probes em vez de lightmap. ZERO = tudo lightmapped: a iluminação por
+## probes flipa de estado com a posição da câmera (sofá/espelho/plantas
+## mudavam de cor ao mover) — com texel 0.1 + qualidade High o lightmap
+## cobre os objetos pequenos sem as manchas antigas.
+const DIMENSAO_PROBE := 0.0
 
 
 func _post_import(cena: Node) -> Object:
