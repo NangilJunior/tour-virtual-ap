@@ -40,6 +40,11 @@ func _ready() -> void:
 	_lm_data = lightmap.light_data
 	var mao_esq: XRController3D = $XRPlayer/XROrigin3D/LeftHand
 	mao_esq.button_pressed.connect(_on_left_button)
+	# portas internas interativas (tecla E / gatilho direito)
+	var portas := preload("res://scenes/portas_interativas.gd").new()
+	portas.name = "PortasInterativas"
+	add_child(portas)
+	portas.configurar(modelo, $XRPlayer)
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -62,7 +62,6 @@ denoiser_strength = 0.06
 light_data = ExtResource("5_lm")
 
 [node name="Luzes" type="Node3D" parent="." unique_id=947183471]
-visible = false
 
 [node name="LuzSalaEstar" type="OmniLight3D" parent="Luzes" unique_id=311969565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.4, -4.5)
@@ -107,9 +106,9 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzBwcSuite" type="OmniLight3D" parent="Luzes" unique_id=2055977600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 2.3, -4.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.464653, 0.2, -3.260043)
 light_color = Color(1, 0.92, 0.82, 1)
-light_energy = 1.2
+light_energy = 0.5
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.5
