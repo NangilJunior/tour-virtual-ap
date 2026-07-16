@@ -17,7 +17,7 @@ extends CharacterBody3D
 ## Apertar de novo em pé desfaz (recalibra pra postura atual).
 
 ## Velocidade de caminhada em metros por segundo.
-@export var move_speed: float = 2.2
+@export var move_speed: float = 1.1
 ## Ângulo de cada giro do snap-turn, em graus.
 @export var snap_turn_degrees: float = 30.0
 ## Zona morta dos analógicos para evitar drift.
