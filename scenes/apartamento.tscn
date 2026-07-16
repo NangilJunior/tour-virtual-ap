@@ -130,3 +130,7 @@ shape = SubResource("floor_boundary")
 
 [node name="XRPlayer" parent="." unique_id=1266858031 instance=ExtResource("2_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93, 0.2, -0.98)
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=711984910]
+intensity = 0.18
+max_distance = 70.5
