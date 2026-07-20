@@ -42,7 +42,6 @@ anti_aliasing/quality/msaa_3d=1
 scaling_3d/mode=1
 scaling_3d/mode.ios=1
 scaling_3d/mode.macos=1
-occlusion_culling/use_occlusion_culling=true
 mesh_lod/lod_change/threshold_pixels=2.0
 environment/screen_space_reflection/roughness_quality=2
 

@@ -48,6 +48,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	super(event)
 	if event is InputEventKey and event.pressed and not event.echo \
 			and event.physical_keycode == KEY_L:
 		_alternar_lightmap()

@@ -33,7 +33,7 @@ extends CharacterBody3D
 ## Multiplicador de velocidade segurando Shift no modo desktop.
 @export var sprint_multiplier: float = 2.0
 ## Altura dos olhos no modo desktop (sem tracking a câmera ficaria no chão).
-@export var desktop_eye_height: float = 1.8
+@export var desktop_eye_height: float = 1.7
 ## Quanto a visão abaixa ao agachar/sentar, em metros.
 @export var crouch_offset: float = 0.6
 ## Velocidade da transição em pé <-> agachado, em metros por segundo.
