@@ -7,9 +7,12 @@ extends CharacterBody3D
 ##
 ## Sem headset (OpenXR não inicializado), o rig vira um FPS comum:
 ## WASD/setas + mouse, Shift para andar mais rápido, Esc solta o mouse.
+## Também aceita um controle (Xbox e compatíveis) no lugar do teclado/mouse:
+## analógico esquerdo move, direito olha em volta, L3 corre.
 ##
-## Agachar/sentar: botão A do controle direito (VR) ou tecla C (desktop)
-## alterna a visão entre em pé e abaixada, com transição suave.
+## Agachar/sentar: botão A do controle direito (VR), tecla C ou botão A do
+## gamepad (desktop) alterna a visão entre em pé e abaixada, com transição
+## suave.
 ##
 ## Botão B do controle direito recalibra a altura: os olhos passam a ficar
 ## em altura_olhos_padrao independente da postura real (jogar sentado) ou de
@@ -24,10 +27,13 @@ extends CharacterBody3D
 @export var dead_zone: float = 0.2
 ## Sensibilidade do mouse no modo desktop (radianos por pixel).
 @export var mouse_sensitivity: float = 0.003
+## Sensibilidade do analógico direito no modo desktop (radianos por segundo
+## na deflexão máxima).
+@export var gamepad_look_sensitivity: float = 2.5
 ## Multiplicador de velocidade segurando Shift no modo desktop.
 @export var sprint_multiplier: float = 2.0
 ## Altura dos olhos no modo desktop (sem tracking a câmera ficaria no chão).
-@export var desktop_eye_height: float = 1.7
+@export var desktop_eye_height: float = 1.8
 ## Quanto a visão abaixa ao agachar/sentar, em metros.
 @export var crouch_offset: float = 0.6
 ## Velocidade da transição em pé <-> agachado, em metros por segundo.
@@ -35,10 +41,10 @@ extends CharacterBody3D
 ## Escala do mundo VR: 1.0 = tamanho real. Abaixo de 1.0 o jogador fica
 ## menor em relação ao apartamento (útil se a sensação for de "gigante");
 ## escala altura, deslocamento e separação dos olhos juntos.
-@export_range(0.5, 1.5, 0.01) var escala_mundo: float = 1.0
+@export_range(0.5, 1.5, 0.01) var escala_mundo: float = 0.9
 ## Altura dos olhos no apartamento (sua altura real menos ~10 cm). Aplicada
 ## automaticamente ao entrar na sessão VR e ao recalibrar com o botão B.
-@export var altura_olhos_padrao: float = 1.6
+@export var altura_olhos_padrao: float = 1.7
 
 @onready var camera: XRCamera3D = $XROrigin3D/XRCamera3D
 @onready var left_hand: XRController3D = $XROrigin3D/LeftHand
@@ -109,7 +115,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventKey and event.pressed and not event.echo \
 			and event.physical_keycode == KEY_C:
 		_crouched = not _crouched
-	elif event.is_action_pressed("ui_cancel"):
+	elif event is InputEventJoypadButton and event.pressed \
+			and event.button_index == JOY_BUTTON_A:
+		_crouched = not _crouched
+	elif event is InputEventKey and event.pressed and event.physical_keycode == KEY_ESCAPE:
+		# Não usa a ação "ui_cancel": por padrão ela também está vinculada ao
+		# botão B do gamepad, o que soltava o mouse sempre que esse botão era
+		# apertado (ex.: Steam Deck em Big Picture).
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif event is InputEventMouseButton and event.pressed \
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
@@ -119,7 +131,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	_handle_movement(delta)
 	_handle_crouch(delta)
-	if not _desktop_mode:
+	if _desktop_mode:
+		_handle_gamepad_look(delta)
+	else:
 		_handle_snap_turn()
 		# Recalibra sozinho assim que o tracking reportar uma altura plausível:
 		# toda sessão começa com os olhos em altura_olhos_padrao, mesmo com o
@@ -145,13 +159,40 @@ func _handle_crouch(delta: float) -> void:
 	collision.position.y = capsule.height / 2.0
 
 
-## Teclas físicas (WASD independe de layout) para não depender de input map.
+## Teclas físicas (WASD independe de layout) para não depender de input map,
+## combinadas com o analógico esquerdo do gamepad (device 0), se houver um
+## conectado. Não depende de input map por não usar Input.get_vector/ações.
 func _desktop_input() -> Vector2:
 	var x := float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT)) \
 			- float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT))
 	var y := float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)) \
 			- float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN))
-	return Vector2(x, y).limit_length(1.0)
+	var keyboard := Vector2(x, y)
+
+	var gamepad := Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		-Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	)
+	if gamepad.length() < dead_zone:
+		gamepad = Vector2.ZERO
+
+	return (keyboard + gamepad).limit_length(1.0)
+
+
+## Analógico direito (device 0) girando a visão no modo desktop, no mesmo
+## esquema de olhar livre do mouse (sem afetar o modo VR, que usa snap-turn).
+func _handle_gamepad_look(delta: float) -> void:
+	var look := Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	)
+	if look.length() < dead_zone:
+		return
+	rotate_y(-look.x * gamepad_look_sensitivity * delta)
+	camera.rotation.x = clampf(
+		camera.rotation.x - look.y * gamepad_look_sensitivity * delta,
+		-PI / 2.0 + 0.01, PI / 2.0 - 0.01
+	)
 
 
 func _handle_movement(delta: float) -> void:
@@ -175,7 +216,8 @@ func _handle_movement(delta: float) -> void:
 	var direction := (right * input.x + forward * input.y)
 
 	var speed := move_speed
-	if _desktop_mode and Input.is_physical_key_pressed(KEY_SHIFT):
+	if _desktop_mode and (Input.is_physical_key_pressed(KEY_SHIFT) \
+			or Input.is_joy_button_pressed(0, JOY_BUTTON_LEFT_STICK)):
 		speed *= sprint_multiplier
 
 	velocity.x = direction.x * speed

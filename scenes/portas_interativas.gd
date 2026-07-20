@@ -1,8 +1,9 @@
 extends Node
 ## Portas internas interativas: cada folha de porta ganha um pivô na linha
 ## das dobradiças (objetos "G-dobradiça da porta" do modelo), colisão própria
-## que gira junto, e abre/fecha com tecla E (desktop) ou gatilho do controle
-## direito (VR). A porta sempre abre para o lado oposto ao jogador.
+## que gira junto, e abre/fecha com tecla E ou botão X do gamepad (desktop)
+## ou gatilho do controle direito (VR). A porta sempre abre para o lado
+## oposto ao jogador.
 
 ## Distância máxima do jogador até a porta para poder interagir (metros).
 @export var alcance: float = 2.5
@@ -154,6 +155,9 @@ func _encontrar_no(no: Node, alvo: String) -> Node3D:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo \
 			and event.physical_keycode == KEY_E:
+		_alternar_mais_proxima()
+	elif event is InputEventJoypadButton and event.pressed \
+			and event.button_index == JOY_BUTTON_X:
 		_alternar_mais_proxima()
 
 
