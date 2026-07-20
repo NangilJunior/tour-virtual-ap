@@ -48,7 +48,7 @@ extends CharacterBody3D
 
 ## Garante um único giro por inclinada do analógico (precisa voltar ao centro).
 var _snap_ready: bool = true
-## true quando o OpenXR não inicializou e estamos rodando no monitor.
+## true quando estamos rodando no monitor (definido por configurar_modo()).
 var _desktop_mode: bool = false
 ## true quando a visão está abaixada (agachado/sentado).
 var _crouched: bool = false
@@ -58,19 +58,35 @@ var _offset_altura: float = 0.0
 var _auto_calibrado: bool = false
 ## Altura original da cápsula, para restaurar ao levantar.
 var _standing_capsule_height: float
+## true depois que configurar_modo() define VR ou desktop. Enquanto false, o
+## jogador fica parado (congelado) — usado pra não mexer/capturar o mouse
+## antes do usuário escolher o modo no menu inicial.
+var _pronto: bool = false
 
 
 func _ready() -> void:
-	var xr := XRServer.find_interface("OpenXR")
-	_desktop_mode = not (xr and xr.is_initialized())
 	_standing_capsule_height = (collision.shape as CapsuleShape3D).height
 	right_hand.button_pressed.connect(_on_right_hand_button)
+	set_physics_process(false)
+	# Sem alguém chamando configurar_modo() (cenas de teste sem o menu inicial,
+	# como main.tscn/test_room.tscn), cai no detect automático de sempre.
+	if not get_parent().has_method("_configurar_jogador"):
+		var xr := XRServer.find_interface("OpenXR")
+		configurar_modo(not (xr and xr.is_initialized()))
+
+
+## Chamado pelo controlador da cena (main.gd) depois que o usuário escolhe o
+## modo no menu inicial — ou automaticamente, se não houver menu na cena.
+func configurar_modo(desktop: bool) -> void:
+	_desktop_mode = desktop
 	if _desktop_mode:
 		camera.position.y = desktop_eye_height
 		camera.current = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
 		XRServer.world_scale = escala_mundo
+	_pronto = true
+	set_physics_process(true)
 
 
 ## Botão A alterna agachado/sentado; botão B recalibra a altura dos olhos.
@@ -82,7 +98,7 @@ func _on_right_hand_button(button_name: String) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not _desktop_mode:
+	if not _pronto or not _desktop_mode:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)

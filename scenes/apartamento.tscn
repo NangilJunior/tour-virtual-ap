@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqqiga6cmkdv"]
 
 [ext_resource type="Script" uid="uid://bxahjhm4sfcvt" path="res://scenes/apartamento.gd" id="1_main"]
+[ext_resource type="ArrayOccluder3D" uid="uid://vkpi68s5ykus" path="res://scenes/apartamento.occ" id="2_6ad5q"]
 [ext_resource type="PackedScene" path="res://player/xr_player.tscn" id="2_player"]
 [ext_resource type="Texture2D" uid="uid://dpbn225c8or86" path="res://assets/sky/citrus_orchard_road_puresky_4k.exr" id="3_sky"]
 [ext_resource type="PackedScene" uid="uid://ctntaksaqqm71" path="res://assets/Apartamento/APARTAMENTO.blend" id="4_ap"]
@@ -39,6 +40,78 @@ size = Vector3(13, 0.2, 10)
 
 [node name="Apartamento" type="Node3D" unique_id=1343565759]
 script = ExtResource("1_main")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=91408295]
+occluder = ExtResource("2_6ad5q")
+
+[node name="ModoMenu" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Fundo" type="ColorRect" parent="ModoMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.55)
+
+[node name="Centro" type="CenterContainer" parent="ModoMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Painel" type="PanelContainer" parent="ModoMenu/Centro"]
+
+[node name="VBox" type="VBoxContainer" parent="ModoMenu/Centro/Painel"]
+custom_minimum_size = Vector2(300, 0)
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="ModoMenu/Centro/Painel/VBox"]
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+text = "Escolha o modo"
+
+[node name="BotaoVR" type="Button" parent="ModoMenu/Centro/Painel/VBox"]
+custom_minimum_size = Vector2(0, 44)
+text = "Modo VR"
+
+[node name="BotaoDesktop" type="Button" parent="ModoMenu/Centro/Painel/VBox"]
+custom_minimum_size = Vector2(0, 44)
+text = "Modo Desktop"
+
+[node name="Aviso" type="Label" parent="ModoMenu/Centro/Painel/VBox"]
+visible = false
+modulate = Color(1, 0.5, 0.5, 1)
+autowrap_mode = 2
+text = ""
+
+[node name="MenuPausa" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="Fundo" type="ColorRect" parent="MenuPausa"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.55)
+
+[node name="Centro" type="CenterContainer" parent="MenuPausa"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Painel" type="PanelContainer" parent="MenuPausa/Centro"]
+
+[node name="VBox" type="VBoxContainer" parent="MenuPausa/Centro/Painel"]
+custom_minimum_size = Vector2(300, 0)
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="MenuPausa/Centro/Painel/VBox"]
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+text = "Pausado"
+
+[node name="BotaoContinuar" type="Button" parent="MenuPausa/Centro/Painel/VBox"]
+custom_minimum_size = Vector2(0, 44)
+text = "Continuar"
+
+[node name="BotaoSair" type="Button" parent="MenuPausa/Centro/Painel/VBox"]
+custom_minimum_size = Vector2(0, 44)
+text = "Sair"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1157766278]
 environment = SubResource("env")
