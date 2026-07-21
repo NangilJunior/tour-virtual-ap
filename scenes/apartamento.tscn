@@ -211,7 +211,7 @@ omni_range = 3.5
 [node name="LuzBwcSocial" type="OmniLight3D" parent="Luzes" unique_id=1208567571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.556138, 2.3, -1.6665317)
 light_color = Color(1, 0.92, 0.82, 1)
-light_energy = 0.7
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.5
