@@ -245,23 +245,25 @@ func _on_botao_vr(botao: String) -> void:
 		_alternar_em_foco()
 
 
-## Cosseno do ângulo máximo (em relação à direção que a câmera olha) pra um
-## objeto contar como "em foco". 0.7 ≈ 45° de cone — folgado o bastante pra
-## não precisar mirar em cima do pixel, apertado o bastante pra separar dois
-## interativos próximos (ex.: porta do guarda-roupa e o projetor em cima dela).
-const ALINHAMENTO_MINIMO := 0.7
+## Margem (metros) dentro da qual duas peças contam como "à mesma distância"
+## e o desempate passa a ser por direção do olhar, em vez de distância pura.
+## Cobre o caso de peças coladas (porta do guarda-roupa embaixo do
+## projetor); pra qualquer porta isolada, o mais próximo sempre ganha,
+## do jeito que sempre funcionou.
+const MARGEM_EMPATE := 0.6
 
 
-## Escolhe o interativo que o jogador está olhando, não o mais próximo —
-## dois objetos podem estar coladas (porta do guarda-roupa bem debaixo do
-## projetor) e só a direção do olhar distingue qual foi "clicado".
+## Escolhe o interativo mais próximo — e só usa a direção do olhar pra
+## desempatar quando há mais de uma peça a uma distância parecida (ex.:
+## porta do guarda-roupa e o projetor em cima dela, ambos por perto).
 func _alternar_em_foco() -> void:
 	if _camera == null:
 		return
 	var origem := _camera.global_position
 	var frente := -_camera.global_transform.basis.z
 	var melhor: Node3D = null
-	var melhor_alinhamento := ALINHAMENTO_MINIMO
+	var melhor_d := INF
+	var melhor_alinhamento := -1.0
 	for pivo in _pivos:
 		var folha: MeshInstance3D = pivo.get_meta("folha")
 		var config: Dictionary = pivo.get_meta("abertura", {})
@@ -269,12 +271,17 @@ func _alternar_em_foco() -> void:
 		var alvo := (folha.global_transform * folha.get_aabb()).get_center()
 		var delta := alvo - origem
 		var d := delta.length()
-		if d >= alcance_pivo or d < 0.01:
+		if d >= alcance_pivo:
 			continue
-		var alinhamento := frente.dot(delta / d)
-		if alinhamento > melhor_alinhamento:
-			melhor_alinhamento = alinhamento
+		var alinhamento := frente.dot(delta / d) if d > 0.01 else 1.0
+		if melhor == null or d < melhor_d - MARGEM_EMPATE:
 			melhor = pivo
+			melhor_d = d
+			melhor_alinhamento = alinhamento
+		elif d < melhor_d + MARGEM_EMPATE and alinhamento > melhor_alinhamento:
+			melhor = pivo
+			melhor_d = d
+			melhor_alinhamento = alinhamento
 	if melhor:
 		_alternar(melhor)
 
