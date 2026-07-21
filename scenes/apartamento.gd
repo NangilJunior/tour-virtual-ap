@@ -25,8 +25,8 @@ extends "res://scenes/main.gd"
 ## das luminárias e do ambiente; só ficam fora do sol.
 const CAMADA_SEM_SOL := 2
 ## Grupo (Node > Groups no editor) pra marcar manualmente paredes do
-## corredor sem sol direto — molduras de porta ("batente" no nome) entram
-## automaticamente, sem precisar marcar.
+## corredor sem sol direto — molduras de porta ("batente" ou "moldura" no
+## nome) entram automaticamente, sem precisar marcar.
 const GRUPO_SEM_SOL := "sem_sol_corredor"
 
 @onready var modelo: Node3D = $Modelo
@@ -88,7 +88,7 @@ func _tirar_sol(no: Node) -> int:
 		total += _tirar_sol(filho)
 	if no is VisualInstance3D:
 		var nome := no.name.to_lower()
-		if "batente" in nome or no.is_in_group(GRUPO_SEM_SOL):
+		if "batente" in nome or "moldura" in nome or no.is_in_group(GRUPO_SEM_SOL):
 			no.layers = CAMADA_SEM_SOL
 			total += 1
 	return total
