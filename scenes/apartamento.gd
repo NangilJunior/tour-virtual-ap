@@ -19,6 +19,16 @@ extends "res://scenes/main.gd"
 ## nela trancaria o jogador no cômodo.
 @export var ignorar_nomes: PackedStringArray = ["porta"]
 
+## Camada de renderização (2ª, das 20 do motor) usada pelas molduras/paredes
+## que não devem receber luz direta do sol — o Sun (DirectionalLight3D) tem
+## essa camada desligada no light_cull_mask. Continuam recebendo luz normal
+## das luminárias e do ambiente; só ficam fora do sol.
+const CAMADA_SEM_SOL := 2
+## Grupo (Node > Groups no editor) pra marcar manualmente paredes do
+## corredor sem sol direto — molduras de porta ("batente" no nome) entram
+## automaticamente, sem precisar marcar.
+const GRUPO_SEM_SOL := "sem_sol_corredor"
+
 @onready var modelo: Node3D = $Modelo
 @onready var lightmap: LightmapGI = $LightmapGI
 
@@ -37,6 +47,8 @@ func _ready() -> void:
 	var inicio := Time.get_ticks_msec()
 	var total := _gerar_colisoes(modelo)
 	print("Colisão do apartamento: %d meshes em %d ms" % [total, Time.get_ticks_msec() - inicio])
+	var sem_sol := _tirar_sol(modelo)
+	print("Sem luz direta do sol: %d objetos" % sem_sol)
 	_lm_data = lightmap.light_data
 	var mao_esq: XRController3D = $XRPlayer/XROrigin3D/LeftHand
 	mao_esq.button_pressed.connect(_on_left_button)
@@ -63,6 +75,23 @@ func _on_left_button(button_name: String) -> void:
 func _alternar_lightmap() -> void:
 	lightmap.light_data = null if lightmap.light_data else _lm_data
 	print("Lightmap: ", "DESLIGADO" if lightmap.light_data == null else "ligado")
+
+
+## Tira as molduras de porta ("batente" no nome) e qualquer objeto marcado
+## no grupo GRUPO_SEM_SOL da camada 1 (movendo pra CAMADA_SEM_SOL), que o
+## Sun não enxerga (light_cull_mask). Evita as manchas de luz vazando pelas
+## portas pro corredor sem apagar a luz das luminárias nem esconder o objeto
+## da câmera (ela continua vendo todas as camadas).
+func _tirar_sol(no: Node) -> int:
+	var total := 0
+	for filho in no.get_children():
+		total += _tirar_sol(filho)
+	if no is VisualInstance3D:
+		var nome := no.name.to_lower()
+		if "batente" in nome or no.is_in_group(GRUPO_SEM_SOL):
+			no.layers = CAMADA_SEM_SOL
+			total += 1
+	return total
 
 
 ## true se o nó está na coleção 01_Arquitetura (nome próprio ou de ancestral).

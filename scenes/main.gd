@@ -10,6 +10,7 @@ var xr_interface: XRInterface
 
 @onready var menu: CanvasLayer = get_node_or_null("ModoMenu")
 @onready var menu_pausa: CanvasLayer = get_node_or_null("MenuPausa")
+@onready var world_environment: WorldEnvironment = get_node_or_null("WorldEnvironment")
 
 
 func _ready() -> void:
@@ -101,6 +102,9 @@ func _ativar_vr() -> void:
 		(xr_interface as OpenXRInterface).render_target_size_multiplier = 1.2
 	get_viewport().use_xr = true
 	_configurar_jogador(false)
+	# SSR e depth of field custam frame time e, em VR, DOF incomoda (o olho já
+	# foca fisicamente na distância certa) — ligados só no modo desktop.
+	_configurar_pos_processamento(false)
 
 
 func _ativar_desktop() -> void:
@@ -108,6 +112,20 @@ func _ativar_desktop() -> void:
 	get_viewport().use_xr = false
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	_configurar_jogador(true)
+	_configurar_pos_processamento(true)
+
+
+## Reflexo de tela (piso) e desfoque de profundidade: só no modo desktop
+## (ver _ativar_vr para o motivo de ficarem fora da VR).
+func _configurar_pos_processamento(desktop: bool) -> void:
+	if not world_environment:
+		return
+	if world_environment.environment:
+		world_environment.environment.ssr_enabled = desktop
+	# Depth of field mora em CameraAttributes (não em Environment) desde o
+	# Godot 4; aplicado globalmente via WorldEnvironment.camera_attributes.
+	if world_environment.camera_attributes:
+		world_environment.camera_attributes.dof_blur_far_enabled = desktop
 
 
 func _configurar_jogador(desktop: bool) -> void:

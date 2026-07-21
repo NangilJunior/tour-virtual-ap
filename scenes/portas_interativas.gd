@@ -33,6 +33,30 @@ extends Node
 	"C-Porta-70#1_003": "eixoBanSoc",
 	"C-Porta-70#1_004": "eixoBanSui",
 	"portaQuarto": "eixoPortaCri",
+	"portaGuarda": "eixoGuarda",
+}
+## Peças que abrem/fecham mas não têm "porta" no nome (ex.: porta de
+## guarda-roupa) — para serem encontradas como filhas do eixo manual em
+## [eixos_manuais], já que a busca padrão exige a substring "porta".
+@export var pecas_manuais: PackedStringArray = ["portaGuarda"]
+## Sobrescreve eixo de rotação e os ângulos fechado/aberto (em graus) para
+## peças cujo pivô não segue a convenção padrão (fechado = 0°, gira no
+## eixo Y). Usa substring do nome da folha, igual [eixos_manuais]. Formato:
+## {"padrão": {"eixo": "x"/"y"/"z", "fechado": graus, "aberto": graus,
+## "alcance": metros — opcional, padrão [alcance]}}
+@export var abertura_manual: Dictionary = {
+	"portaGuarda": {"eixo": "y", "fechado": -90.0, "aberto": 0.0, "alcance": 1.2},
+}
+## Peças que abrem/fecham transladando em vez de girar (ex.: projetor de
+## teto que desce/sobe). Chave = nome do objeto na cena — precisa ser um
+## MeshInstance3D já existente na árvore antes de portas.configurar(); vira
+## seu próprio pivô, sem precisar de empty/eixo separado (é a posição local
+## dele que é animada direto). Valor: {"eixo": "x"/"y"/"z", "fechado":
+## metros, "aberto": metros, "duracao": segundos — opcional, padrão [duracao]}.
+## Os valores de posição são os mesmos do eixo Z no Blender (vira Y no
+## Godot após a importação).
+@export var translacoes_manuais: Dictionary = {
+	"projetor": {"eixo": "y", "fechado": 2.679, "aberto": 1.734, "duracao": 3.0},
 }
 
 ## Pivôs criados, um por folha de porta.
@@ -59,7 +83,7 @@ func configurar(modelo: Node3D, player: CharacterBody3D) -> void:
 		for filho in eixo_node.get_children():
 			if filho is MeshInstance3D and filho.mesh != null and filho not in folhas:
 				var nome := filho.name.to_lower()
-				if "porta" in nome and "dobradi" not in nome and "batente" not in nome:
+				if _e_folha(nome):
 					folhas.append(filho)
 					print("  porta em eixo manual: '%s' (em %s)" % [filho.name, eixo_node.name])
 
@@ -97,11 +121,26 @@ func configurar(modelo: Node3D, player: CharacterBody3D) -> void:
 		folha.create_trimesh_collision()
 		pivo.set_meta("aberta", false)
 		pivo.set_meta("folha", folha)
+		pivo.set_meta("abertura", _buscar_abertura_manual(folha.name))
 		# RID do corpo estático da folha, para excluí-lo do teste de espaço
 		for filho in folha.get_children():
 			if filho is StaticBody3D:
 				pivo.set_meta("corpo", (filho as StaticBody3D).get_rid())
 		_pivos.append(pivo)
+
+	for nome_obj in translacoes_manuais:
+		var alvo_mesh := _encontrar_no(get_tree().root, nome_obj) as MeshInstance3D
+		if alvo_mesh == null:
+			push_warning("Peça de translação '%s' não encontrada (ou não é MeshInstance3D)." % nome_obj)
+			continue
+		var config: Dictionary = (translacoes_manuais[nome_obj] as Dictionary).duplicate()
+		config["tipo"] = "posicao"
+		alvo_mesh.set_meta("aberta", false)
+		alvo_mesh.set_meta("folha", alvo_mesh)
+		alvo_mesh.set_meta("abertura", config)
+		_pivos.append(alvo_mesh)
+		print("  peça de translação: '%s'" % alvo_mesh.name)
+
 	print("Portas interativas: %d folhas preparadas" % _pivos.size())
 	for p in _pivos:
 		var f: MeshInstance3D = p.get_meta("folha")
@@ -118,7 +157,12 @@ func _coletar(no: Node, folhas: Array[MeshInstance3D], dobradicas: Array[Vector3
 		return
 	if "dobradi" in nome and "porta" in nome:
 		dobradicas.append((mi.global_transform * mi.get_aabb()).get_center())
-	elif "porta" in nome and "dobradi" not in nome and "batente" not in nome:
+	elif _e_peca_manual(nome):
+		# Peça explicitamente listada em pecas_manuais: sem checagem de
+		# dimensão (que é só uma heurística pra portas comuns pelo nome
+		# "porta"; aqui o nome já identifica a peça sem ambiguidade).
+		folhas.append(mi)
+	elif _e_folha(nome):
 		# abs(): componentes espelhados do SketchUp têm escala global negativa
 		var t := mi.get_aabb().size * mi.global_transform.basis.get_scale().abs()
 		var dims := [t.x, t.y, t.z]
@@ -126,6 +170,41 @@ func _coletar(no: Node, folhas: Array[MeshInstance3D], dobradicas: Array[Vector3
 		# folha: alta (1.8-2.3 m), largura 0.4-1.2, fina (< 15 cm)
 		if 1.8 <= dims[2] and dims[2] <= 2.3 and 0.4 <= dims[1] and dims[1] <= 1.2 and dims[0] <= 0.15:
 			folhas.append(mi)
+
+
+## true se o nome (já em minúsculas) bate com uma entrada de [pecas_manuais]
+## — peça sem "porta" no nome, mas que deve ser tratada como folha interativa
+## sem passar pela checagem de dimensão (ex.: porta de guarda-roupa).
+func _e_peca_manual(nome: String) -> bool:
+	for padrao in pecas_manuais:
+		if padrao.to_lower() in nome:
+			return true
+	return false
+
+
+## true se o nome (já em minúsculas) é de uma folha interativa: portas
+## normais (substring "porta", exceto dobradiça/batente) ou qualquer peça
+## listada em [pecas_manuais] (ex.: porta de guarda-roupa, sem "porta" no nome).
+func _e_folha(nome: String) -> bool:
+	if "dobradi" in nome or "batente" in nome:
+		return false
+	if "porta" in nome:
+		return true
+	return _e_peca_manual(nome)
+
+
+## Config de abertura (eixo + ângulos fechado/aberto) pra folha cujo nome bate
+## com uma entrada de [abertura_manual]; entrada mais longa (mais específica)
+## vence. Vazio para as portas comuns (eixo Y, fechado=0°, aberto=sentido calculado).
+func _buscar_abertura_manual(nome_folha: String) -> Dictionary:
+	var nome_lower := nome_folha.to_lower()
+	var melhor_config := {}
+	var melhor_tam := 0
+	for padrao in abertura_manual:
+		if padrao.to_lower() in nome_lower and padrao.length() > melhor_tam:
+			melhor_tam = padrao.length()
+			melhor_config = abertura_manual[padrao]
+	return melhor_config
 
 
 func _buscar_eixo_manual(nome_folha: String) -> Node3D:
@@ -155,28 +234,46 @@ func _encontrar_no(no: Node, alvo: String) -> Node3D:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo \
 			and event.physical_keycode == KEY_E:
-		_alternar_mais_proxima()
+		_alternar_em_foco()
 	elif event is InputEventJoypadButton and event.pressed \
 			and event.button_index == JOY_BUTTON_X:
-		_alternar_mais_proxima()
+		_alternar_em_foco()
 
 
 func _on_botao_vr(botao: String) -> void:
 	if botao == "trigger_click":
-		_alternar_mais_proxima()
+		_alternar_em_foco()
 
 
-func _alternar_mais_proxima() -> void:
+## Cosseno do ângulo máximo (em relação à direção que a câmera olha) pra um
+## objeto contar como "em foco". 0.7 ≈ 45° de cone — folgado o bastante pra
+## não precisar mirar em cima do pixel, apertado o bastante pra separar dois
+## interativos próximos (ex.: porta do guarda-roupa e o projetor em cima dela).
+const ALINHAMENTO_MINIMO := 0.7
+
+
+## Escolhe o interativo que o jogador está olhando, não o mais próximo —
+## dois objetos podem estar coladas (porta do guarda-roupa bem debaixo do
+## projetor) e só a direção do olhar distingue qual foi "clicado".
+func _alternar_em_foco() -> void:
 	if _camera == null:
 		return
 	var origem := _camera.global_position
+	var frente := -_camera.global_transform.basis.z
 	var melhor: Node3D = null
-	var melhor_dist := alcance
+	var melhor_alinhamento := ALINHAMENTO_MINIMO
 	for pivo in _pivos:
 		var folha: MeshInstance3D = pivo.get_meta("folha")
-		var d := origem.distance_to((folha.global_transform * folha.get_aabb()).get_center())
-		if d < melhor_dist:
-			melhor_dist = d
+		var config: Dictionary = pivo.get_meta("abertura", {})
+		var alcance_pivo: float = config.get("alcance", alcance) as float
+		var alvo := (folha.global_transform * folha.get_aabb()).get_center()
+		var delta := alvo - origem
+		var d := delta.length()
+		if d >= alcance_pivo or d < 0.01:
+			continue
+		var alinhamento := frente.dot(delta / d)
+		if alinhamento > melhor_alinhamento:
+			melhor_alinhamento = alinhamento
 			melhor = pivo
 	if melhor:
 		_alternar(melhor)
@@ -184,12 +281,36 @@ func _alternar_mais_proxima() -> void:
 
 func _alternar(pivo: Node3D) -> void:
 	var aberta: bool = pivo.get_meta("aberta")
-	var alvo := 0.0
-	if not aberta:
-		alvo = _sentido_de_abertura(pivo) * deg_to_rad(angulo_abertura)
+	var config: Dictionary = pivo.get_meta("abertura", {})
+	var tipo: String = config.get("tipo", "rotacao")
+	var eixo: String = config.get("eixo", "y")
+	var fechado: float = config.get("fechado", 0.0) as float
+	var aberto: float
+	if config.has("aberto"):
+		aberto = config["aberto"] as float
+	else:
+		aberto = _sentido_de_abertura(pivo) * angulo_abertura
+	var alvo := fechado if aberta else aberto
+	var dur: float = config.get("duracao", duracao) as float
+	var propriedade: String
+	if tipo == "posicao":
+		propriedade = "position:" + eixo
+	else:
+		propriedade = "rotation:" + eixo
+		alvo = deg_to_rad(alvo)
+	# Mata a animação anterior antes de criar outra: sem isso, interagir de
+	# novo antes dela terminar cria um segundo tween brigando com o primeiro
+	# pela mesma propriedade — o objeto "afunda" mais em vez de inverter,
+	# porque o tween antigo (ainda animando pro alvo velho) segue escrevendo
+	# por cima a cada frame.
+	if pivo.has_meta("tween"):
+		var tween_antigo: Tween = pivo.get_meta("tween")
+		if tween_antigo != null and tween_antigo.is_valid():
+			tween_antigo.kill()
 	var tween := create_tween()
+	pivo.set_meta("tween", tween)
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(pivo, "rotation:y", alvo, duracao)
+	tween.tween_property(pivo, propriedade, alvo, dur)
 	pivo.set_meta("aberta", not aberta)
 
 
