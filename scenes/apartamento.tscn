@@ -196,7 +196,7 @@ light_energy = 1.5
 light_bake_mode = 1
 shadow_enabled = true
 
-[node name="LuzCorredor" type="OmniLight3D" parent="Luzes" unique_id=-1153374643]
+[node name="LuzEscritorio" type="OmniLight3D" parent="Luzes" unique_id=-1153374643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.9674096, -4.5)
 light_color = Color(1, 0.9, 0.78, 1)
 light_energy = 0.7
@@ -204,9 +204,9 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzCorredor2" type="OmniLight3D" parent="Luzes" unique_id=591322977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2771082, 1.351779, -3.1481056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2771082, 1.351779, -2.981048)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.6
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 
@@ -234,11 +234,11 @@ shadow_enabled = true
 [node name="LuzCorredor4" type="OmniLight3D" parent="Luzes" unique_id=1756389954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.207948, 1.9674096, -3.1481056)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.7
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 
-[node name="LuzCorredor3" type="OmniLight3D" parent="Luzes" unique_id=534936279]
+[node name="LuzQuartoCrianças2" type="OmniLight3D" parent="Luzes" unique_id=534936279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7616513, 2.0533116, -1.6078035)
 light_color = Color(1, 0.9, 0.78, 1)
 light_energy = 0.7

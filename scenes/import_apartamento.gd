@@ -22,6 +22,16 @@ extends EditorScenePostImport
 ## e refaça o bake do LightmapGI, senão a alteração não tem efeito nenhum.
 
 
+## Densidade extra de lightmap nas folhas de porta. O bake global roda a
+## 0,05 m/texel (lightmap_texel_size 0.1 do .import x texel_scale 2.0 do
+## LightmapGI), o que dá só ~13 x 40 texels na face de uma porta — grosseiro
+## demais pra uma peça que em VR se olha de perto. Os nomes acompanham a lista
+## FOLHAS de tools/portas_uv_lightmap.py; manter os dois em sincronia.
+const PORTAS_PREFIXO := "C-Porta-70#1_"
+const PORTAS_AVULSAS := ["portaQuarto", "portaGuarda"]
+const PORTAS_TEXEL_SCALE := 2.0
+
+
 func _post_import(cena: Node) -> Object:
 	_marcar(cena)
 	return cena
@@ -33,6 +43,13 @@ func _marcar(no: Node) -> void:
 	var mi := no as MeshInstance3D
 	if mi and mi.mesh:
 		mi.gi_mode = GeometryInstance3D.GI_MODE_STATIC if _tem_uv2(mi.mesh) else GeometryInstance3D.GI_MODE_DYNAMIC
+		if _e_folha_de_porta(mi.name):
+			mi.gi_lightmap_texel_scale = PORTAS_TEXEL_SCALE
+			print("porta com texel_scale %.1f: %s" % [PORTAS_TEXEL_SCALE, mi.name])
+
+
+func _e_folha_de_porta(nome: String) -> bool:
+	return nome.begins_with(PORTAS_PREFIXO) or nome in PORTAS_AVULSAS
 
 
 ## O unwrap de UV2 do importador falha em parte da geometria vinda do 3ds Max
