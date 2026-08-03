@@ -1,16 +1,25 @@
 @tool
 extends EditorScenePostImport
-## Pós-import do APARTAMENTO.blend: objetos pequenos (tecidos enrugados,
-## decoração) ficam com GI dinâmica — o bake do LightmapGI os exclui do
-## lightmap (onde viram manchas, por causa das micro-ilhas de UV2) e eles
-## passam a ser iluminados pelas probes geradas no próprio bake.
-
-## Maior dimensão (em metros, no espaço local) abaixo da qual o objeto
-## usa probes em vez de lightmap. ZERO = tudo lightmapped: a iluminação por
-## probes flipa de estado com a posição da câmera (sofá/espelho/plantas
-## mudavam de cor ao mover) — com texel 0.1 + qualidade High o lightmap
-## cobre os objetos pequenos sem as manchas antigas.
-const DIMENSAO_PROBE := 0.0
+## Pós-import do APARTAMENTO.blend: garante que toda malha visível receba GI de
+## verdade — lightmap quando ela tem UV2, probes quando não tem.
+##
+## Sem isso o modelo se parte em três regimes de iluminação e o MESMO material
+## aparece com cores diferentes de um objeto para o outro:
+##   1. STATIC com UV2   -> entra no bake, luz completa;
+##   2. STATIC sem UV2   -> o bake IGNORA (não há onde gravar os texels) e o
+##                          objeto fica só com ambient_light_energy (0.08),
+##                          ou seja, praticamente sem luz;
+##   3. DYNAMIC          -> fora do bake, iluminado pelas probes.
+## O caso 2 é o que mais destoa, e é silencioso: nada avisa que o objeto ficou
+## de fora. Aqui ele é rebaixado para probes, que é muito mais próximo do
+## lightmap do que o ambiente puro.
+##
+## ATENÇÃO: o Godot NÃO reimporta a cena quando só o conteúdo deste script muda
+## (o .import e o md5 do .blend continuam iguais). Depois de editar aqui, force
+## a reimportação apagando o cache:
+##     rm .godot/imported/APARTAMENTO.blend-*
+##     godot --headless --editor --quit
+## e refaça o bake do LightmapGI, senão a alteração não tem efeito nenhum.
 
 
 func _post_import(cena: Node) -> Object:
@@ -23,7 +32,13 @@ func _marcar(no: Node) -> void:
 		_marcar(filho)
 	var mi := no as MeshInstance3D
 	if mi and mi.mesh:
-		var tamanho := mi.mesh.get_aabb().size * mi.transform.basis.get_scale()
-		var maior := maxf(tamanho.x, maxf(tamanho.y, tamanho.z))
-		if maior < DIMENSAO_PROBE:
-			mi.gi_mode = GeometryInstance3D.GI_MODE_DYNAMIC
+		mi.gi_mode = GeometryInstance3D.GI_MODE_STATIC if _tem_uv2(mi.mesh) else GeometryInstance3D.GI_MODE_DYNAMIC
+
+
+## O unwrap de UV2 do importador falha em parte da geometria vinda do 3ds Max
+## (faces degeneradas, non-manifold). Sem UV2 não há lightmap possível.
+func _tem_uv2(malha: Mesh) -> bool:
+	for i in malha.get_surface_count():
+		if (int(malha.surface_get_format(i)) & int(Mesh.ARRAY_FORMAT_TEX_UV2)) == 0:
+			return false
+	return true

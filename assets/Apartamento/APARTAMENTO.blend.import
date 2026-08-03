@@ -41,6 +41,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
+"cor_675534": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/madeira_tauari_triplanar.tres",
+"use_external/path": "res://assets/materials/madeira_tauari_triplanar.tres"
+},
 "cor_b6b4ad": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/parede_greige.tres",
