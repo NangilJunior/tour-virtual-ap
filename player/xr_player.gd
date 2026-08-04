@@ -45,6 +45,12 @@ extends CharacterBody3D
 ## Altura dos olhos no apartamento (sua altura real menos ~10 cm). Aplicada
 ## automaticamente ao entrar na sessão VR e ao recalibrar com o botão B.
 @export var altura_olhos_padrao: float = 1.7
+## Suavidade do olhar no modo desktop: a visão persegue o alvo do mouse/
+## analógico em vez de saltar direto, o que tira a dureza do movimento.
+## Valor alto = mais direto (18 ≈ 55 ms de inércia); 0 desliga a suavização.
+## Não vale para VR: atrasar o giro da cabeça em relação ao tracking é a
+## receita clássica de enjoo, então lá o headset manda direto.
+@export_range(0.0, 40.0, 0.5) var suavidade_olhar: float = 18.0
 
 @onready var camera: XRCamera3D = $XROrigin3D/XRCamera3D
 @onready var left_hand: XRController3D = $XROrigin3D/LeftHand
@@ -64,6 +70,10 @@ var _offset_altura: float = 0.0
 var _auto_calibrado: bool = false
 ## Altura original da cápsula, para restaurar ao levantar.
 var _standing_capsule_height: float
+## Ângulos que a visão persegue no modo desktop (radianos): giro do corpo e
+## inclinação da câmera. O mouse/analógico mexe nestes; o giro real vai atrás.
+var _yaw_alvo: float = 0.0
+var _pitch_alvo: float = 0.0
 ## true depois que configurar_modo() define VR ou desktop. Enquanto false, o
 ## jogador fica parado (congelado) — usado pra não mexer/capturar o mouse
 ## antes do usuário escolher o modo no menu inicial.
@@ -89,6 +99,8 @@ func configurar_modo(desktop: bool) -> void:
 		camera.position.y = desktop_eye_height
 		camera.current = true
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_yaw_alvo = rotation.y
+		_pitch_alvo = camera.rotation.x
 	else:
 		XRServer.world_scale = escala_mundo
 	_pronto = true
@@ -107,9 +119,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _pronto or not _desktop_mode:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		camera.rotation.x = clampf(
-			camera.rotation.x - event.relative.y * mouse_sensitivity,
+		_yaw_alvo -= event.relative.x * mouse_sensitivity
+		_pitch_alvo = clampf(
+			_pitch_alvo - event.relative.y * mouse_sensitivity,
 			-PI / 2.0 + 0.01, PI / 2.0 - 0.01
 		)
 	elif event is InputEventKey and event.pressed and not event.echo \
@@ -126,6 +138,23 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.pressed \
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+## Persegue os ângulos-alvo do olhar no modo desktop, tirando a dureza do
+## giro instantâneo. Fica em _process (e não em _physics_process) porque a
+## suavização é visual: acompanha a taxa de quadros, não a de física.
+func _process(delta: float) -> void:
+	if not _pronto or not _desktop_mode:
+		return
+	if suavidade_olhar <= 0.0:
+		rotation.y = _yaw_alvo
+		camera.rotation.x = _pitch_alvo
+		return
+	# Interpolação exponencial: mesma sensação em qualquer frame rate, ao
+	# contrário de um lerp com peso fixo por quadro.
+	var t := 1.0 - exp(-suavidade_olhar * delta)
+	rotation.y = lerp_angle(rotation.y, _yaw_alvo, t)
+	camera.rotation.x = lerpf(camera.rotation.x, _pitch_alvo, t)
 
 
 func _physics_process(delta: float) -> void:
@@ -188,9 +217,9 @@ func _handle_gamepad_look(delta: float) -> void:
 	)
 	if look.length() < dead_zone:
 		return
-	rotate_y(-look.x * gamepad_look_sensitivity * delta)
-	camera.rotation.x = clampf(
-		camera.rotation.x - look.y * gamepad_look_sensitivity * delta,
+	_yaw_alvo -= look.x * gamepad_look_sensitivity * delta
+	_pitch_alvo = clampf(
+		_pitch_alvo - look.y * gamepad_look_sensitivity * delta,
 		-PI / 2.0 + 0.01, PI / 2.0 - 0.01
 	)
 

@@ -12,6 +12,10 @@ extends Node
 ## caixinha só surge quando a pessoa chega perto o bastante para a intenção
 ## ser clara. Peças com alcance próprio menor (guarda-roupa) usam o delas.
 @export var alcance_dica: float = 1.2
+## Abertura do cone de visão, em graus, dentro do qual a peça precisa estar
+## para a dica aparecer. De costas (ou de lado demais) para a porta, a
+## caixinha some — a interação em si continua sem exigir olhar.
+@export var campo_visao_dica: float = 120.0
 ## Ângulo de abertura, em graus.
 @export var angulo_abertura: float = 80.0
 ## Duração da animação de abrir/fechar, em segundos.
@@ -239,6 +243,20 @@ func _buscar_eixo_manual(nome_folha: String) -> Node3D:
 	return _encontrar_no(raiz, melhor_nome)
 
 
+## true se [param delta] (do olho até a peça) está dentro do cone de visão de
+## meio-ângulo acos([param alinhamento_min]) em torno de [param frente].
+## Só o plano horizontal conta: o que interessa é estar de frente ou de
+## costas, e olhar para baixo colado numa porta não deve esconder a dica.
+func _dentro_do_cone(frente: Vector3, delta: Vector3, alinhamento_min: float) -> bool:
+	var f := Vector2(frente.x, frente.z)
+	var d := Vector2(delta.x, delta.z)
+	# Praticamente em cima (ou embaixo) do jogador: sem direção horizontal
+	# confiável, conta como visível.
+	if d.length() < 0.05 or f.length() < 0.01:
+		return true
+	return f.normalized().dot(d.normalized()) >= alinhamento_min
+
+
 func _encontrar_no(no: Node, alvo: String) -> Node3D:
 	if no.name == alvo:
 		return no as Node3D
@@ -279,7 +297,8 @@ func _process(delta: float) -> void:
 	if _tempo_ate_checar > 0.0:
 		return
 	_tempo_ate_checar = INTERVALO_DICA
-	_dica.definir_visivel(_alvo_em_foco(alcance_dica) != null)
+	var minimo := cos(deg_to_rad(campo_visao_dica * 0.5))
+	_dica.definir_visivel(_alvo_em_foco(alcance_dica, minimo) != null)
 
 
 func _alternar_em_foco() -> void:
@@ -293,7 +312,9 @@ func _alternar_em_foco() -> void:
 ## porta do guarda-roupa e o projetor em cima dela, ambos por perto).
 ## [param limite] encurta o alcance de todas as peças (usado pela dica, que
 ## aparece mais perto do que o alcance da interação); 0.0 = sem encurtar.
-func _alvo_em_foco(limite: float = 0.0) -> Node3D:
+## [param alinhamento_min] descarta o que estiver fora do cone de visão
+## (cosseno do meio-ângulo); -1.0 aceita qualquer direção, inclusive atrás.
+func _alvo_em_foco(limite: float = 0.0, alinhamento_min: float = -1.0) -> Node3D:
 	if _camera == null:
 		return null
 	var origem := _camera.global_position
@@ -313,6 +334,8 @@ func _alvo_em_foco(limite: float = 0.0) -> Node3D:
 		if d >= alcance_pivo:
 			continue
 		var alinhamento := frente.dot(delta / d) if d > 0.01 else 1.0
+		if alinhamento_min > -1.0 and not _dentro_do_cone(frente, delta, alinhamento_min):
+			continue
 		if melhor == null or d < melhor_d - MARGEM_EMPATE:
 			melhor = pivo
 			melhor_d = d
