@@ -7,6 +7,11 @@ extends Node
 
 ## Distância máxima do jogador até a porta para poder interagir (metros).
 @export var alcance: float = 2.5
+## Distância máxima para a dica da tecla aparecer (metros). Menor que
+## [alcance] de propósito: a interação continua funcionando de longe, mas a
+## caixinha só surge quando a pessoa chega perto o bastante para a intenção
+## ser clara. Peças com alcance próprio menor (guarda-roupa) usam o delas.
+@export var alcance_dica: float = 1.2
 ## Ângulo de abertura, em graus.
 @export var angulo_abertura: float = 80.0
 ## Duração da animação de abrir/fechar, em segundos.
@@ -44,8 +49,10 @@ extends Node
 ## eixo Y). Usa substring do nome da folha, igual [eixos_manuais]. Formato:
 ## {"padrão": {"eixo": "x"/"y"/"z", "fechado": graus, "aberto": graus,
 ## "alcance": metros — opcional, padrão [alcance]}}
+## O guarda-roupa abre só até -35° (55° de giro em vez dos 90° até 0°):
+## o batente completo enfia a folha na parede ao lado.
 @export var abertura_manual: Dictionary = {
-	"portaGuarda": {"eixo": "y", "fechado": -90.0, "aberto": 0.0, "alcance": 1.2},
+	"portaGuarda": {"eixo": "y", "fechado": -90.0, "aberto": -35.0, "alcance": 1.2},
 }
 ## Peças que abrem/fecham transladando em vez de girar (ex.: projetor de
 ## teto que desce/sobe). Chave = nome do objeto na cena — precisa ser um
@@ -64,9 +71,20 @@ var _pivos: Array[Node3D] = []
 
 var _camera: Camera3D
 
+## Caixinha com a tecla/botão de interação, presa à câmera.
+var _dica: Node3D
+## Contagem regressiva até a próxima checagem de foco para a dica.
+var _tempo_ate_checar: float = 0.0
+## Intervalo entre checagens de foco da dica, em segundos. Testar a cada frame
+## seria desperdício: a dica não precisa reagir mais rápido que isso.
+const INTERVALO_DICA := 0.1
+
 
 func configurar(modelo: Node3D, player: CharacterBody3D) -> void:
 	_camera = player.get_node("XROrigin3D/XRCamera3D")
+	_dica = preload("res://scenes/dica_interacao.gd").new()
+	_dica.name = "DicaInteracao"
+	_camera.add_child(_dica)
 	var mao_direita: XRController3D = player.get_node("XROrigin3D/RightHand")
 	mao_direita.button_pressed.connect(_on_botao_vr)
 
@@ -253,12 +271,31 @@ func _on_botao_vr(botao: String) -> void:
 const MARGEM_EMPATE := 0.6
 
 
+## Liga/desliga a dica conforme haja algo interativo ao alcance.
+func _process(delta: float) -> void:
+	if _dica == null:
+		return
+	_tempo_ate_checar -= delta
+	if _tempo_ate_checar > 0.0:
+		return
+	_tempo_ate_checar = INTERVALO_DICA
+	_dica.definir_visivel(_alvo_em_foco(alcance_dica) != null)
+
+
+func _alternar_em_foco() -> void:
+	var alvo := _alvo_em_foco()
+	if alvo:
+		_alternar(alvo)
+
+
 ## Escolhe o interativo mais próximo — e só usa a direção do olhar pra
 ## desempatar quando há mais de uma peça a uma distância parecida (ex.:
 ## porta do guarda-roupa e o projetor em cima dela, ambos por perto).
-func _alternar_em_foco() -> void:
+## [param limite] encurta o alcance de todas as peças (usado pela dica, que
+## aparece mais perto do que o alcance da interação); 0.0 = sem encurtar.
+func _alvo_em_foco(limite: float = 0.0) -> Node3D:
 	if _camera == null:
-		return
+		return null
 	var origem := _camera.global_position
 	var frente := -_camera.global_transform.basis.z
 	var melhor: Node3D = null
@@ -268,6 +305,8 @@ func _alternar_em_foco() -> void:
 		var folha: MeshInstance3D = pivo.get_meta("folha")
 		var config: Dictionary = pivo.get_meta("abertura", {})
 		var alcance_pivo: float = config.get("alcance", alcance) as float
+		if limite > 0.0:
+			alcance_pivo = minf(alcance_pivo, limite)
 		var alvo := (folha.global_transform * folha.get_aabb()).get_center()
 		var delta := alvo - origem
 		var d := delta.length()
@@ -282,8 +321,7 @@ func _alternar_em_foco() -> void:
 			melhor = pivo
 			melhor_d = d
 			melhor_alinhamento = alinhamento
-	if melhor:
-		_alternar(melhor)
+	return melhor
 
 
 func _alternar(pivo: Node3D) -> void:
