@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg3khb6v0sm38"
 path.s3tc="res://.godot/imported/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png-185ab15311faa7df29a270121eadf09b.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png-185ab15311faa7df29a270121eadf09b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png"
-dest_files=["res://.godot/imported/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png-185ab15311faa7df29a270121eadf09b.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png-185ab15311faa7df29a270121eadf09b.s3tc.ctex", "res://.godot/imported/apartamento_WhatsApp_Image_2022-08-24_at_17.24.png-185ab15311faa7df29a270121eadf09b.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fg1g1nrdefv5"
 path.s3tc="res://.godot/imported/Hugo  Boss.png-ecd8776d0755e0f2817e6e383a5d2650.s3tc.ctex"
+path.etc2="res://.godot/imported/Hugo  Boss.png-ecd8776d0755e0f2817e6e383a5d2650.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Hugo  Boss.png"
-dest_files=["res://.godot/imported/Hugo  Boss.png-ecd8776d0755e0f2817e6e383a5d2650.s3tc.ctex"]
+dest_files=["res://.godot/imported/Hugo  Boss.png-ecd8776d0755e0f2817e6e383a5d2650.s3tc.ctex", "res://.godot/imported/Hugo  Boss.png-ecd8776d0755e0f2817e6e383a5d2650.etc2.ctex"]
 
 [params]
 

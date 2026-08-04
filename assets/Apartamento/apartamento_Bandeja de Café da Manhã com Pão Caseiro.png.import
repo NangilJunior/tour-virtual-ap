@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4nwtc2haovmx"
 path.s3tc="res://.godot/imported/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png-f879c5f8e283bb6156f14f0523cc0d5e.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png-f879c5f8e283bb6156f14f0523cc0d5e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png"
-dest_files=["res://.godot/imported/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png-f879c5f8e283bb6156f14f0523cc0d5e.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png-f879c5f8e283bb6156f14f0523cc0d5e.s3tc.ctex", "res://.godot/imported/apartamento_Bandeja de Café da Manhã com Pão Caseiro.png-f879c5f8e283bb6156f14f0523cc0d5e.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl0b4d2gejsu6"
 path.s3tc="res://.godot/imported/white_stone_20120529_1946469435.jpg-4c17afbb41cd530f478392994784e286.s3tc.ctex"
+path.etc2="res://.godot/imported/white_stone_20120529_1946469435.jpg-4c17afbb41cd530f478392994784e286.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/white_stone_20120529_1946469435.jpg"
-dest_files=["res://.godot/imported/white_stone_20120529_1946469435.jpg-4c17afbb41cd530f478392994784e286.s3tc.ctex"]
+dest_files=["res://.godot/imported/white_stone_20120529_1946469435.jpg-4c17afbb41cd530f478392994784e286.s3tc.ctex", "res://.godot/imported/white_stone_20120529_1946469435.jpg-4c17afbb41cd530f478392994784e286.etc2.ctex"]
 
 [params]
 

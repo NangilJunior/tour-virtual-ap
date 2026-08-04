@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddj2vquvlmcdj"
 path.s3tc="res://.godot/imported/cotton_white_b.jpg-b85fa5369f9604c2e96886ddc4c7e35c.s3tc.ctex"
+path.etc2="res://.godot/imported/cotton_white_b.jpg-b85fa5369f9604c2e96886ddc4c7e35c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/cotton_white_b.jpg"
-dest_files=["res://.godot/imported/cotton_white_b.jpg-b85fa5369f9604c2e96886ddc4c7e35c.s3tc.ctex"]
+dest_files=["res://.godot/imported/cotton_white_b.jpg-b85fa5369f9604c2e96886ddc4c7e35c.s3tc.ctex", "res://.godot/imported/cotton_white_b.jpg-b85fa5369f9604c2e96886ddc4c7e35c.etc2.ctex"]
 
 [params]
 

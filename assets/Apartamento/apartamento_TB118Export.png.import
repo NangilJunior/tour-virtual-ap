@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjeex4j5skir"
 path.s3tc="res://.godot/imported/apartamento_TB118Export.png-00ad9edff74ea04746ed52a38bd43370.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_TB118Export.png-00ad9edff74ea04746ed52a38bd43370.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_TB118Export.png"
-dest_files=["res://.godot/imported/apartamento_TB118Export.png-00ad9edff74ea04746ed52a38bd43370.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_TB118Export.png-00ad9edff74ea04746ed52a38bd43370.s3tc.ctex", "res://.godot/imported/apartamento_TB118Export.png-00ad9edff74ea04746ed52a38bd43370.etc2.ctex"]
 
 [params]
 

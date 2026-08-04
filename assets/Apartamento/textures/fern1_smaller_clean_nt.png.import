@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqsu53j6y4m27"
 path.s3tc="res://.godot/imported/fern1_smaller_clean_nt.png-470d8860fb465b6e71a08c69314ff4ff.s3tc.ctex"
+path.etc2="res://.godot/imported/fern1_smaller_clean_nt.png-470d8860fb465b6e71a08c69314ff4ff.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/fern1_smaller_clean_nt.png"
-dest_files=["res://.godot/imported/fern1_smaller_clean_nt.png-470d8860fb465b6e71a08c69314ff4ff.s3tc.ctex"]
+dest_files=["res://.godot/imported/fern1_smaller_clean_nt.png-470d8860fb465b6e71a08c69314ff4ff.s3tc.ctex", "res://.godot/imported/fern1_smaller_clean_nt.png-470d8860fb465b6e71a08c69314ff4ff.etc2.ctex"]
 
 [params]
 

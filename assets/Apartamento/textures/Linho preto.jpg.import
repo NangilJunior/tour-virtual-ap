@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://br1jq6qqnopok"
 path.s3tc="res://.godot/imported/Linho preto.jpg-d00687914152cbb64b3bd2157b5a457f.s3tc.ctex"
+path.etc2="res://.godot/imported/Linho preto.jpg-d00687914152cbb64b3bd2157b5a457f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Linho preto.jpg"
-dest_files=["res://.godot/imported/Linho preto.jpg-d00687914152cbb64b3bd2157b5a457f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Linho preto.jpg-d00687914152cbb64b3bd2157b5a457f.s3tc.ctex", "res://.godot/imported/Linho preto.jpg-d00687914152cbb64b3bd2157b5a457f.etc2.ctex"]
 
 [params]
 

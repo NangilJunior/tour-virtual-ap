@@ -77,6 +77,8 @@ var _camera: Camera3D
 
 ## Caixinha com a tecla/botão de interação, presa à câmera.
 var _dica: Node3D
+## Controles de toque (celular no navegador), quando existirem.
+var _controles_toque: CanvasLayer
 ## Contagem regressiva até a próxima checagem de foco para a dica.
 var _tempo_ate_checar: float = 0.0
 ## Intervalo entre checagens de foco da dica, em segundos. Testar a cada frame
@@ -289,7 +291,14 @@ func _on_botao_vr(botao: String) -> void:
 const MARGEM_EMPATE := 0.6
 
 
-## Liga/desliga a dica conforme haja algo interativo ao alcance.
+## Liga o botão "Abrir" do celular, que aciona a mesma interação da tecla E.
+func usar_controles_toque(controles: CanvasLayer) -> void:
+	_controles_toque = controles
+	controles.interagir.connect(_alternar_em_foco)
+
+
+## Liga/desliga a dica (e o botão de toque) conforme haja algo interativo
+## ao alcance e à frente.
 func _process(delta: float) -> void:
 	if _dica == null:
 		return
@@ -298,7 +307,10 @@ func _process(delta: float) -> void:
 		return
 	_tempo_ate_checar = INTERVALO_DICA
 	var minimo := cos(deg_to_rad(campo_visao_dica * 0.5))
-	_dica.definir_visivel(_alvo_em_foco(alcance_dica, minimo) != null)
+	var disponivel := _alvo_em_foco(alcance_dica, minimo) != null
+	_dica.definir_visivel(disponivel)
+	if _controles_toque != null:
+		_controles_toque.definir_interacao_disponivel(disponivel)
 
 
 func _alternar_em_foco() -> void:

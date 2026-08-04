@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4g2kfbeu2jbi"
 path.s3tc="res://.godot/imported/papelDeParedeLinhoBege_normal.png-c5d38aee2f49c911054355ec81721891.s3tc.ctex"
+path.etc2="res://.godot/imported/papelDeParedeLinhoBege_normal.png-c5d38aee2f49c911054355ec81721891.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/papelDeParedeLinhoBege/papelDeParedeLinhoBege_normal.png"
-dest_files=["res://.godot/imported/papelDeParedeLinhoBege_normal.png-c5d38aee2f49c911054355ec81721891.s3tc.ctex"]
+dest_files=["res://.godot/imported/papelDeParedeLinhoBege_normal.png-c5d38aee2f49c911054355ec81721891.s3tc.ctex", "res://.godot/imported/papelDeParedeLinhoBege_normal.png-c5d38aee2f49c911054355ec81721891.etc2.ctex"]
 
 [params]
 

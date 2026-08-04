@@ -1,3 +1,4 @@
+class_name CenaPrincipal
 extends Node3D
 ## Controla o menu inicial (Modo VR / Modo Desktop) e ativa o runtime OpenXR
 ## ou o modo desktop conforme a escolha do usuário.
@@ -15,7 +16,18 @@ var xr_interface: XRInterface
 
 func _ready() -> void:
 	xr_interface = XRServer.find_interface("OpenXR")
-	if menu:
+	print("Plataforma: %s | web=%s | menu=%s" % [
+		OS.get_name(), OS.has_feature("web"), menu != null])
+	if _e_web():
+		# Navegador não tem OpenXR: nada de menu de escolha, entra direto no
+		# passeio em primeira pessoa (teclado/mouse no PC, toque no celular).
+		# O menu é removido, não só escondido — assim não há como ele voltar
+		# na frente do passeio.
+		if menu:
+			menu.queue_free()
+			menu = null
+		_ativar_desktop()
+	elif menu:
 		_mostrar_menu()
 	elif xr_interface and xr_interface.is_initialized():
 		_ativar_vr()
@@ -28,7 +40,16 @@ func _ready() -> void:
 		(vbox_pausa.get_node("BotaoSair") as Button).pressed.connect(_on_sair)
 
 
+## true quando o tour está rodando dentro de um navegador. Testa as duas
+## formas porque uma marca de recurso mal resolvida não pode ser o motivo de
+## um menu de VR ficar preso na frente de quem abriu a página.
+func _e_web() -> bool:
+	return OS.has_feature("web") or OS.get_name() == "Web"
+
+
 func _mostrar_menu() -> void:
+	if _e_web():
+		return
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var vbox := menu.get_node("Centro/Painel/VBox")
 	(vbox.get_node("BotaoVR") as Button).pressed.connect(_on_escolher_vr)
@@ -98,8 +119,12 @@ func _ativar_vr() -> void:
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	# Supersampling leve: nitidez extra no headset sem estourar o custo por
 	# pixel (1.2x ≈ 44% mais pixels; 1.5x seriam 125% a mais).
-	if xr_interface is OpenXRInterface:
-		(xr_interface as OpenXRInterface).render_target_size_multiplier = 1.2
+	# Checagem pelo nome da classe, e não pelo tipo: o template web não tem o
+	# módulo OpenXR, então escrever OpenXRInterface aqui vira identificador
+	# desconhecido e derruba a compilação DESTE script inteiro no navegador —
+	# junto com apartamento.gd, que herda dele.
+	if xr_interface != null and xr_interface.get_class() == "OpenXRInterface":
+		xr_interface.set("render_target_size_multiplier", 1.2)
 	get_viewport().use_xr = true
 	_configurar_jogador(false)
 	# SSR e depth of field custam frame time e, em VR, DOF incomoda (o olho já
@@ -110,7 +135,11 @@ func _ativar_vr() -> void:
 func _ativar_desktop() -> void:
 	print("Modo desktop ativado — WASD/setas + mouse, Shift corre, Esc solta o mouse.")
 	get_viewport().use_xr = false
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	# Tela cheia só no aplicativo nativo: no navegador quem manda no tamanho
+	# da janela é a página, e pedir fullscreen sem um clique do usuário é
+	# recusado pelo próprio navegador.
+	if not _e_web():
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	_configurar_jogador(true)
 	_configurar_pos_processamento(true)
 

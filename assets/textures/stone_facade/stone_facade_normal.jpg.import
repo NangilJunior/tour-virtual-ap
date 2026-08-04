@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://donxj0lwgclcb"
 path.s3tc="res://.godot/imported/stone_facade_normal.jpg-a7ff955fa930110940f2fd92f03e6893.s3tc.ctex"
+path.etc2="res://.godot/imported/stone_facade_normal.jpg-a7ff955fa930110940f2fd92f03e6893.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/stone_facade/stone_facade_normal.jpg"
-dest_files=["res://.godot/imported/stone_facade_normal.jpg-a7ff955fa930110940f2fd92f03e6893.s3tc.ctex"]
+dest_files=["res://.godot/imported/stone_facade_normal.jpg-a7ff955fa930110940f2fd92f03e6893.s3tc.ctex", "res://.godot/imported/stone_facade_normal.jpg-a7ff955fa930110940f2fd92f03e6893.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2qhulunuyxd0"
 path.s3tc="res://.godot/imported/Jo-iPeony-and-Blush-Suede-4 copy.jpg-82715416ee9aed33aa743b53ea173962.s3tc.ctex"
+path.etc2="res://.godot/imported/Jo-iPeony-and-Blush-Suede-4 copy.jpg-82715416ee9aed33aa743b53ea173962.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Jo-iPeony-and-Blush-Suede-4 copy.jpg"
-dest_files=["res://.godot/imported/Jo-iPeony-and-Blush-Suede-4 copy.jpg-82715416ee9aed33aa743b53ea173962.s3tc.ctex"]
+dest_files=["res://.godot/imported/Jo-iPeony-and-Blush-Suede-4 copy.jpg-82715416ee9aed33aa743b53ea173962.s3tc.ctex", "res://.godot/imported/Jo-iPeony-and-Blush-Suede-4 copy.jpg-82715416ee9aed33aa743b53ea173962.etc2.ctex"]
 
 [params]
 

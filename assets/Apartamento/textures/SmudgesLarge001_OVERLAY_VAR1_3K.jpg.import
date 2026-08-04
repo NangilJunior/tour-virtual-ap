@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6cmgiiekue5e"
 path.s3tc="res://.godot/imported/SmudgesLarge001_OVERLAY_VAR1_3K.jpg-b227a9bcf61a8058160caeeaa5837aab.s3tc.ctex"
+path.etc2="res://.godot/imported/SmudgesLarge001_OVERLAY_VAR1_3K.jpg-b227a9bcf61a8058160caeeaa5837aab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/SmudgesLarge001_OVERLAY_VAR1_3K.jpg"
-dest_files=["res://.godot/imported/SmudgesLarge001_OVERLAY_VAR1_3K.jpg-b227a9bcf61a8058160caeeaa5837aab.s3tc.ctex"]
+dest_files=["res://.godot/imported/SmudgesLarge001_OVERLAY_VAR1_3K.jpg-b227a9bcf61a8058160caeeaa5837aab.s3tc.ctex", "res://.godot/imported/SmudgesLarge001_OVERLAY_VAR1_3K.jpg-b227a9bcf61a8058160caeeaa5837aab.etc2.ctex"]
 
 [params]
 

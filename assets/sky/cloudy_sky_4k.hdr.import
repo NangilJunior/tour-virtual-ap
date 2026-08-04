@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2ptesw0dryb2"
 path.bptc="res://.godot/imported/cloudy_sky_4k.hdr-2722f3163f2cf352bb02b3ebd8991771.bptc.ctex"
+path.astc="res://.godot/imported/cloudy_sky_4k.hdr-2722f3163f2cf352bb02b3ebd8991771.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sky/cloudy_sky_4k.hdr"
-dest_files=["res://.godot/imported/cloudy_sky_4k.hdr-2722f3163f2cf352bb02b3ebd8991771.bptc.ctex"]
+dest_files=["res://.godot/imported/cloudy_sky_4k.hdr-2722f3163f2cf352bb02b3ebd8991771.bptc.ctex", "res://.godot/imported/cloudy_sky_4k.hdr-2722f3163f2cf352bb02b3ebd8991771.astc.ctex"]
 
 [params]
 

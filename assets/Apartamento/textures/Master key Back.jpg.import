@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwuekuvh6qiob"
 path.s3tc="res://.godot/imported/Master key Back.jpg-cf86648ca861a8da4179b429b9206e3d.s3tc.ctex"
+path.etc2="res://.godot/imported/Master key Back.jpg-cf86648ca861a8da4179b429b9206e3d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Master key Back.jpg"
-dest_files=["res://.godot/imported/Master key Back.jpg-cf86648ca861a8da4179b429b9206e3d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Master key Back.jpg-cf86648ca861a8da4179b429b9206e3d.s3tc.ctex", "res://.godot/imported/Master key Back.jpg-cf86648ca861a8da4179b429b9206e3d.etc2.ctex"]
 
 [params]
 

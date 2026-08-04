@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://daqf17oypy1ls"
 path.s3tc="res://.godot/imported/grafite guararapes.jpg-6e8fc13a774459d05fa3a3a02b5bed20.s3tc.ctex"
+path.etc2="res://.godot/imported/grafite guararapes.jpg-6e8fc13a774459d05fa3a3a02b5bed20.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/grafite guararapes.jpg"
-dest_files=["res://.godot/imported/grafite guararapes.jpg-6e8fc13a774459d05fa3a3a02b5bed20.s3tc.ctex"]
+dest_files=["res://.godot/imported/grafite guararapes.jpg-6e8fc13a774459d05fa3a3a02b5bed20.s3tc.ctex", "res://.godot/imported/grafite guararapes.jpg-6e8fc13a774459d05fa3a3a02b5bed20.etc2.ctex"]
 
 [params]
 

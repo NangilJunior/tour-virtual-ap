@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6t8uxwnbmxdm"
 path.s3tc="res://.godot/imported/BRANCO TXT.jpg-ae19efb8904fb5f783892595732988ea.s3tc.ctex"
+path.etc2="res://.godot/imported/BRANCO TXT.jpg-ae19efb8904fb5f783892595732988ea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/BRANCO TXT.jpg"
-dest_files=["res://.godot/imported/BRANCO TXT.jpg-ae19efb8904fb5f783892595732988ea.s3tc.ctex"]
+dest_files=["res://.godot/imported/BRANCO TXT.jpg-ae19efb8904fb5f783892595732988ea.s3tc.ctex", "res://.godot/imported/BRANCO TXT.jpg-ae19efb8904fb5f783892595732988ea.etc2.ctex"]
 
 [params]
 

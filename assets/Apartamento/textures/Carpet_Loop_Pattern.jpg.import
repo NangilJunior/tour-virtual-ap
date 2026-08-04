@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://clik4v52g5vjn"
 path.s3tc="res://.godot/imported/Carpet_Loop_Pattern.jpg-5db52cb3ed8e263a7a3437885078b8f0.s3tc.ctex"
+path.etc2="res://.godot/imported/Carpet_Loop_Pattern.jpg-5db52cb3ed8e263a7a3437885078b8f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Carpet_Loop_Pattern.jpg"
-dest_files=["res://.godot/imported/Carpet_Loop_Pattern.jpg-5db52cb3ed8e263a7a3437885078b8f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/Carpet_Loop_Pattern.jpg-5db52cb3ed8e263a7a3437885078b8f0.s3tc.ctex", "res://.godot/imported/Carpet_Loop_Pattern.jpg-5db52cb3ed8e263a7a3437885078b8f0.etc2.ctex"]
 
 [params]
 

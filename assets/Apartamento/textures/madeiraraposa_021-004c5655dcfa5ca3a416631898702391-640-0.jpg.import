@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1i45asibssjw"
 path.s3tc="res://.godot/imported/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg-21466d4a214000f5b9c33c5bd29eba9b.s3tc.ctex"
+path.etc2="res://.godot/imported/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg-21466d4a214000f5b9c33c5bd29eba9b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg"
-dest_files=["res://.godot/imported/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg-21466d4a214000f5b9c33c5bd29eba9b.s3tc.ctex"]
+dest_files=["res://.godot/imported/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg-21466d4a214000f5b9c33c5bd29eba9b.s3tc.ctex", "res://.godot/imported/madeiraraposa_021-004c5655dcfa5ca3a416631898702391-640-0.jpg-21466d4a214000f5b9c33c5bd29eba9b.etc2.ctex"]
 
 [params]
 

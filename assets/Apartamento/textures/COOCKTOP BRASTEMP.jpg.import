@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4hrl2vxd3w7f"
 path.s3tc="res://.godot/imported/COOCKTOP BRASTEMP.jpg-e44e2f79cbe3c51200ede4fee63d1ddf.s3tc.ctex"
+path.etc2="res://.godot/imported/COOCKTOP BRASTEMP.jpg-e44e2f79cbe3c51200ede4fee63d1ddf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/COOCKTOP BRASTEMP.jpg"
-dest_files=["res://.godot/imported/COOCKTOP BRASTEMP.jpg-e44e2f79cbe3c51200ede4fee63d1ddf.s3tc.ctex"]
+dest_files=["res://.godot/imported/COOCKTOP BRASTEMP.jpg-e44e2f79cbe3c51200ede4fee63d1ddf.s3tc.ctex", "res://.godot/imported/COOCKTOP BRASTEMP.jpg-e44e2f79cbe3c51200ede4fee63d1ddf.etc2.ctex"]
 
 [params]
 

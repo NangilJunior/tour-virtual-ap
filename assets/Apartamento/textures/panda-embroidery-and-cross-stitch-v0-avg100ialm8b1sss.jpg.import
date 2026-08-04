@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gejhnmbl2nk7"
 path.s3tc="res://.godot/imported/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg-172ffbd9679b2c80d30bf1b44498246a.s3tc.ctex"
+path.etc2="res://.godot/imported/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg-172ffbd9679b2c80d30bf1b44498246a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg"
-dest_files=["res://.godot/imported/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg-172ffbd9679b2c80d30bf1b44498246a.s3tc.ctex"]
+dest_files=["res://.godot/imported/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg-172ffbd9679b2c80d30bf1b44498246a.s3tc.ctex", "res://.godot/imported/panda-embroidery-and-cross-stitch-v0-avg100ialm8b1sss.jpg-172ffbd9679b2c80d30bf1b44498246a.etc2.ctex"]
 
 [params]
 

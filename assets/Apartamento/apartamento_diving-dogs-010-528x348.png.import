@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c76uqny804ujy"
 path.s3tc="res://.godot/imported/apartamento_diving-dogs-010-528x348.png-75a150c0037ff51c1fdd763019792787.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_diving-dogs-010-528x348.png-75a150c0037ff51c1fdd763019792787.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_diving-dogs-010-528x348.png"
-dest_files=["res://.godot/imported/apartamento_diving-dogs-010-528x348.png-75a150c0037ff51c1fdd763019792787.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_diving-dogs-010-528x348.png-75a150c0037ff51c1fdd763019792787.s3tc.ctex", "res://.godot/imported/apartamento_diving-dogs-010-528x348.png-75a150c0037ff51c1fdd763019792787.etc2.ctex"]
 
 [params]
 

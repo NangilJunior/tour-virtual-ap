@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk37h8ymhljbe"
 path.s3tc="res://.godot/imported/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg-c927fc290ee3269417b0ffde2e7818dd.s3tc.ctex"
+path.etc2="res://.godot/imported/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg-c927fc290ee3269417b0ffde2e7818dd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg"
-dest_files=["res://.godot/imported/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg-c927fc290ee3269417b0ffde2e7818dd.s3tc.ctex"]
+dest_files=["res://.godot/imported/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg-c927fc290ee3269417b0ffde2e7818dd.s3tc.ctex", "res://.godot/imported/ad_cadeira_eames_eiffel_infantil_madeira_diffuse.jpg-c927fc290ee3269417b0ffde2e7818dd.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcdte8wpx6kfh"
 path.s3tc="res://.godot/imported/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg-9e06546906885898754045feddc26aee.s3tc.ctex"
+path.etc2="res://.godot/imported/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg-9e06546906885898754045feddc26aee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg"
-dest_files=["res://.godot/imported/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg-9e06546906885898754045feddc26aee.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg-9e06546906885898754045feddc26aee.s3tc.ctex", "res://.godot/imported/Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.jpg-9e06546906885898754045feddc26aee.etc2.ctex"]
 
 [params]
 

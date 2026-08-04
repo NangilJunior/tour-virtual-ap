@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqxhw7hkhhvqp"
 path.s3tc="res://.godot/imported/wood_albedo.png-88683c5ad54f979d45933f343e913e08.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_albedo.png-88683c5ad54f979d45933f343e913e08.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/darkWood/wood_albedo.png"
-dest_files=["res://.godot/imported/wood_albedo.png-88683c5ad54f979d45933f343e913e08.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood_albedo.png-88683c5ad54f979d45933f343e913e08.s3tc.ctex", "res://.godot/imported/wood_albedo.png-88683c5ad54f979d45933f343e913e08.etc2.ctex"]
 
 [params]
 

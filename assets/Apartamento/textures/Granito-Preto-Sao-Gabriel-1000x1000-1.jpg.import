@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brhee32j06tpu"
 path.s3tc="res://.godot/imported/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg-a6b5b21c9e2c78892af9c6c64e87b7cf.s3tc.ctex"
+path.etc2="res://.godot/imported/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg-a6b5b21c9e2c78892af9c6c64e87b7cf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg"
-dest_files=["res://.godot/imported/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg-a6b5b21c9e2c78892af9c6c64e87b7cf.s3tc.ctex"]
+dest_files=["res://.godot/imported/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg-a6b5b21c9e2c78892af9c6c64e87b7cf.s3tc.ctex", "res://.godot/imported/Granito-Preto-Sao-Gabriel-1000x1000-1.jpg-a6b5b21c9e2c78892af9c6c64e87b7cf.etc2.ctex"]
 
 [params]
 

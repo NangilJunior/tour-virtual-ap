@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv2uwfqx0w2up"
 path.s3tc="res://.godot/imported/Linha-Nativa_Manaus.jpg-fe8d3ebce4c4f60b28f548c023ff534e.s3tc.ctex"
+path.etc2="res://.godot/imported/Linha-Nativa_Manaus.jpg-fe8d3ebce4c4f60b28f548c023ff534e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Linha-Nativa_Manaus.jpg"
-dest_files=["res://.godot/imported/Linha-Nativa_Manaus.jpg-fe8d3ebce4c4f60b28f548c023ff534e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Linha-Nativa_Manaus.jpg-fe8d3ebce4c4f60b28f548c023ff534e.s3tc.ctex", "res://.godot/imported/Linha-Nativa_Manaus.jpg-fe8d3ebce4c4f60b28f548c023ff534e.etc2.ctex"]
 
 [params]
 

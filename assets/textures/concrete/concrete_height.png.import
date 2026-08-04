@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8ks8r5v21pq4"
 path.s3tc="res://.godot/imported/concrete_height.png-0d1f8f4de652f47b962dd2450cf796ae.s3tc.ctex"
+path.etc2="res://.godot/imported/concrete_height.png-0d1f8f4de652f47b962dd2450cf796ae.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/concrete/concrete_height.png"
-dest_files=["res://.godot/imported/concrete_height.png-0d1f8f4de652f47b962dd2450cf796ae.s3tc.ctex"]
+dest_files=["res://.godot/imported/concrete_height.png-0d1f8f4de652f47b962dd2450cf796ae.s3tc.ctex", "res://.godot/imported/concrete_height.png-0d1f8f4de652f47b962dd2450cf796ae.etc2.ctex"]
 
 [params]
 

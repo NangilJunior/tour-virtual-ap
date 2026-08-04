@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g0j4o7ur5xbm"
 path.s3tc="res://.godot/imported/Ceusa-Confete-WH.jpg-54bdd0f402581115bd8bc0c8bea4fad3.s3tc.ctex"
+path.etc2="res://.godot/imported/Ceusa-Confete-WH.jpg-54bdd0f402581115bd8bc0c8bea4fad3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Ceusa-Confete-WH.jpg"
-dest_files=["res://.godot/imported/Ceusa-Confete-WH.jpg-54bdd0f402581115bd8bc0c8bea4fad3.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ceusa-Confete-WH.jpg-54bdd0f402581115bd8bc0c8bea4fad3.s3tc.ctex", "res://.godot/imported/Ceusa-Confete-WH.jpg-54bdd0f402581115bd8bc0c8bea4fad3.etc2.ctex"]
 
 [params]
 

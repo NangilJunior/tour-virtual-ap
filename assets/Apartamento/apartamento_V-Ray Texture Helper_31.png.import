@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpni0vnnk8gt6"
 path.s3tc="res://.godot/imported/apartamento_V-Ray Texture Helper_31.png-3089fef8c1e917bed673c6a767dde1ab.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_V-Ray Texture Helper_31.png-3089fef8c1e917bed673c6a767dde1ab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_V-Ray Texture Helper_31.png"
-dest_files=["res://.godot/imported/apartamento_V-Ray Texture Helper_31.png-3089fef8c1e917bed673c6a767dde1ab.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_V-Ray Texture Helper_31.png-3089fef8c1e917bed673c6a767dde1ab.s3tc.ctex", "res://.godot/imported/apartamento_V-Ray Texture Helper_31.png-3089fef8c1e917bed673c6a767dde1ab.etc2.ctex"]
 
 [params]
 

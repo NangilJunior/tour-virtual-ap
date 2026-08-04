@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0nlqxopmh3gj"
 path.s3tc="res://.godot/imported/branch_diffuse.jpg-7c18f43f7995cd0033252764308ba251.s3tc.ctex"
+path.etc2="res://.godot/imported/branch_diffuse.jpg-7c18f43f7995cd0033252764308ba251.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/branch_diffuse.jpg"
-dest_files=["res://.godot/imported/branch_diffuse.jpg-7c18f43f7995cd0033252764308ba251.s3tc.ctex"]
+dest_files=["res://.godot/imported/branch_diffuse.jpg-7c18f43f7995cd0033252764308ba251.s3tc.ctex", "res://.godot/imported/branch_diffuse.jpg-7c18f43f7995cd0033252764308ba251.etc2.ctex"]
 
 [params]
 

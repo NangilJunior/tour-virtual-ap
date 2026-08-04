@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhqqp5nwrne7h"
 path.s3tc="res://.godot/imported/handle_bump.JPG-162cb12a9b2a7b65f47a63fa698dc6d1.s3tc.ctex"
+path.etc2="res://.godot/imported/handle_bump.JPG-162cb12a9b2a7b65f47a63fa698dc6d1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/handle_bump.JPG"
-dest_files=["res://.godot/imported/handle_bump.JPG-162cb12a9b2a7b65f47a63fa698dc6d1.s3tc.ctex"]
+dest_files=["res://.godot/imported/handle_bump.JPG-162cb12a9b2a7b65f47a63fa698dc6d1.s3tc.ctex", "res://.godot/imported/handle_bump.JPG-162cb12a9b2a7b65f47a63fa698dc6d1.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://btv8h2jot6dvd"
 path.s3tc="res://.godot/imported/carvalho_europeu2.jpg-a54ebf96021be75995bb30f06c77fce2.s3tc.ctex"
+path.etc2="res://.godot/imported/carvalho_europeu2.jpg-a54ebf96021be75995bb30f06c77fce2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/carvalho_europeu2.jpg"
-dest_files=["res://.godot/imported/carvalho_europeu2.jpg-a54ebf96021be75995bb30f06c77fce2.s3tc.ctex"]
+dest_files=["res://.godot/imported/carvalho_europeu2.jpg-a54ebf96021be75995bb30f06c77fce2.s3tc.ctex", "res://.godot/imported/carvalho_europeu2.jpg-a54ebf96021be75995bb30f06c77fce2.etc2.ctex"]
 
 [params]
 

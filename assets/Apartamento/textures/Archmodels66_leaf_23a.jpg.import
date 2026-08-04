@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d8nobe0rr1ip"
 path.s3tc="res://.godot/imported/Archmodels66_leaf_23a.jpg-bdcc56bf12f1637c5e1b31385d1ee45f.s3tc.ctex"
+path.etc2="res://.godot/imported/Archmodels66_leaf_23a.jpg-bdcc56bf12f1637c5e1b31385d1ee45f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Archmodels66_leaf_23a.jpg"
-dest_files=["res://.godot/imported/Archmodels66_leaf_23a.jpg-bdcc56bf12f1637c5e1b31385d1ee45f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Archmodels66_leaf_23a.jpg-bdcc56bf12f1637c5e1b31385d1ee45f.s3tc.ctex", "res://.godot/imported/Archmodels66_leaf_23a.jpg-bdcc56bf12f1637c5e1b31385d1ee45f.etc2.ctex"]
 
 [params]
 

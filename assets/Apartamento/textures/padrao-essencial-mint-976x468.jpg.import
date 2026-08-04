@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jqfjj11jk6yh"
 path.s3tc="res://.godot/imported/padrao-essencial-mint-976x468.jpg-1f2647cc76033a60c97758ace97f0182.s3tc.ctex"
+path.etc2="res://.godot/imported/padrao-essencial-mint-976x468.jpg-1f2647cc76033a60c97758ace97f0182.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/padrao-essencial-mint-976x468.jpg"
-dest_files=["res://.godot/imported/padrao-essencial-mint-976x468.jpg-1f2647cc76033a60c97758ace97f0182.s3tc.ctex"]
+dest_files=["res://.godot/imported/padrao-essencial-mint-976x468.jpg-1f2647cc76033a60c97758ace97f0182.s3tc.ctex", "res://.godot/imported/padrao-essencial-mint-976x468.jpg-1f2647cc76033a60c97758ace97f0182.etc2.ctex"]
 
 [params]
 

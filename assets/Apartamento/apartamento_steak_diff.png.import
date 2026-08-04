@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctykwb14n82ao"
 path.s3tc="res://.godot/imported/apartamento_steak_diff.png-e419c4eeff68eb08f9189bd3f19ddae8.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_steak_diff.png-e419c4eeff68eb08f9189bd3f19ddae8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_steak_diff.png"
-dest_files=["res://.godot/imported/apartamento_steak_diff.png-e419c4eeff68eb08f9189bd3f19ddae8.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_steak_diff.png-e419c4eeff68eb08f9189bd3f19ddae8.s3tc.ctex", "res://.godot/imported/apartamento_steak_diff.png-e419c4eeff68eb08f9189bd3f19ddae8.etc2.ctex"]
 
 [params]
 

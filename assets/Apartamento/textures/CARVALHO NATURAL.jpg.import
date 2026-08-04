@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brj6j6rcx2o37"
 path.s3tc="res://.godot/imported/CARVALHO NATURAL.jpg-5bb6c38c5ece79d2601cf6c1fc02db5a.s3tc.ctex"
+path.etc2="res://.godot/imported/CARVALHO NATURAL.jpg-5bb6c38c5ece79d2601cf6c1fc02db5a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/CARVALHO NATURAL.jpg"
-dest_files=["res://.godot/imported/CARVALHO NATURAL.jpg-5bb6c38c5ece79d2601cf6c1fc02db5a.s3tc.ctex"]
+dest_files=["res://.godot/imported/CARVALHO NATURAL.jpg-5bb6c38c5ece79d2601cf6c1fc02db5a.s3tc.ctex", "res://.godot/imported/CARVALHO NATURAL.jpg-5bb6c38c5ece79d2601cf6c1fc02db5a.etc2.ctex"]
 
 [params]
 

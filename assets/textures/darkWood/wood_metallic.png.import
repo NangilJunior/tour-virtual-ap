@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8cnia2aaqxti"
 path.s3tc="res://.godot/imported/wood_metallic.png-010de763ba84ef83f77ec7c4b0e33889.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_metallic.png-010de763ba84ef83f77ec7c4b0e33889.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/darkWood/wood_metallic.png"
-dest_files=["res://.godot/imported/wood_metallic.png-010de763ba84ef83f77ec7c4b0e33889.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood_metallic.png-010de763ba84ef83f77ec7c4b0e33889.s3tc.ctex", "res://.godot/imported/wood_metallic.png-010de763ba84ef83f77ec7c4b0e33889.etc2.ctex"]
 
 [params]
 

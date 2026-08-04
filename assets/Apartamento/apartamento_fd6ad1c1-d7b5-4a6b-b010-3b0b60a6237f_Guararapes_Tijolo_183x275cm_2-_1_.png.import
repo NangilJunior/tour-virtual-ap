@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2doftxshpfyi"
 path.s3tc="res://.godot/imported/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png-4ff98733a208308e081d9923e8d3f71d.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png-4ff98733a208308e081d9923e8d3f71d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png"
-dest_files=["res://.godot/imported/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png-4ff98733a208308e081d9923e8d3f71d.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png-4ff98733a208308e081d9923e8d3f71d.s3tc.ctex", "res://.godot/imported/apartamento_fd6ad1c1-d7b5-4a6b-b010-3b0b60a6237f_Guararapes_Tijolo_183x275cm_2-_1_.png-4ff98733a208308e081d9923e8d3f71d.etc2.ctex"]
 
 [params]
 

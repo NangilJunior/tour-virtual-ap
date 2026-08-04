@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8654ktof1bma"
 path.s3tc="res://.godot/imported/towel_D.jpg-2e9c1aaf48605bc31151afd2d18b0d65.s3tc.ctex"
+path.etc2="res://.godot/imported/towel_D.jpg-2e9c1aaf48605bc31151afd2d18b0d65.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/towel_D.jpg"
-dest_files=["res://.godot/imported/towel_D.jpg-2e9c1aaf48605bc31151afd2d18b0d65.s3tc.ctex"]
+dest_files=["res://.godot/imported/towel_D.jpg-2e9c1aaf48605bc31151afd2d18b0d65.s3tc.ctex", "res://.godot/imported/towel_D.jpg-2e9c1aaf48605bc31151afd2d18b0d65.etc2.ctex"]
 
 [params]
 

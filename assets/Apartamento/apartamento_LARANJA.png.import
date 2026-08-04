@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsfoaw5edobqg"
 path.s3tc="res://.godot/imported/apartamento_LARANJA.png-64dfc4f589219ee5d4bb21fe12729785.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_LARANJA.png-64dfc4f589219ee5d4bb21fe12729785.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_LARANJA.png"
-dest_files=["res://.godot/imported/apartamento_LARANJA.png-64dfc4f589219ee5d4bb21fe12729785.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_LARANJA.png-64dfc4f589219ee5d4bb21fe12729785.s3tc.ctex", "res://.godot/imported/apartamento_LARANJA.png-64dfc4f589219ee5d4bb21fe12729785.etc2.ctex"]
 
 [params]
 

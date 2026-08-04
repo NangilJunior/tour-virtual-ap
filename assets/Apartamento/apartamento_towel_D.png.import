@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciqynlrgcy4wt"
 path.s3tc="res://.godot/imported/apartamento_towel_D.png-594d523a2a7679d0b483fe9e29780b56.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_towel_D.png-594d523a2a7679d0b483fe9e29780b56.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_towel_D.png"
-dest_files=["res://.godot/imported/apartamento_towel_D.png-594d523a2a7679d0b483fe9e29780b56.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_towel_D.png-594d523a2a7679d0b483fe9e29780b56.s3tc.ctex", "res://.godot/imported/apartamento_towel_D.png-594d523a2a7679d0b483fe9e29780b56.etc2.ctex"]
 
 [params]
 

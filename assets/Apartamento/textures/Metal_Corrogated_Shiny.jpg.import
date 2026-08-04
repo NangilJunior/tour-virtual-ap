@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuqdacdcr7h3l"
 path.s3tc="res://.godot/imported/Metal_Corrogated_Shiny.jpg-c882643005257189e3b68cf3dc0a8375.s3tc.ctex"
+path.etc2="res://.godot/imported/Metal_Corrogated_Shiny.jpg-c882643005257189e3b68cf3dc0a8375.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Metal_Corrogated_Shiny.jpg"
-dest_files=["res://.godot/imported/Metal_Corrogated_Shiny.jpg-c882643005257189e3b68cf3dc0a8375.s3tc.ctex"]
+dest_files=["res://.godot/imported/Metal_Corrogated_Shiny.jpg-c882643005257189e3b68cf3dc0a8375.s3tc.ctex", "res://.godot/imported/Metal_Corrogated_Shiny.jpg-c882643005257189e3b68cf3dc0a8375.etc2.ctex"]
 
 [params]
 

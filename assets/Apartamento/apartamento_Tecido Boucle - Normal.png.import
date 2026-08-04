@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxnhpq30d2f50"
 path.s3tc="res://.godot/imported/apartamento_Tecido Boucle - Normal.png-62f6b6c50600974388ce3bf49d714dd1.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_Tecido Boucle - Normal.png-62f6b6c50600974388ce3bf49d714dd1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_Tecido Boucle - Normal.png"
-dest_files=["res://.godot/imported/apartamento_Tecido Boucle - Normal.png-62f6b6c50600974388ce3bf49d714dd1.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_Tecido Boucle - Normal.png-62f6b6c50600974388ce3bf49d714dd1.s3tc.ctex", "res://.godot/imported/apartamento_Tecido Boucle - Normal.png-62f6b6c50600974388ce3bf49d714dd1.etc2.ctex"]
 
 [params]
 

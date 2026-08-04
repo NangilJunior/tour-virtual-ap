@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://nt3biywwm8ya"
 path.s3tc="res://.godot/imported/apartamento_Metal_Corrogated_Shiny_98.png-f4be94f2c51b4a74779fd8a0e516dd3d.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_Metal_Corrogated_Shiny_98.png-f4be94f2c51b4a74779fd8a0e516dd3d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_Metal_Corrogated_Shiny_98.png"
-dest_files=["res://.godot/imported/apartamento_Metal_Corrogated_Shiny_98.png-f4be94f2c51b4a74779fd8a0e516dd3d.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_Metal_Corrogated_Shiny_98.png-f4be94f2c51b4a74779fd8a0e516dd3d.s3tc.ctex", "res://.godot/imported/apartamento_Metal_Corrogated_Shiny_98.png-f4be94f2c51b4a74779fd8a0e516dd3d.etc2.ctex"]
 
 [params]
 

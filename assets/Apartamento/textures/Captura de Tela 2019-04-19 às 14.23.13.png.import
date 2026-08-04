@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2fdpr6vof87f"
 path.s3tc="res://.godot/imported/Captura de Tela 2019-04-19 às 14.23.13.png-74196e73db4a678c56a332e4ad3c9402.s3tc.ctex"
+path.etc2="res://.godot/imported/Captura de Tela 2019-04-19 às 14.23.13.png-74196e73db4a678c56a332e4ad3c9402.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Captura de Tela 2019-04-19 às 14.23.13.png"
-dest_files=["res://.godot/imported/Captura de Tela 2019-04-19 às 14.23.13.png-74196e73db4a678c56a332e4ad3c9402.s3tc.ctex"]
+dest_files=["res://.godot/imported/Captura de Tela 2019-04-19 às 14.23.13.png-74196e73db4a678c56a332e4ad3c9402.s3tc.ctex", "res://.godot/imported/Captura de Tela 2019-04-19 às 14.23.13.png-74196e73db4a678c56a332e4ad3c9402.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgg2agpdchqdp"
 path.s3tc="res://.godot/imported/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg-a010625f6b8498076fe7a1c2e6fdd1dc.s3tc.ctex"
+path.etc2="res://.godot/imported/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg-a010625f6b8498076fe7a1c2e6fdd1dc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg"
-dest_files=["res://.godot/imported/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg-a010625f6b8498076fe7a1c2e6fdd1dc.s3tc.ctex"]
+dest_files=["res://.godot/imported/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg-a010625f6b8498076fe7a1c2e6fdd1dc.s3tc.ctex", "res://.godot/imported/depositphotos_56055573-stock-photo-texture-of-modern-wood-circle-gigapixel-scale-2_00x.jpg-a010625f6b8498076fe7a1c2e6fdd1dc.etc2.ctex"]
 
 [params]
 

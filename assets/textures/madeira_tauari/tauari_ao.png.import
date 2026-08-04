@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bigsogcleqvjb"
 path.s3tc="res://.godot/imported/tauari_ao.png-35783d6802819fe0276c899fd4043b26.s3tc.ctex"
+path.etc2="res://.godot/imported/tauari_ao.png-35783d6802819fe0276c899fd4043b26.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/madeira_tauari/tauari_ao.png"
-dest_files=["res://.godot/imported/tauari_ao.png-35783d6802819fe0276c899fd4043b26.s3tc.ctex"]
+dest_files=["res://.godot/imported/tauari_ao.png-35783d6802819fe0276c899fd4043b26.s3tc.ctex", "res://.godot/imported/tauari_ao.png-35783d6802819fe0276c899fd4043b26.etc2.ctex"]
 
 [params]
 

@@ -1,5 +1,9 @@
-extends "res://scenes/main.gd"
+extends CenaPrincipal
 ## Gera colisão estática para o modelo do apartamento na carga da cena.
+##
+## Herda pelo nome global da classe (class_name em main.gd), e não pelo
+## caminho do arquivo: no projeto exportado os scripts viram .gdc com remap, e
+## o extends por caminho não resolve — a cena inteira ficava sem script.
 ##
 ## O .blend importado tem milhares de meshes sem colisão; aqui cada
 ## MeshInstance3D grande o suficiente ganha um StaticBody3D trimesh via
@@ -39,6 +43,13 @@ var _lm_data: LightmapGIData
 
 
 func _ready() -> void:
+	# Antes do super(): no navegador a base já entra em modo desktop dentro do
+	# _ready dela, e o jogador precisa saber que existem controles de toque
+	# antes disso — senão tenta capturar o mouse, o que no celular não faz
+	# sentido e atrapalha os dedos.
+	var controles := _criar_controles_toque()
+	if controles != null:
+		($XRPlayer as CharacterBody3D).usar_controles_toque(controles)
 	super()
 	# Desliga a troca de LOD das meshes: em VR o pulo de nível de detalhe ao
 	# mover a cabeça aparece como "flick" na cena inteira (e cada olho pode
@@ -57,6 +68,24 @@ func _ready() -> void:
 	portas.name = "PortasInterativas"
 	add_child(portas)
 	portas.configurar(modelo, $XRPlayer)
+	if controles != null:
+		portas.usar_controles_toque(controles)
+
+
+## Cria o analógico virtual e o botão de abrir quando o tour roda no
+## navegador de um aparelho com tela de toque. No PC (nativo ou navegador) não
+## aparecem: lá o teclado, o mouse e o controle já dão conta. O argumento
+## --toque força os controles para testar sem um celular na mão.
+func _criar_controles_toque() -> CanvasLayer:
+	var forcado := "--toque" in OS.get_cmdline_args() \
+			or "--toque" in OS.get_cmdline_user_args()
+	if not forcado and not (OS.has_feature("web") and DisplayServer.is_touchscreen_available()):
+		return null
+	var controles := preload("res://player/controles_toque.gd").new() as CanvasLayer
+	controles.name = "ControlesToque"
+	add_child(controles)
+	print("Controles de toque ativos (analógico virtual + botão Abrir).")
+	return controles
 
 
 func _unhandled_input(event: InputEvent) -> void:

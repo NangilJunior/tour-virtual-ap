@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be6u4bhlbuu1k"
 path.s3tc="res://.godot/imported/LARANJA.jpg-fe4d8aa8949f7a03696d08c6c3cc82fe.s3tc.ctex"
+path.etc2="res://.godot/imported/LARANJA.jpg-fe4d8aa8949f7a03696d08c6c3cc82fe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/LARANJA.jpg"
-dest_files=["res://.godot/imported/LARANJA.jpg-fe4d8aa8949f7a03696d08c6c3cc82fe.s3tc.ctex"]
+dest_files=["res://.godot/imported/LARANJA.jpg-fe4d8aa8949f7a03696d08c6c3cc82fe.s3tc.ctex", "res://.godot/imported/LARANJA.jpg-fe4d8aa8949f7a03696d08c6c3cc82fe.etc2.ctex"]
 
 [params]
 

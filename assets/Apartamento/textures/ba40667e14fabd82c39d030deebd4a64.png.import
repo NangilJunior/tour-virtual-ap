@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://buf3joaijcj26"
 path.s3tc="res://.godot/imported/ba40667e14fabd82c39d030deebd4a64.png-d32f82b54c75fcc22f4d86747087b869.s3tc.ctex"
+path.etc2="res://.godot/imported/ba40667e14fabd82c39d030deebd4a64.png-d32f82b54c75fcc22f4d86747087b869.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/ba40667e14fabd82c39d030deebd4a64.png"
-dest_files=["res://.godot/imported/ba40667e14fabd82c39d030deebd4a64.png-d32f82b54c75fcc22f4d86747087b869.s3tc.ctex"]
+dest_files=["res://.godot/imported/ba40667e14fabd82c39d030deebd4a64.png-d32f82b54c75fcc22f4d86747087b869.s3tc.ctex", "res://.godot/imported/ba40667e14fabd82c39d030deebd4a64.png-d32f82b54c75fcc22f4d86747087b869.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ursmcsyn7j8b"
 path.s3tc="res://.godot/imported/apartamento_CINZA-PURO-185x275--scaled.png-960c05dbee6f1d41715d3489e4fcfd04.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_CINZA-PURO-185x275--scaled.png-960c05dbee6f1d41715d3489e4fcfd04.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_CINZA-PURO-185x275--scaled.png"
-dest_files=["res://.godot/imported/apartamento_CINZA-PURO-185x275--scaled.png-960c05dbee6f1d41715d3489e4fcfd04.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_CINZA-PURO-185x275--scaled.png-960c05dbee6f1d41715d3489e4fcfd04.s3tc.ctex", "res://.godot/imported/apartamento_CINZA-PURO-185x275--scaled.png-960c05dbee6f1d41715d3489e4fcfd04.etc2.ctex"]
 
 [params]
 

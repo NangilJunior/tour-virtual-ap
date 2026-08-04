@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0v6hbtehrsur"
 path.s3tc="res://.godot/imported/cinza_cobalto_tx_5e67af837c.jpg-2c948e2805aef56aa48dfd7e7f822fe9.s3tc.ctex"
+path.etc2="res://.godot/imported/cinza_cobalto_tx_5e67af837c.jpg-2c948e2805aef56aa48dfd7e7f822fe9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/cinza_cobalto_tx_5e67af837c.jpg"
-dest_files=["res://.godot/imported/cinza_cobalto_tx_5e67af837c.jpg-2c948e2805aef56aa48dfd7e7f822fe9.s3tc.ctex"]
+dest_files=["res://.godot/imported/cinza_cobalto_tx_5e67af837c.jpg-2c948e2805aef56aa48dfd7e7f822fe9.s3tc.ctex", "res://.godot/imported/cinza_cobalto_tx_5e67af837c.jpg-2c948e2805aef56aa48dfd7e7f822fe9.etc2.ctex"]
 
 [params]
 

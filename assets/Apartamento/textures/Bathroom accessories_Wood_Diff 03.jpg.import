@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqb0800qayc8c"
 path.s3tc="res://.godot/imported/Bathroom accessories_Wood_Diff 03.jpg-dd1a252b116244a6984c6149320af762.s3tc.ctex"
+path.etc2="res://.godot/imported/Bathroom accessories_Wood_Diff 03.jpg-dd1a252b116244a6984c6149320af762.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Bathroom accessories_Wood_Diff 03.jpg"
-dest_files=["res://.godot/imported/Bathroom accessories_Wood_Diff 03.jpg-dd1a252b116244a6984c6149320af762.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bathroom accessories_Wood_Diff 03.jpg-dd1a252b116244a6984c6149320af762.s3tc.ctex", "res://.godot/imported/Bathroom accessories_Wood_Diff 03.jpg-dd1a252b116244a6984c6149320af762.etc2.ctex"]
 
 [params]
 

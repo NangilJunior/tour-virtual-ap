@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ced6eu0mhke7d"
 path.s3tc="res://.godot/imported/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png-fcc8d1b5a6320887047275ae6bd1c3e4.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png-fcc8d1b5a6320887047275ae6bd1c3e4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png"
-dest_files=["res://.godot/imported/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png-fcc8d1b5a6320887047275ae6bd1c3e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png-fcc8d1b5a6320887047275ae6bd1c3e4.s3tc.ctex", "res://.godot/imported/apartamento_Tecido Boucle Marrom Claro LIGHT BROWN BOUCLE UF995-05.png-fcc8d1b5a6320887047275ae6bd1c3e4.etc2.ctex"]
 
 [params]
 

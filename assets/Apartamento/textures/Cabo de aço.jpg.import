@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj37hd3h31o1m"
 path.s3tc="res://.godot/imported/Cabo de aço.jpg-cc755bc2bb1322b8678ee7d6d1143c8b.s3tc.ctex"
+path.etc2="res://.godot/imported/Cabo de aço.jpg-cc755bc2bb1322b8678ee7d6d1143c8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Cabo de aço.jpg"
-dest_files=["res://.godot/imported/Cabo de aço.jpg-cc755bc2bb1322b8678ee7d6d1143c8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cabo de aço.jpg-cc755bc2bb1322b8678ee7d6d1143c8b.s3tc.ctex", "res://.godot/imported/Cabo de aço.jpg-cc755bc2bb1322b8678ee7d6d1143c8b.etc2.ctex"]
 
 [params]
 

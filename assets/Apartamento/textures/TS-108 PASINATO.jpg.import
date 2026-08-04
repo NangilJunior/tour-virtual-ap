@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://01vjq187xifo"
 path.s3tc="res://.godot/imported/TS-108 PASINATO.jpg-2747f777a9638078e89320e89bf8fa0a.s3tc.ctex"
+path.etc2="res://.godot/imported/TS-108 PASINATO.jpg-2747f777a9638078e89320e89bf8fa0a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/TS-108 PASINATO.jpg"
-dest_files=["res://.godot/imported/TS-108 PASINATO.jpg-2747f777a9638078e89320e89bf8fa0a.s3tc.ctex"]
+dest_files=["res://.godot/imported/TS-108 PASINATO.jpg-2747f777a9638078e89320e89bf8fa0a.s3tc.ctex", "res://.godot/imported/TS-108 PASINATO.jpg-2747f777a9638078e89320e89bf8fa0a.etc2.ctex"]
 
 [params]
 

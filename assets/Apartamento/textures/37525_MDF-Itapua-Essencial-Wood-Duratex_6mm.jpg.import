@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfqfdibyhfopv"
 path.s3tc="res://.godot/imported/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg-21a4c9c0562d92fb4cfb70816bd83fef.s3tc.ctex"
+path.etc2="res://.godot/imported/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg-21a4c9c0562d92fb4cfb70816bd83fef.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg"
-dest_files=["res://.godot/imported/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg-21a4c9c0562d92fb4cfb70816bd83fef.s3tc.ctex"]
+dest_files=["res://.godot/imported/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg-21a4c9c0562d92fb4cfb70816bd83fef.s3tc.ctex", "res://.godot/imported/37525_MDF-Itapua-Essencial-Wood-Duratex_6mm.jpg-21a4c9c0562d92fb4cfb70816bd83fef.etc2.ctex"]
 
 [params]
 

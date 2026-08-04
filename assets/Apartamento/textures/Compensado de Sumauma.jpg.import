@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1np6hb0gs8cf"
 path.s3tc="res://.godot/imported/Compensado de Sumauma.jpg-5d93f01ebab1549adce1d40879757c2c.s3tc.ctex"
+path.etc2="res://.godot/imported/Compensado de Sumauma.jpg-5d93f01ebab1549adce1d40879757c2c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Compensado de Sumauma.jpg"
-dest_files=["res://.godot/imported/Compensado de Sumauma.jpg-5d93f01ebab1549adce1d40879757c2c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Compensado de Sumauma.jpg-5d93f01ebab1549adce1d40879757c2c.s3tc.ctex", "res://.godot/imported/Compensado de Sumauma.jpg-5d93f01ebab1549adce1d40879757c2c.etc2.ctex"]
 
 [params]
 

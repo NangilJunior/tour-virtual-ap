@@ -29,6 +29,7 @@ extends Node3D
 const ROTULO_VR := "Gatilho"
 const ROTULO_TECLADO := "E"
 const ROTULO_CONTROLE := "X"
+const ROTULO_TOQUE := "Abrir"
 
 ## Resolução do viewport onde a caixinha é desenhada. Bem maior que o tamanho
 ## em tela para o contorno e o texto ficarem nítidos de perto no headset.
@@ -116,7 +117,10 @@ func _montar_quad() -> void:
 ## _unhandled_input) para enxergar o evento mesmo quando outro nó o consome,
 ## e nunca marca o evento como tratado.
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey or event is InputEventMouseButton:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		# No celular a dica só lembra o nome do botão que está na tela.
+		_definir_rotulo(ROTULO_TOQUE)
+	elif event is InputEventKey or event is InputEventMouseButton:
 		_definir_rotulo(ROTULO_TECLADO)
 	elif event is InputEventJoypadButton:
 		_definir_rotulo(ROTULO_CONTROLE)

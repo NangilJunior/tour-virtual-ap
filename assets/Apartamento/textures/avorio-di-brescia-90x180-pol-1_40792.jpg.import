@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpmhjrydhp22v"
 path.s3tc="res://.godot/imported/avorio-di-brescia-90x180-pol-1_40792.jpg-c27ffdac4ea9642082a0f5be47bde1bf.s3tc.ctex"
+path.etc2="res://.godot/imported/avorio-di-brescia-90x180-pol-1_40792.jpg-c27ffdac4ea9642082a0f5be47bde1bf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/avorio-di-brescia-90x180-pol-1_40792.jpg"
-dest_files=["res://.godot/imported/avorio-di-brescia-90x180-pol-1_40792.jpg-c27ffdac4ea9642082a0f5be47bde1bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/avorio-di-brescia-90x180-pol-1_40792.jpg-c27ffdac4ea9642082a0f5be47bde1bf.s3tc.ctex", "res://.godot/imported/avorio-di-brescia-90x180-pol-1_40792.jpg-c27ffdac4ea9642082a0f5be47bde1bf.etc2.ctex"]
 
 [params]
 

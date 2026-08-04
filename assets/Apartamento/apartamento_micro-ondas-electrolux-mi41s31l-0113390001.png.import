@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g78pg3rtnp72"
 path.s3tc="res://.godot/imported/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png-894bcbc0165f77d254d81022ebe4489a.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png-894bcbc0165f77d254d81022ebe4489a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png"
-dest_files=["res://.godot/imported/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png-894bcbc0165f77d254d81022ebe4489a.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png-894bcbc0165f77d254d81022ebe4489a.s3tc.ctex", "res://.godot/imported/apartamento_micro-ondas-electrolux-mi41s31l-0113390001.png-894bcbc0165f77d254d81022ebe4489a.etc2.ctex"]
 
 [params]
 

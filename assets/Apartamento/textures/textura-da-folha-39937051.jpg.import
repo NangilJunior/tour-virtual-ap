@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://flopwdvxhyoa"
 path.s3tc="res://.godot/imported/textura-da-folha-39937051.jpg-3335b2743e386ec8cef5598404ad34ce.s3tc.ctex"
+path.etc2="res://.godot/imported/textura-da-folha-39937051.jpg-3335b2743e386ec8cef5598404ad34ce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/textura-da-folha-39937051.jpg"
-dest_files=["res://.godot/imported/textura-da-folha-39937051.jpg-3335b2743e386ec8cef5598404ad34ce.s3tc.ctex"]
+dest_files=["res://.godot/imported/textura-da-folha-39937051.jpg-3335b2743e386ec8cef5598404ad34ce.s3tc.ctex", "res://.godot/imported/textura-da-folha-39937051.jpg-3335b2743e386ec8cef5598404ad34ce.etc2.ctex"]
 
 [params]
 

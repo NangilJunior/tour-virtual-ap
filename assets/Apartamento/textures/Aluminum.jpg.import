@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3t0atptlkv2v"
 path.s3tc="res://.godot/imported/Aluminum.jpg-ed4829856a988bfa2d87888f9a3ce497.s3tc.ctex"
+path.etc2="res://.godot/imported/Aluminum.jpg-ed4829856a988bfa2d87888f9a3ce497.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Aluminum.jpg"
-dest_files=["res://.godot/imported/Aluminum.jpg-ed4829856a988bfa2d87888f9a3ce497.s3tc.ctex"]
+dest_files=["res://.godot/imported/Aluminum.jpg-ed4829856a988bfa2d87888f9a3ce497.s3tc.ctex", "res://.godot/imported/Aluminum.jpg-ed4829856a988bfa2d87888f9a3ce497.etc2.ctex"]
 
 [params]
 

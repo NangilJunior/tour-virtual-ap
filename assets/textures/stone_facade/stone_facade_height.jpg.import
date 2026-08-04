@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyfodini2fequ"
 path.s3tc="res://.godot/imported/stone_facade_height.jpg-6131d9b66e1fd5675849588458aaf0b3.s3tc.ctex"
+path.etc2="res://.godot/imported/stone_facade_height.jpg-6131d9b66e1fd5675849588458aaf0b3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/stone_facade/stone_facade_height.jpg"
-dest_files=["res://.godot/imported/stone_facade_height.jpg-6131d9b66e1fd5675849588458aaf0b3.s3tc.ctex"]
+dest_files=["res://.godot/imported/stone_facade_height.jpg-6131d9b66e1fd5675849588458aaf0b3.s3tc.ctex", "res://.godot/imported/stone_facade_height.jpg-6131d9b66e1fd5675849588458aaf0b3.etc2.ctex"]
 
 [params]
 

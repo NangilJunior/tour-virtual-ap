@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7sr0crgagdjg"
 path.s3tc="res://.godot/imported/Kudzu-Tile.jpg-eff7226dc109e2aa1e435d4f70ee625c.s3tc.ctex"
+path.etc2="res://.godot/imported/Kudzu-Tile.jpg-eff7226dc109e2aa1e435d4f70ee625c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Kudzu-Tile.jpg"
-dest_files=["res://.godot/imported/Kudzu-Tile.jpg-eff7226dc109e2aa1e435d4f70ee625c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Kudzu-Tile.jpg-eff7226dc109e2aa1e435d4f70ee625c.s3tc.ctex", "res://.godot/imported/Kudzu-Tile.jpg-eff7226dc109e2aa1e435d4f70ee625c.etc2.ctex"]
 
 [params]
 

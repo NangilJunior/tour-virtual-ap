@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlvqcxo17fl3e"
 path.s3tc="res://.godot/imported/lightwall_ao.png-8a40436eb991f1d341d69d47cca17032.s3tc.ctex"
+path.etc2="res://.godot/imported/lightwall_ao.png-8a40436eb991f1d341d69d47cca17032.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/lightWall/lightwall_ao.png"
-dest_files=["res://.godot/imported/lightwall_ao.png-8a40436eb991f1d341d69d47cca17032.s3tc.ctex"]
+dest_files=["res://.godot/imported/lightwall_ao.png-8a40436eb991f1d341d69d47cca17032.s3tc.ctex", "res://.godot/imported/lightwall_ao.png-8a40436eb991f1d341d69d47cca17032.etc2.ctex"]
 
 [params]
 

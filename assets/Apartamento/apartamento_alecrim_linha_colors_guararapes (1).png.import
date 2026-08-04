@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwos43ft2hpxr"
 path.s3tc="res://.godot/imported/apartamento_alecrim_linha_colors_guararapes (1).png-3f4a5df6085047704c39a984491735da.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_alecrim_linha_colors_guararapes (1).png-3f4a5df6085047704c39a984491735da.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_alecrim_linha_colors_guararapes (1).png"
-dest_files=["res://.godot/imported/apartamento_alecrim_linha_colors_guararapes (1).png-3f4a5df6085047704c39a984491735da.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_alecrim_linha_colors_guararapes (1).png-3f4a5df6085047704c39a984491735da.s3tc.ctex", "res://.godot/imported/apartamento_alecrim_linha_colors_guararapes (1).png-3f4a5df6085047704c39a984491735da.etc2.ctex"]
 
 [params]
 

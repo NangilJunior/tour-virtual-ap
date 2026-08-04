@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bocdmhm87lpth"
 path.s3tc="res://.godot/imported/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png-1b266a1a0bed41815852fc76478fed24.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png-1b266a1a0bed41815852fc76478fed24.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png"
-dest_files=["res://.godot/imported/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png-1b266a1a0bed41815852fc76478fed24.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png-1b266a1a0bed41815852fc76478fed24.s3tc.ctex", "res://.godot/imported/apartamento_quartzo-1141-Pure-White-Caesarstone (1).png-1b266a1a0bed41815852fc76478fed24.etc2.ctex"]
 
 [params]
 

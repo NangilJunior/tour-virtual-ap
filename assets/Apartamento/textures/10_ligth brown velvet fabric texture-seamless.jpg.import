@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://2376cptl6fk0"
 path.s3tc="res://.godot/imported/10_ligth brown velvet fabric texture-seamless.jpg-dfccc599d94c9142791cddc672082116.s3tc.ctex"
+path.etc2="res://.godot/imported/10_ligth brown velvet fabric texture-seamless.jpg-dfccc599d94c9142791cddc672082116.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/10_ligth brown velvet fabric texture-seamless.jpg"
-dest_files=["res://.godot/imported/10_ligth brown velvet fabric texture-seamless.jpg-dfccc599d94c9142791cddc672082116.s3tc.ctex"]
+dest_files=["res://.godot/imported/10_ligth brown velvet fabric texture-seamless.jpg-dfccc599d94c9142791cddc672082116.s3tc.ctex", "res://.godot/imported/10_ligth brown velvet fabric texture-seamless.jpg-dfccc599d94c9142791cddc672082116.etc2.ctex"]
 
 [params]
 

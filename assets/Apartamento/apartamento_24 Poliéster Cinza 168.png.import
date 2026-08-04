@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgugoo6nupgpi"
 path.s3tc="res://.godot/imported/apartamento_24 Poliéster Cinza 168.png-18a407a79c4792131e8897e5f7b3570e.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_24 Poliéster Cinza 168.png-18a407a79c4792131e8897e5f7b3570e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_24 Poliéster Cinza 168.png"
-dest_files=["res://.godot/imported/apartamento_24 Poliéster Cinza 168.png-18a407a79c4792131e8897e5f7b3570e.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_24 Poliéster Cinza 168.png-18a407a79c4792131e8897e5f7b3570e.s3tc.ctex", "res://.godot/imported/apartamento_24 Poliéster Cinza 168.png-18a407a79c4792131e8897e5f7b3570e.etc2.ctex"]
 
 [params]
 

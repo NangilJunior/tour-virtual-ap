@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://umfsil02f418"
 path.s3tc="res://.godot/imported/Bathroom Accessories_Lable_Diff 06.jpg-fc6bc31c4b91649fe918075d646a3572.s3tc.ctex"
+path.etc2="res://.godot/imported/Bathroom Accessories_Lable_Diff 06.jpg-fc6bc31c4b91649fe918075d646a3572.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/Bathroom Accessories_Lable_Diff 06.jpg"
-dest_files=["res://.godot/imported/Bathroom Accessories_Lable_Diff 06.jpg-fc6bc31c4b91649fe918075d646a3572.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bathroom Accessories_Lable_Diff 06.jpg-fc6bc31c4b91649fe918075d646a3572.s3tc.ctex", "res://.godot/imported/Bathroom Accessories_Lable_Diff 06.jpg-fc6bc31c4b91649fe918075d646a3572.etc2.ctex"]
 
 [params]
 

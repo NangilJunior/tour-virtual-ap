@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl7ddm486pf33"
 path.s3tc="res://.godot/imported/branco-com-branco-scaled-e1647259876397.JPG-9165258cb5d3b61a8eb904402cbab58b.s3tc.ctex"
+path.etc2="res://.godot/imported/branco-com-branco-scaled-e1647259876397.JPG-9165258cb5d3b61a8eb904402cbab58b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/branco-com-branco-scaled-e1647259876397.JPG"
-dest_files=["res://.godot/imported/branco-com-branco-scaled-e1647259876397.JPG-9165258cb5d3b61a8eb904402cbab58b.s3tc.ctex"]
+dest_files=["res://.godot/imported/branco-com-branco-scaled-e1647259876397.JPG-9165258cb5d3b61a8eb904402cbab58b.s3tc.ctex", "res://.godot/imported/branco-com-branco-scaled-e1647259876397.JPG-9165258cb5d3b61a8eb904402cbab58b.etc2.ctex"]
 
 [params]
 

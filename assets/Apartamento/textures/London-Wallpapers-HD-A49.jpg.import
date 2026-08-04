@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://khn6i8d1u6ih"
 path.s3tc="res://.godot/imported/London-Wallpapers-HD-A49.jpg-1c4caea0555ab2d3b990ee50dcb13ad6.s3tc.ctex"
+path.etc2="res://.godot/imported/London-Wallpapers-HD-A49.jpg-1c4caea0555ab2d3b990ee50dcb13ad6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/London-Wallpapers-HD-A49.jpg"
-dest_files=["res://.godot/imported/London-Wallpapers-HD-A49.jpg-1c4caea0555ab2d3b990ee50dcb13ad6.s3tc.ctex"]
+dest_files=["res://.godot/imported/London-Wallpapers-HD-A49.jpg-1c4caea0555ab2d3b990ee50dcb13ad6.s3tc.ctex", "res://.godot/imported/London-Wallpapers-HD-A49.jpg-1c4caea0555ab2d3b990ee50dcb13ad6.etc2.ctex"]
 
 [params]
 

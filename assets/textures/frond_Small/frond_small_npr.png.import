@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b50myhjeiggfe"
 path.s3tc="res://.godot/imported/frond_small_npr.png-691d8b8021f991015fc83816a0a37518.s3tc.ctex"
+path.etc2="res://.godot/imported/frond_small_npr.png-691d8b8021f991015fc83816a0a37518.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/frond_Small/frond_small_npr.png"
-dest_files=["res://.godot/imported/frond_small_npr.png-691d8b8021f991015fc83816a0a37518.s3tc.ctex"]
+dest_files=["res://.godot/imported/frond_small_npr.png-691d8b8021f991015fc83816a0a37518.s3tc.ctex", "res://.godot/imported/frond_small_npr.png-691d8b8021f991015fc83816a0a37518.etc2.ctex"]
 
 [params]
 

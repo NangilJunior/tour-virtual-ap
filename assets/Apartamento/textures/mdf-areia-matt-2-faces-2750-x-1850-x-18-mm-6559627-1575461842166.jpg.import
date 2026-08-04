@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1e41yynb1j7h"
 path.s3tc="res://.godot/imported/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg-5b8106673c947713b07a8c22abbe2063.s3tc.ctex"
+path.etc2="res://.godot/imported/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg-5b8106673c947713b07a8c22abbe2063.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Apartamento/textures/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg"
-dest_files=["res://.godot/imported/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg-5b8106673c947713b07a8c22abbe2063.s3tc.ctex"]
+dest_files=["res://.godot/imported/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg-5b8106673c947713b07a8c22abbe2063.s3tc.ctex", "res://.godot/imported/mdf-areia-matt-2-faces-2750-x-1850-x-18-mm-6559627-1575461842166.jpg-5b8106673c947713b07a8c22abbe2063.etc2.ctex"]
 
 [params]
 

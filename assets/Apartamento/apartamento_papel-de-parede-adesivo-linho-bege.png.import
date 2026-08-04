@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn722vnpmt08c"
 path.s3tc="res://.godot/imported/apartamento_papel-de-parede-adesivo-linho-bege.png-2c33574ad3600f0295fe79882bbee7d1.s3tc.ctex"
+path.etc2="res://.godot/imported/apartamento_papel-de-parede-adesivo-linho-bege.png-2c33574ad3600f0295fe79882bbee7d1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/Apartamento/apartamento_papel-de-parede-adesivo-linho-bege.png"
-dest_files=["res://.godot/imported/apartamento_papel-de-parede-adesivo-linho-bege.png-2c33574ad3600f0295fe79882bbee7d1.s3tc.ctex"]
+dest_files=["res://.godot/imported/apartamento_papel-de-parede-adesivo-linho-bege.png-2c33574ad3600f0295fe79882bbee7d1.s3tc.ctex", "res://.godot/imported/apartamento_papel-de-parede-adesivo-linho-bege.png-2c33574ad3600f0295fe79882bbee7d1.etc2.ctex"]
 
 [params]
 

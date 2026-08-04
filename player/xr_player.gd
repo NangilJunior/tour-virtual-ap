@@ -74,6 +74,9 @@ var _standing_capsule_height: float
 ## inclinação da câmera. O mouse/analógico mexe nestes; o giro real vai atrás.
 var _yaw_alvo: float = 0.0
 var _pitch_alvo: float = 0.0
+## Controles de toque (celular no navegador), quando existirem. Ver
+## [method usar_controles_toque].
+var _controles_toque: CanvasLayer
 ## true depois que configurar_modo() define VR ou desktop. Enquanto false, o
 ## jogador fica parado (congelado) — usado pra não mexer/capturar o mouse
 ## antes do usuário escolher o modo no menu inicial.
@@ -98,13 +101,23 @@ func configurar_modo(desktop: bool) -> void:
 	if _desktop_mode:
 		camera.position.y = desktop_eye_height
 		camera.current = true
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		# Com controles de toque não se captura o mouse: no celular não há
+		# ponteiro para prender, e o pointer lock atrapalharia os dedos.
+		if _controles_toque == null:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_yaw_alvo = rotation.y
 		_pitch_alvo = camera.rotation.x
 	else:
 		XRServer.world_scale = escala_mundo
 	_pronto = true
 	set_physics_process(true)
+
+
+## Liga o analógico virtual e o arraste de olhar do celular (ver
+## controles_toque.gd). Chamado por quem cria os controles, antes de
+## [method configurar_modo].
+func usar_controles_toque(controles: CanvasLayer) -> void:
+	_controles_toque = controles
 
 
 ## Botão A alterna agachado/sentado; botão B recalibra a altura dos olhos.
@@ -146,6 +159,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not _pronto or not _desktop_mode:
 		return
+	if _controles_toque != null:
+		var giro: Vector2 = _controles_toque.consumir_olhar()
+		if giro != Vector2.ZERO:
+			_yaw_alvo -= giro.x
+			_pitch_alvo = clampf(_pitch_alvo - giro.y, -PI / 2.0 + 0.01, PI / 2.0 - 0.01)
 	if suavidade_olhar <= 0.0:
 		rotation.y = _yaw_alvo
 		camera.rotation.x = _pitch_alvo
@@ -205,7 +223,11 @@ func _desktop_input() -> Vector2:
 	if gamepad.length() < dead_zone:
 		gamepad = Vector2.ZERO
 
-	return (keyboard + gamepad).limit_length(1.0)
+	var toque := Vector2.ZERO
+	if _controles_toque != null:
+		toque = _controles_toque.direcao()
+
+	return (keyboard + gamepad + toque).limit_length(1.0)
 
 
 ## Analógico direito (device 0) girando a visão no modo desktop, no mesmo
