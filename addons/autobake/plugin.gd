@@ -46,7 +46,10 @@ func _executar() -> void:
 	botao.pressed.emit()
 
 	# fim do bake = o arquivo .lmbake foi reescrito.
-	for i in 1200:
+	# Teto de 2h: com quality=2 + bounces=4 + supersampling + texel_scale=2 o
+	# bake passa fácil dos 20 min do teto antigo, e estourar aqui mata o editor
+	# no meio do bake (quit(3)) — melhor esperar demais do que perder o bake.
+	for i in 7200:
 		await get_tree().create_timer(1.0).timeout
 		if FileAccess.get_modified_time(caminho) > antes:
 			print("AUTOBAKE|bake concluido")

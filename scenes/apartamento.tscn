@@ -21,6 +21,7 @@ ambient_light_source = 3
 ambient_light_energy = 0.08
 reflected_light_source = 2
 tonemap_mode = 4
+tonemap_exposure = 0.75
 tonemap_white = 6.0
 ssao_enabled = true
 ssao_radius = 0.7
@@ -28,7 +29,7 @@ ssao_intensity = 1.8
 ssil_enabled = true
 ssil_radius = 2.5
 glow_enabled = true
-glow_intensity = 0.6
+glow_intensity = 0.3
 glow_strength = 1.1
 glow_bloom = 0.05
 adjustment_enabled = true
@@ -151,6 +152,9 @@ quality = 2
 supersampling = true
 bounces = 4
 bias = 0.003
+environment_mode = 2
+environment_custom_sky = SubResource("sky")
+environment_custom_energy = 0.5
 texel_scale = 2.0
 generate_probes_subdiv = 3
 light_data = ExtResource("5_lm")
@@ -160,6 +164,7 @@ light_data = ExtResource("5_lm")
 [node name="LuzSalaEstar" type="OmniLight3D" parent="Luzes" unique_id=311969565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.4, -4.5)
 light_color = Color(1, 0.87, 0.72, 1)
+light_energy = 0.75
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 6.0
@@ -167,6 +172,7 @@ omni_range = 6.0
 [node name="LuzSalaJantar" type="OmniLight3D" parent="Luzes" unique_id=1873540481]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8, 2.4, -2.4452777)
 light_color = Color(1, 0.87, 0.72, 1)
+light_energy = 0.75
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 6.0
@@ -174,93 +180,96 @@ omni_range = 6.0
 [node name="LuzCozinha" type="OmniLight3D" parent="Luzes" unique_id=1773671602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2.4, -2.5)
 light_color = Color(1, 0.9, 0.78, 1)
+light_energy = 0.75
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzOffice" type="OmniLight3D" parent="Luzes" unique_id=359488215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 2.4, -5.4)
 light_color = Color(1, 0.9, 0.78, 1)
+light_energy = 0.75
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzSuite" type="OmniLight3D" parent="Luzes" unique_id=525088116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 2.4, -6.4)
 light_color = Color(1, 0.85, 0.68, 1)
+light_energy = 0.75
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzSuite" type="OmniLight3D" parent="Luzes/LuzSuite" unique_id=319782313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6433929, -0.0021922588, 1.7693777)
 light_color = Color(1, 0.85, 0.68, 1)
-light_energy = 1.5
+light_energy = 1.125
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzEscritorio" type="OmniLight3D" parent="Luzes" unique_id=-1153374643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.9674096, -4.5)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.7
+light_energy = 0.525
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzCorredor2" type="OmniLight3D" parent="Luzes" unique_id=591322977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2771082, 1.351779, -2.981048)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.3
+light_energy = 0.225
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzCozinha2" type="OmniLight3D" parent="Luzes" unique_id=550526190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.436038, 1.351779, -3.4256487)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.4
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzAreaDeServico" type="OmniLight3D" parent="Luzes" unique_id=1509194157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.436038, 1.351779, -4.725577)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.4
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzEntrada" type="OmniLight3D" parent="Luzes" unique_id=1537286128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.436038, 1.351779, -0.5868715)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.4
+light_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzCorredor4" type="OmniLight3D" parent="Luzes" unique_id=1756389954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.207948, 1.9674096, -3.1481056)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.3
+light_energy = 0.225
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzQuartoCrianças2" type="OmniLight3D" parent="Luzes" unique_id=534936279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7616513, 2.0533116, -1.6078035)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.7
+light_energy = 0.525
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="LuzQuartoCriancas" type="OmniLight3D" parent="Luzes" unique_id=771204863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 2.35, -1.3)
 light_color = Color(1, 0.9, 0.78, 1)
-light_energy = 0.9
+light_energy = 0.675
 light_bake_mode = 1
 shadow_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Luzes" unique_id=1090911046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3148773, 1.2783064, -1.1357125)
 light_color = Color(0.98915726, 0.857429, 0.71524686, 1)
-light_energy = 0.1
+light_energy = 0.075
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Luzes" unique_id=1583378825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.809419, 1.2539239, -0.8566558)
 light_color = Color(0.99004537, 0.8682251, 0.73715824, 1)
-light_energy = 0.1
+light_energy = 0.075
 
 [node name="Modelo" parent="." unique_id=2009313348 instance=ExtResource("4_ap")]
 
