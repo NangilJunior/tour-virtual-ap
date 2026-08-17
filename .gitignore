@@ -1,3 +1,6 @@
 .godot/
 *.blend1
 *.bak
+
+# Materialize escreve .bmp e .png com o mesmo conteudo; so o .png entra.
+texturas_para_pbr/**/*.bmp
