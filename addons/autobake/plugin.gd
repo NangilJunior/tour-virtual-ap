@@ -14,16 +14,27 @@ func _executar() -> void:
 	var ei := get_editor_interface()
 	print("AUTOBAKE|abrindo cena")
 	ei.open_scene_from_path("res://scenes/apartamento.tscn")
-	await get_tree().create_timer(8.0).timeout
 
-	var raiz := ei.get_edited_scene_root()
-	if raiz == null:
-		printerr("AUTOBAKE|cena nao abriu")
-		get_tree().quit(2)
-		return
-	var lm: LightmapGI = raiz.get_node_or_null("LightmapGI")
+	# A cena passa de 100 MiB e o tempo de abertura varia demais pra uma espera
+	# fixa (8 s já falhou em 2026-08-19). Sonda até o LightmapGI existir.
+	var raiz: Node = null
+	var lm: LightmapGI = null
+	# O editor restaura a sessão depois do _enter_tree e sobrepõe a cena que
+	# pedimos (em 2026-08-19 caiu na splash.tscn), então reemitimos a abertura
+	# a cada 10 s até a apartamento.tscn virar a cena editada.
+	for i in 300:
+		await get_tree().create_timer(1.0).timeout
+		raiz = ei.get_edited_scene_root()
+		if raiz != null and raiz.name == "Apartamento":
+			lm = raiz.get_node_or_null("LightmapGI")
+			if lm != null:
+				print("AUTOBAKE|cena pronta em %ds" % (i + 1))
+				break
+		elif i % 10 == 9:
+			print("AUTOBAKE|reemitindo abertura (raiz=%s)" % (raiz.name if raiz else "<nula>"))
+			ei.open_scene_from_path("res://scenes/apartamento.tscn")
 	if lm == null:
-		printerr("AUTOBAKE|LightmapGI nao encontrado")
+		printerr("AUTOBAKE|LightmapGI nao encontrado (raiz=%s)" % (raiz.name if raiz else "<nula>"))
 		get_tree().quit(2)
 		return
 
