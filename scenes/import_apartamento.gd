@@ -31,6 +31,13 @@ const PORTAS_PREFIXO := "C-Porta-70#1_"
 const PORTAS_AVULSAS := ["portaQuarto", "portaGuarda"]
 const PORTAS_TEXEL_SCALE := 2.0
 
+## Meio-ângulo do cone dos spots embutidos do forro.
+## O Blender exporta esses spots com spot_size de 180°, que chega aqui como
+## spot_angle 90° — um hemisfério. Com a fonte a poucos milímetros abaixo do
+## forro, metade do cone bate no próprio teto a distância zero e a luminária
+## vira um borrão estourado. 45° devolve o facho de spot.
+const SPOT_ANGULO := 45.0
+
 
 func _post_import(cena: Node) -> Object:
 	_marcar(cena)
@@ -40,12 +47,39 @@ func _post_import(cena: Node) -> Object:
 func _marcar(no: Node) -> void:
 	for filho in no.get_children():
 		_marcar(filho)
+	var spot := no as SpotLight3D
+	if spot:
+		_consertar_spot(spot)
 	var mi := no as MeshInstance3D
 	if mi and mi.mesh:
 		mi.gi_mode = GeometryInstance3D.GI_MODE_STATIC if _tem_uv2(mi.mesh) else GeometryInstance3D.GI_MODE_DYNAMIC
 		if _e_folha_de_porta(mi.name):
 			mi.gi_lightmap_texel_scale = PORTAS_TEXEL_SCALE
 			print("porta com texel_scale %.1f: %s" % [PORTAS_TEXEL_SCALE, mi.name])
+
+
+## Cada luminária do forro traz DUAS luzes, e metade delas aponta pro teto: o
+## empty da luminária vem girado -180° em Y, então a luz de rotação local zero
+## acaba com o -Z (a direção que o SpotLight3D ilumina) virado pra cima.
+##
+## É feito aqui, no pós-import, e não no _ready da cena: assim a orientação
+## certa fica gravada na cena importada e aparece também nos gizmos do editor.
+## Como o teste é geométrico, spots novos que cheguem invertidos entram junto.
+func _consertar_spot(spot: SpotLight3D) -> void:
+	if spot.spot_angle > SPOT_ANGULO:
+		spot.spot_angle = SPOT_ANGULO
+	# global_transform não vale aqui: no pós-import o nó ainda não está na
+	# árvore. Acumula os pais até a raiz da cena importada. E o teste tem que
+	# ser no espaço do mundo mesmo: a luz invertida tem rotação LOCAL zero,
+	# quem a vira de cabeça pra baixo é o empty da luminária (-180° em Y).
+	var t := spot.transform
+	var pai := spot.get_parent()
+	while pai is Node3D:
+		t = (pai as Node3D).transform * t
+		pai = pai.get_parent()
+	if -t.basis.z.y > 0.0:
+		spot.rotate_object_local(Vector3.RIGHT, PI)
+		print("spot invertido corrigido: %s" % spot.name)
 
 
 func _e_folha_de_porta(nome: String) -> bool:

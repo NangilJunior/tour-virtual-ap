@@ -18,13 +18,6 @@ extends CenaPrincipal
 
 ## Só gera colisão se alguma dimensão do objeto for pelo menos isso (em metros).
 @export var dimensao_minima: float = 0.4
-## Meio-ângulo do cone dos spots embutidos do forro, em graus.
-## O Blender exporta esses spots com spot_size de 180°, que o Godot recebe como
-## spot_angle 90° — um hemisfério. Com a fonte a 4,7 mm abaixo do forro, metade
-## do cone bate no próprio teto a distância zero: a luminária vira um borrão
-## branco estourado e o glow espalha o halo. 45° devolve o facho de spot.
-@export var angulo_spots: float = 45.0
-
 ## Objetos cujo nome contém um destes termos ficam sem colisão.
 ## Portas entram por padrão: se alguma estiver modelada fechada, colisão
 ## nela trancaria o jogador no cômodo.
@@ -67,8 +60,6 @@ func _ready() -> void:
 	print("Colisão do apartamento: %d meshes em %d ms" % [total, Time.get_ticks_msec() - inicio])
 	var sem_sol := _tirar_sol(modelo)
 	print("Sem luz direta do sol: %d objetos" % sem_sol)
-	var spots := _fechar_cone_dos_spots(modelo)
-	print("Spots com cone corrigido: %d" % spots)
 	_lm_data = lightmap.light_data
 	var mao_esq: XRController3D = $XRPlayer/XROrigin3D/LeftHand
 	mao_esq.button_pressed.connect(_on_left_button)
@@ -129,26 +120,6 @@ func _tirar_sol(no: Node) -> int:
 		if "batente" in nome or "moldura" in nome or no.is_in_group(GRUPO_SEM_SOL):
 			no.layers = CAMADA_SEM_SOL
 			total += 1
-	return total
-
-
-## Conserta os spots embutidos: estreita o cone e vira pra baixo os que vieram
-## invertidos. Cada luminária do forro traz DUAS luzes e metade delas aponta
-## pro teto (o SpotLight3D emite no -Z local; essas vieram com o -Z pra cima),
-## o que lavava o forro em vez de iluminar o cômodo. São luzes DYNAMIC (ficam
-## fora do lightmap), então isto vale em tempo real e não exige rebake.
-func _fechar_cone_dos_spots(no: Node) -> int:
-	var total := 0
-	for filho in no.get_children():
-		total += _fechar_cone_dos_spots(filho)
-	var spot := no as SpotLight3D
-	if spot:
-		if spot.spot_angle > angulo_spots:
-			spot.spot_angle = angulo_spots
-		# -Z global apontando pra cima: gira 180° no eixo local X.
-		if -spot.global_transform.basis.z.y > 0.0:
-			spot.rotate_object_local(Vector3.RIGHT, PI)
-		total += 1
 	return total
 
 
