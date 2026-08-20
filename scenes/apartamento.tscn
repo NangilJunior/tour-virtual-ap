@@ -7,6 +7,12 @@
 [ext_resource type="Material" path="res://assets/materials/madeira_tauari_triplanar.tres" id="5_6ad5q"]
 [ext_resource type="LightmapGIData" uid="uid://b1m4cshvicyjg" path="res://scenes/apartamento.lmbake" id="5_lm"]
 
+[sub_resource type="Gradient" id="wb_grad"]
+colors = PackedColorArray(0, 0, 0, 1, 0.86, 0.94, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="wb"]
+gradient = SubResource("wb_grad")
+
 [sub_resource type="PanoramaSkyMaterial" id="sky_mat"]
 panorama = ExtResource("3_sky")
 
@@ -34,7 +40,7 @@ glow_strength = 1.1
 glow_bloom = 0.05
 adjustment_enabled = true
 adjustment_contrast = 1.1
-adjustment_saturation = 1.2
+adjustment_color_correction = SubResource("wb")
 
 [sub_resource type="CameraAttributesPractical" id="cam_attr"]
 dof_blur_far_distance = 9.0
