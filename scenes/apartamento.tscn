@@ -273,115 +273,112 @@ light_energy = 0.075
 
 [node name="Modelo" parent="." unique_id=2009313348 instance=ExtResource("4_ap")]
 
-[node name="G-Object_137" parent="Modelo" index="14" unique_id=554350946]
+[node name="G-Object_137" parent="Modelo" index="14" unique_id=1323032211]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_139" parent="Modelo" index="16" unique_id=1354541284]
+[node name="G-Object_139" parent="Modelo" index="16" unique_id=2058759283]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_923" parent="Modelo" index="19" unique_id=2141756335]
+[node name="G-Object_923" parent="Modelo" index="19" unique_id=730370754]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1050" parent="Modelo" index="22" unique_id=1849540788]
+[node name="G-Object_1050" parent="Modelo" index="22" unique_id=636654687]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1052" parent="Modelo" index="24" unique_id=1830825762]
+[node name="G-Object_1052" parent="Modelo" index="24" unique_id=1261628499]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1056" parent="Modelo" index="25" unique_id=1859403725]
+[node name="G-Object_1056" parent="Modelo" index="25" unique_id=1131057975]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1062" parent="Modelo" index="27" unique_id=1970389321]
+[node name="G-Object_1062" parent="Modelo" index="27" unique_id=1567007081]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2060" parent="Modelo" index="29" unique_id=483352942]
+[node name="G-Object_2061" parent="Modelo" index="29" unique_id=245914294]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2061" parent="Modelo" index="30" unique_id=2034946279]
+[node name="G-Object_2232" parent="Modelo" index="32" unique_id=1840663987]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2232" parent="Modelo" index="33" unique_id=947923536]
+[node name="G-Object_2234" parent="Modelo" index="33" unique_id=1999443321]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2234" parent="Modelo" index="34" unique_id=1613069372]
+[node name="G-Object_2436" parent="Modelo" index="37" unique_id=827875704]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2436" parent="Modelo" index="38" unique_id=1686585964]
+[node name="G-Object_2913" parent="Modelo" index="50" unique_id=1394660933]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2913" parent="Modelo" index="51" unique_id=15044037]
+[node name="G-Object_3170" parent="Modelo/G-Object_3175/G-Object_3174" parent_id_path=PackedInt32Array(2009313348, 833718631) index="0" unique_id=1401512699]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_3170" parent="Modelo/G-Object_3175/G-Object_3174" parent_id_path=PackedInt32Array(2009313348, 683696221) index="0" unique_id=1560717227]
+[node name="G-Object_001" parent="Modelo" index="164" unique_id=2127121339]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_001" parent="Modelo" index="165" unique_id=1493796660]
+[node name="G-Object_034" parent="Modelo" index="194" unique_id=42883973]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_034" parent="Modelo" index="189" unique_id=1288157712]
+[node name="_G-Object_889 (Loose Mesh)" parent="Modelo" index="954" unique_id=761644083]
 material_override = ExtResource("5_6ad5q")
 
-[node name="_G-Object_889 (Loose Mesh)" parent="Modelo" index="949" unique_id=1025585051]
+[node name="G-Object_904" parent="Modelo" index="966" unique_id=1392363250]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_904" parent="Modelo" index="961" unique_id=857575339]
+[node name="G-Object_906" parent="Modelo" index="967" unique_id=453763451]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_906" parent="Modelo" index="962" unique_id=575109430]
+[node name="G-Object_910" parent="Modelo" index="969" unique_id=663730718]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_910" parent="Modelo" index="964" unique_id=240585156]
+[node name="G-Object_912" parent="Modelo" index="970" unique_id=281702222]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_912" parent="Modelo" index="965" unique_id=1024644577]
+[node name="_G-Object_1114 (Loose Mesh)" parent="Modelo" index="1138" unique_id=692548003]
 material_override = ExtResource("5_6ad5q")
 
-[node name="_G-Object_1114 (Loose Mesh)" parent="Modelo" index="1133" unique_id=265852252]
+[node name="G-Object_1115" parent="Modelo" index="1139" unique_id=809669394]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1115" parent="Modelo" index="1134" unique_id=243925135]
+[node name="G-Object_1116" parent="Modelo" index="1140" unique_id=936563711]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_1116" parent="Modelo" index="1135" unique_id=1404036023]
+[node name="G-Object_2069" parent="Modelo" index="1995" unique_id=1887530944]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2069" parent="Modelo" index="1990" unique_id=253120144]
+[node name="G-Object_2131" parent="Modelo" index="2713" unique_id=1688751088]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2131" parent="Modelo" index="2708" unique_id=397931138]
+[node name="G-Object_2132" parent="Modelo" index="2714" unique_id=557719799]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2132" parent="Modelo" index="2709" unique_id=1639143282]
+[node name="G-Object_2136" parent="Modelo" index="2718" unique_id=835049470]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2136" parent="Modelo" index="2713" unique_id=422168514]
+[node name="G-Object_2137" parent="Modelo" index="2719" unique_id=1685818446]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2137" parent="Modelo" index="2714" unique_id=1105711916]
+[node name="G-Object_2138" parent="Modelo" index="2720" unique_id=332116601]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2138" parent="Modelo" index="2715" unique_id=1733914075]
+[node name="G-Object_2139" parent="Modelo" index="2721" unique_id=1916487624]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2139" parent="Modelo" index="2716" unique_id=1924456962]
+[node name="G-Object_2140" parent="Modelo" index="2722" unique_id=1021953364]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2140" parent="Modelo" index="2717" unique_id=989475165]
+[node name="G-Object_2522" parent="Modelo" index="3253" unique_id=2019619595]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2522" parent="Modelo" index="3248" unique_id=234765139]
+[node name="G-Object_2736" parent="Modelo" index="3514" unique_id=1997266286]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2736" parent="Modelo" index="3517" unique_id=756309158]
+[node name="G-Object_2740" parent="Modelo" index="3518" unique_id=1373074884]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_2740" parent="Modelo" index="3521" unique_id=1893493626]
+[node name="G-Object_3176" parent="Modelo" index="4678" unique_id=229300033]
 material_override = ExtResource("5_6ad5q")
 
-[node name="G-Object_3176" parent="Modelo" index="4681" unique_id=98512673]
-material_override = ExtResource("5_6ad5q")
-
-[node name="G-Object_3185" parent="Modelo" index="4686" unique_id=903188812]
+[node name="G-Object_3185" parent="Modelo" index="4683" unique_id=385586575]
 material_override = ExtResource("5_6ad5q")
 
 [node name="Chao" type="StaticBody3D" parent="." unique_id=1302498117]

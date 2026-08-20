@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/wall/wall_suave.jpg" id="1_albedo"]
+[ext_resource type="Texture2D" uid="uid://by00a71aod601" path="res://assets/textures/wall/wall_normal.png" id="2_normal"]
+[ext_resource type="Texture2D" uid="uid://bc8irfw1ywhjl" path="res://assets/textures/wall/wall_ao.png" id="3_ao"]
+[ext_resource type="Texture2D" uid="uid://d7rdu6ta4avu" path="res://assets/textures/wall/wall_roughness.png" id="4_roughness"]
+
+[resource]
+resource_name = "parede_cinza_pbr"
+albedo_color = Color(0.7146, 0.7146, 0.72, 1)
+albedo_texture = ExtResource("1_albedo")
+roughness_texture = ExtResource("4_roughness")
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("2_normal")
+ao_enabled = true
+ao_light_affect = 0.2
+ao_texture = ExtResource("3_ao")
+uv1_triplanar = true
+texture_filter = 4
