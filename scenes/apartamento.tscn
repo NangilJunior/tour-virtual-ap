@@ -8,7 +8,8 @@
 [ext_resource type="LightmapGIData" uid="uid://b1m4cshvicyjg" path="res://scenes/apartamento.lmbake" id="5_lm"]
 
 [sub_resource type="Gradient" id="wb_grad"]
-colors = PackedColorArray(0, 0, 0, 1, 0.86, 0.94, 1, 1)
+offsets = PackedFloat32Array(0, 0.75, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.645, 0.705, 0.75, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="wb"]
 gradient = SubResource("wb_grad")
