@@ -43,6 +43,13 @@ const COR_3500K := Color(1.0, 0.7803, 0.5459)
 ## Alcance dos spots convertidos a partir das luzes pontuais do modelo.
 const SPOT_ALCANCE := 6.0
 
+## Corpo negro a 3000 K em sRGB, para os planes emissivos ("Luz") das sancas
+## e do forro. Mais quente que os 3500 K das luzes porque o tonemap é AgX, que
+## lava a saturação das altas luzes: o material vinha em ~3700 K e chegava na
+## tela praticamente branco (saturação 0,073). A 3000 K sobe para 0,137 sem
+## mexer na energia, ou seja, sem tirar luz do ambiente.
+const COR_3000K := Color(1.0, 0.7211, 0.4293)
+
 
 ## Raiz da cena importada. Todo nó criado aqui precisa dela como owner, senão
 ## não é gravado no .scn.
@@ -66,6 +73,7 @@ func _marcar(no: Node) -> void:
 		_virar_spot(omni)
 	var mi := no as MeshInstance3D
 	if mi and mi.mesh:
+		_ajustar_emissivos(mi.mesh)
 		mi.gi_mode = GeometryInstance3D.GI_MODE_STATIC if _tem_uv2(mi.mesh) else GeometryInstance3D.GI_MODE_DYNAMIC
 		if _e_folha_de_porta(mi.name):
 			mi.gi_lightmap_texel_scale = PORTAS_TEXEL_SCALE
@@ -119,6 +127,27 @@ func _virar_spot(omni: OmniLight3D) -> void:
 	pai.remove_child(omni)
 	omni.queue_free()
 	print("omni virou spot: %s" % spot.name)
+
+
+## Leva os planes emissivos de iluminação para 3000 K. Só os materiais "Luz*",
+## que são os painéis/sancas; o vidro dos spots e as lâmpadas das luminárias
+## ficam como estão. Os materiais são compartilhados, então o set repete sem
+## custo — o _vistos evita só o trabalho redundante.
+var _vistos: Dictionary = {}
+
+
+func _ajustar_emissivos(malha: Mesh) -> void:
+	for i in malha.get_surface_count():
+		var m := malha.surface_get_material(i) as StandardMaterial3D
+		if m == null or not m.emission_enabled:
+			continue
+		if not m.resource_name.begins_with("Luz"):
+			continue
+		if _vistos.has(m.get_instance_id()):
+			continue
+		_vistos[m.get_instance_id()] = true
+		m.emission = COR_3000K
+		print("plane emissivo a 3000K: %s (energia %.1f)" % [m.resource_name, m.emission_energy_multiplier])
 
 
 ## Transform acumulada até a raiz (global_transform não existe fora da árvore).
