@@ -84,7 +84,7 @@ func _criar_controles_toque() -> CanvasLayer:
 	var controles := preload("res://player/controles_toque.gd").new() as CanvasLayer
 	controles.name = "ControlesToque"
 	add_child(controles)
-	print("Controles de toque ativos (analógico virtual + botão Abrir).")
+	print("Controles de toque ativos (dois analógicos + botão Abrir).")
 	return controles
 
 
