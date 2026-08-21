@@ -28,6 +28,10 @@ signal interagir
 ## Fração do raio abaixo da qual o analógico é considerado centrado. Evita a
 ## câmera girando sozinha por causa de um dedo parado que treme.
 @export var zona_morta: float = 0.14
+## Salto máximo aceitável entre dois eventos do MESMO dedo, como fração da
+## largura da tela. Acima disso o evento não veio do dedo que estava ali: o
+## navegador remapeou o índice do toque. Ver _tratar_arraste.
+@export var salto_maximo: float = 0.35
 ## Velocidade de giro com o analógico no talo, em radianos por segundo.
 ## O vertical é mais lento de propósito: giro de pitch rápido embrulha.
 @export var velocidade_giro: Vector2 = Vector2(2.4, 1.5)
@@ -41,12 +45,15 @@ signal interagir
 class Analogico:
 	var dedo: int = -1
 	var centro: Vector2 = Vector2.ZERO
+	## Última posição vista para este dedo, usada para detectar remapeamento.
+	var ultima: Vector2 = Vector2.ZERO
 	var valor: Vector2 = Vector2.ZERO
 	var base: Control
 	var manete: Control
 
 	func mostrar(em: Vector2) -> void:
 		centro = em
+		ultima = em
 		base.position = em - base.size * 0.5
 		manete.position = em - manete.size * 0.5
 		base.visible = true
@@ -58,15 +65,26 @@ class Analogico:
 		base.visible = false
 		manete.visible = false
 
-	## Move o anel interno e devolve o deslocamento normalizado, com o eixo Y
-	## já invertido (arrastar para cima = frente / olhar para cima).
-	func arrastar(ate: Vector2, raio_max: float, morta: float) -> void:
+	## Move o anel interno. O eixo Y sai invertido (arrastar para cima = frente
+	## / olhar para cima). Devolve true se precisou reancorar.
+	##
+	## Um dedo não teleporta: se a posição pulou mais que salto_max desde o
+	## último evento, quem mudou foi o índice do toque, não a mão. Nesse caso o
+	## centro é remarcado onde o evento caiu, o que faz o analógico parar. Sem
+	## isso o delta trocava de sinal e a câmera girava para o lado contrário.
+	func arrastar(ate: Vector2, raio_max: float, morta: float, salto_max: float) -> bool:
+		var pulou := (ate - ultima).length() > salto_max
+		if pulou:
+			centro = ate
+			base.position = ate - base.size * 0.5
+		ultima = ate
 		var delta := ate - centro
 		if delta.length() > raio_max:
 			delta = delta.normalized() * raio_max
 		manete.position = centro + delta - manete.size * 0.5
 		var v := delta / raio_max
 		valor = Vector2.ZERO if v.length() < morta else Vector2(v.x, -v.y)
+		return pulou
 
 
 var _mov := Analogico.new()
@@ -193,6 +211,12 @@ func _tratar_toque(toque: InputEventScreenTouch) -> void:
 	# então sem esta saída o mesmo dedo também giraria a câmera.
 	if _botao.visible and _botao.get_global_rect().has_point(toque.position):
 		return
+	# Se este índice ainda estiver anotado em algum analógico, o "soltar" dele
+	# se perdeu (ou o índice foi reciclado). Libera antes de reatribuir, senão
+	# ficam dois analógicos achando que mandam no mesmo dedo.
+	for a: Analogico in [_mov, _olhar_stick]:
+		if a.dedo == toque.index:
+			a.esconder()
 	var meio := get_viewport().get_visible_rect().size.x * 0.5
 	var alvo: Analogico = _mov if toque.position.x < meio else _olhar_stick
 	if alvo.dedo != -1:
@@ -202,7 +226,8 @@ func _tratar_toque(toque: InputEventScreenTouch) -> void:
 
 
 func _tratar_arraste(arraste: InputEventScreenDrag) -> void:
+	var salto := get_viewport().get_visible_rect().size.x * salto_maximo
 	for a: Analogico in [_mov, _olhar_stick]:
 		if a.dedo == arraste.index:
-			a.arrastar(arraste.position, raio, zona_morta)
+			a.arrastar(arraste.position, raio, zona_morta, salto)
 			return
