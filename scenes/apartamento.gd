@@ -53,8 +53,13 @@ func _ready() -> void:
 	super()
 	# Desliga a troca de LOD das meshes: em VR o pulo de nível de detalhe ao
 	# mover a cabeça aparece como "flick" na cena inteira (e cada olho pode
-	# escolher um LOD diferente). Detalhe máximo sempre.
-	get_viewport().mesh_lod_threshold = 0.0
+	# escolher um LOD diferente). Detalhe máximo sempre — menos no celular,
+	# onde desenhar milhares de malhas sempre no detalhe máximo é justamente
+	# o que não cabe no orçamento.
+	if controles == null:
+		get_viewport().mesh_lod_threshold = 0.0
+	else:
+		_perfil_movel()
 	var inicio := Time.get_ticks_msec()
 	var total := _gerar_colisoes(modelo)
 	print("Colisão do apartamento: %d meshes em %d ms" % [total, Time.get_ticks_msec() - inicio])
@@ -76,6 +81,41 @@ func _ready() -> void:
 ## navegador de um aparelho com tela de toque. No PC (nativo ou navegador) não
 ## aparecem: lá o teclado, o mouse e o controle já dão conta. O argumento
 ## --toque força os controles para testar sem um celular na mão.
+## Escala em que o mundo 3D é desenhado no celular antes de ser ampliado para a
+## tela. É o ganho de desempenho mais direto num GPU de telefone, porque corta
+## área de pixel, que é onde os efeitos de tela cheia cobram.
+@export_range(0.5, 1.0, 0.05) var escala_render_movel: float = 0.7
+
+
+## Perfil de desempenho do celular. Só roda quando há controles de toque, ou
+## seja, navegador com tela de toque — PC e VR seguem com tudo ligado.
+##
+## O que sai daqui é caro em GPU de telefone e, no caso do SDFGI, também
+## redundante: ele é iluminação global calculada em tempo real, e esta cena já
+## carrega um lightmap assado. O SSIL estava ligado com ssil_intensity = 0,0,
+## isto é, calculando a passagem inteira para multiplicar por zero.
+func _perfil_movel() -> void:
+	var vp := get_viewport()
+	vp.scaling_3d_scale = escala_render_movel
+	vp.msaa_3d = Viewport.MSAA_DISABLED
+	# mesh_lod_threshold fica no padrão do projeto (2 px), então o LOD volta.
+	if world_environment and world_environment.environment:
+		var env := world_environment.environment
+		env.sdfgi_enabled = false
+		env.ssil_enabled = false
+		env.ssao_enabled = false
+		env.ssr_enabled = false
+	if world_environment and world_environment.camera_attributes:
+		world_environment.camera_attributes.dof_blur_far_enabled = false
+	# Sombras suaves de alta qualidade custam várias amostras por pixel.
+	RenderingServer.directional_soft_shadow_filter_set_quality(
+		RenderingServer.SHADOW_QUALITY_HARD)
+	RenderingServer.positional_soft_shadow_filter_set_quality(
+		RenderingServer.SHADOW_QUALITY_HARD)
+	print("Perfil de celular: SDFGI/SSIL/SSAO/SSR/DOF fora, render a %d%%, LOD e sombras simples." \
+		% int(escala_render_movel * 100.0))
+
+
 func _criar_controles_toque() -> CanvasLayer:
 	var forcado := "--toque" in OS.get_cmdline_args() \
 			or "--toque" in OS.get_cmdline_user_args()

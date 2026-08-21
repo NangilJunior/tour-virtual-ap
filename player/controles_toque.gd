@@ -234,7 +234,13 @@ func _tratar_toque(toque: InputEventScreenTouch) -> void:
 
 
 func _tratar_arraste(arraste: InputEventScreenDrag) -> void:
-	var salto := get_viewport().get_visible_rect().size.x * salto_maximo
+	# O limiar acompanha o tempo de quadro: com FPS baixo os eventos chegam
+	# mais espaçados e um arrasto rápido legítimo percorre mais distância entre
+	# dois deles. Sem isso o analógico reancorava no meio do gesto, o que se
+	# sente como travar. O teto de 1,6x mantém o salto de remapeamento (que
+	# atravessa metade da tela) acima do limiar mesmo a 30 FPS.
+	var folga := clampf(get_process_delta_time() * 60.0, 1.0, 1.6)
+	var salto := get_viewport().get_visible_rect().size.x * salto_maximo * folga
 	for a: Analogico in [_mov, _olhar_stick]:
 		if a.dedo == arraste.index:
 			a.arrastar(arraste.position, raio, zona_morta, salto)
