@@ -159,12 +159,20 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not _pronto or not _desktop_mode:
 		return
+	# O analógico de toque entrega TAXA de giro, já contínua e já proporcional
+	# ao tempo. Passar isso pela suavização exponencial deixa a câmera sempre
+	# um tempo-constante atrás do dedo e ainda a faz correr sozinha depois de
+	# soltar — no celular isso lê como controle solto. Enquanto o dedo estiver
+	# girando, o olhar é aplicado direto. A suavização continua valendo para
+	# mouse e gamepad, que entregam deltas discretos.
+	var direto := false
 	if _controles_toque != null:
 		var giro: Vector2 = _controles_toque.consumir_olhar()
 		if giro != Vector2.ZERO:
 			_yaw_alvo -= giro.x
 			_pitch_alvo = clampf(_pitch_alvo - giro.y, -PI / 2.0 + 0.01, PI / 2.0 - 0.01)
-	if suavidade_olhar <= 0.0:
+			direto = true
+	if direto or suavidade_olhar <= 0.0:
 		rotation.y = _yaw_alvo
 		camera.rotation.x = _pitch_alvo
 		return

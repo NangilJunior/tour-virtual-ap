@@ -82,8 +82,16 @@ class Analogico:
 		if delta.length() > raio_max:
 			delta = delta.normalized() * raio_max
 		manete.position = centro + delta - manete.size * 0.5
+		# Rampa a partir da zona morta: sem isso o valor saltava de 0 para o
+		# tamanho da zona (14%) assim que o dedo cruzava a borda, e o giro
+		# começava com um tranco em vez de nascer do zero.
 		var v := delta / raio_max
-		valor = Vector2.ZERO if v.length() < morta else Vector2(v.x, -v.y)
+		var t := v.length()
+		if t < morta:
+			valor = Vector2.ZERO
+		else:
+			valor = v.normalized() * ((t - morta) / (1.0 - morta))
+			valor.y = -valor.y
 		return pulou
 
 
